@@ -1,2 +1,2 @@
-/usr/bin/ar qc libprin.a CMakeFiles/prin.dir/prin.cpp.o
-/usr/bin/ranlib libprin.a
+D:\mingw64\bin\ar.exe qc libprin.a CMakeFiles/prin.dir/prin.cpp.obj
+D:\mingw64\bin\ranlib.exe libprin.a

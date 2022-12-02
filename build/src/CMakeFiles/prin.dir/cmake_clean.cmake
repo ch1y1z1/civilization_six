@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/prin.dir/prin.cpp.o"
-  "CMakeFiles/prin.dir/prin.cpp.o.d"
+  "CMakeFiles/prin.dir/prin.cpp.obj"
+  "CMakeFiles/prin.dir/prin.cpp.obj.d"
   "libprin.a"
   "libprin.pdb"
 )

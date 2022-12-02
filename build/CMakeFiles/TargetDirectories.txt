@@ -1,6 +1,6 @@
-/Users/yankun/c++zuoye/civilization_six-1/build/CMakeFiles/Civilization_6.dir
-/Users/yankun/c++zuoye/civilization_six-1/build/CMakeFiles/edit_cache.dir
-/Users/yankun/c++zuoye/civilization_six-1/build/CMakeFiles/rebuild_cache.dir
-/Users/yankun/c++zuoye/civilization_six-1/build/src/CMakeFiles/prin.dir
-/Users/yankun/c++zuoye/civilization_six-1/build/src/CMakeFiles/edit_cache.dir
-/Users/yankun/c++zuoye/civilization_six-1/build/src/CMakeFiles/rebuild_cache.dir
+D:/civilization000000006/civilization_six/build/CMakeFiles/Civilization_6.dir
+D:/civilization000000006/civilization_six/build/CMakeFiles/edit_cache.dir
+D:/civilization000000006/civilization_six/build/CMakeFiles/rebuild_cache.dir
+D:/civilization000000006/civilization_six/build/src/CMakeFiles/prin.dir
+D:/civilization000000006/civilization_six/build/src/CMakeFiles/edit_cache.dir
+D:/civilization000000006/civilization_six/build/src/CMakeFiles/rebuild_cache.dir

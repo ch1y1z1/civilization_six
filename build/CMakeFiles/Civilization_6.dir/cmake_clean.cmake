@@ -1,8 +1,10 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/Civilization_6.dir/main.cpp.o"
-  "CMakeFiles/Civilization_6.dir/main.cpp.o.d"
-  "Civilization_6"
+  "CMakeFiles/Civilization_6.dir/main.cpp.obj"
+  "CMakeFiles/Civilization_6.dir/main.cpp.obj.d"
+  "Civilization_6.exe"
+  "Civilization_6.exe.manifest"
   "Civilization_6.pdb"
+  "libCivilization_6.dll.a"
 )
 
 # Per-language clean rules from dependency scanning.

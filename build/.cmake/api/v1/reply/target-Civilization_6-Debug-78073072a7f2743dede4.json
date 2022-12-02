@@ -2,7 +2,10 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "Civilization_6"
+			"path" : "Civilization_6.exe"
+		},
+		{
+			"path" : "Civilization_6.pdb"
 		}
 	],
 	"backtrace" : 1,
@@ -42,7 +45,7 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "-g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk"
+					"fragment" : "-g"
 				}
 			],
 			"language" : "CXX",
@@ -74,14 +77,18 @@
 			},
 			{
 				"backtrace" : 2,
-				"fragment" : "src/libprin.a",
+				"fragment" : "src\\libprin.a",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32",
 				"role" : "libraries"
 			}
 		],
 		"language" : "CXX"
 	},
 	"name" : "Civilization_6",
-	"nameOnDisk" : "Civilization_6",
+	"nameOnDisk" : "Civilization_6.exe",
 	"paths" : 
 	{
 		"build" : ".",

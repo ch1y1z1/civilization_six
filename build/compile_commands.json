@@ -1,12 +1,12 @@
 [
 {
-  "directory": "/Users/yankun/c++zuoye/civilization_six-1/build",
-  "command": "/usr/bin/clang++   -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk -o CMakeFiles/Civilization_6.dir/main.cpp.o -c /Users/yankun/c++zuoye/civilization_six-1/main.cpp",
-  "file": "/Users/yankun/c++zuoye/civilization_six-1/main.cpp"
+  "directory": "D:/civilization000000006/civilization_six/build",
+  "command": "D:\\mingw64\\bin\\g++.exe   -g -o CMakeFiles\\Civilization_6.dir\\main.cpp.obj -c D:\\civilization000000006\\civilization_six\\main.cpp",
+  "file": "D:/civilization000000006/civilization_six/main.cpp"
 },
 {
-  "directory": "/Users/yankun/c++zuoye/civilization_six-1/build/src",
-  "command": "/usr/bin/clang++   -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk -o CMakeFiles/prin.dir/prin.cpp.o -c /Users/yankun/c++zuoye/civilization_six-1/src/prin.cpp",
-  "file": "/Users/yankun/c++zuoye/civilization_six-1/src/prin.cpp"
+  "directory": "D:/civilization000000006/civilization_six/build/src",
+  "command": "D:\\mingw64\\bin\\g++.exe   -g -o CMakeFiles\\prin.dir\\prin.cpp.obj -c D:\\civilization000000006\\civilization_six\\src\\prin.cpp",
+  "file": "D:/civilization000000006/civilization_six/src/prin.cpp"
 }
 ]

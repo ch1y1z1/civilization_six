@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/Users/yankun/c++zuoye/civilization_six-1/src/prin.cpp" "src/CMakeFiles/prin.dir/prin.cpp.o" "gcc" "src/CMakeFiles/prin.dir/prin.cpp.o.d"
+  "D:/civilization000000006/civilization_six/src/prin.cpp" "src/CMakeFiles/prin.dir/prin.cpp.obj" "gcc" "src/CMakeFiles/prin.dir/prin.cpp.obj.d"
   )
 
 # Targets to which this target links.

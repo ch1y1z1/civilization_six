@@ -10,7 +10,7 @@
 					[
 						1
 					],
-					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.0"
@@ -24,7 +24,7 @@
 				},
 				{
 					"build" : "src",
-					"jsonFile" : "directory-src-Debug-b6cf2213fc5053b67c22.json",
+					"jsonFile" : "directory-src-Debug-c94b7c2814d5a21df52c.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.0"
@@ -60,14 +60,14 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "Civilization_6::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-Civilization_6-Debug-8778a2dd4248149fccda.json",
+					"jsonFile" : "target-Civilization_6-Debug-78073072a7f2743dede4.json",
 					"name" : "Civilization_6",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 1,
 					"id" : "prin::@145eef247bfb46b6828c",
-					"jsonFile" : "target-prin-Debug-cc81d9aec78120861a4f.json",
+					"jsonFile" : "target-prin-Debug-ae89c2b767a28122caed.json",
 					"name" : "prin",
 					"projectIndex" : 0
 				}
@@ -77,8 +77,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "/Users/yankun/c++zuoye/civilization_six-1/build",
-		"source" : "/Users/yankun/c++zuoye/civilization_six-1"
+		"build" : "D:/civilization000000006/civilization_six/build",
+		"source" : "D:/civilization000000006/civilization_six"
 	},
 	"version" : 
 	{
