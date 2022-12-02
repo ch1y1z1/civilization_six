@@ -1,0 +1,12 @@
+[
+{
+  "directory": "/Users/yankun/c++zuoye/civilization_six-1/build",
+  "command": "/usr/bin/clang++   -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk -o CMakeFiles/Civilization_6.dir/main.cpp.o -c /Users/yankun/c++zuoye/civilization_six-1/main.cpp",
+  "file": "/Users/yankun/c++zuoye/civilization_six-1/main.cpp"
+},
+{
+  "directory": "/Users/yankun/c++zuoye/civilization_six-1/build/src",
+  "command": "/usr/bin/clang++   -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk -o CMakeFiles/prin.dir/prin.cpp.o -c /Users/yankun/c++zuoye/civilization_six-1/src/prin.cpp",
+  "file": "/Users/yankun/c++zuoye/civilization_six-1/src/prin.cpp"
+}
+]

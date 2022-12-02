@@ -1,4 +1,5 @@
 #include <iostream>
+#include "src/prin.h"
 #define RED "\033[31m"
 #define RESET "\033[0m"
 
@@ -22,9 +23,10 @@ int main()
             // else
             //     std::cout << "|";
             // std::cout << "草";
-            std::cout << RED << "*" << RESET;
+            // std::cout << RED << "*" << RESET;
+            prin();
         }
-        std::cout << std::endl;
+        // std::cout << std::endl;
     }
 
     return 0;
