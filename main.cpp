@@ -24,7 +24,7 @@ int main()
             //     std::cout << "|";
             // std::cout << "草";
             // std::cout << RED << "*" << RESET;
-            prin();
+            printf();
         }
         // std::cout << std::endl;
     }
