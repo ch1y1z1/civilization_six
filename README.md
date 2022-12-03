@@ -9,4 +9,4 @@
 - ***坤坤，好强***
 ----  
 
-![文明6](https://ts2.cn.mm.bing.net/th?id=OIP-C.tGaknbVIy5r9FKdWWvDNdAHaHa&w=250&h=250&c=8&rs=1&qlt=90&o=6&dpr=1.7&pid=3.1&rm=2 "文明6")
+![文明0.6](https://ts1.cn.mm.bing.net/th?id=OIP-C.b16EHjFCc8Oy8herVs7XYAHaEK&w=333&h=187&c=8&rs=1&qlt=90&o=6&dpr=1.7&pid=3.1&rm=2 "文明0.6")
