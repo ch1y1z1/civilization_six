@@ -2,10 +2,10 @@ cmake_minimum_required(VERSION 3.0)
 
 project(Civilization_6_1.0)
 
-aux_source_directory(. DIR_SRCS)
+include_directories(${PROJECT_SOURCE_DIR}/include)
 
-add_subdirectory(src)
+add_definitions("-g -Wall -std=c++20")
 
-add_executable(Civilization_6 ${DIR_SRCS})
+aux_source_directory(${CMAKE_CURRENT_LIST_DIR}/src/ SOURCE_ALL)
 
-target_link_libraries(Civilization_6 prin)
+add_executable(main main.cpp ${SOURCE_ALL})

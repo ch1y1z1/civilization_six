@@ -1,3 +1,0 @@
-D:\VS008\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe -E rm -f CMakeFiles\Civilization_6.dir/objects.a
-D:\mingw64\bin\ar.exe qc CMakeFiles\Civilization_6.dir/objects.a @CMakeFiles\Civilization_6.dir\objects1.rsp
-D:\mingw64\bin\g++.exe -g -Wl,--whole-archive CMakeFiles\Civilization_6.dir/objects.a -Wl,--no-whole-archive -o Civilization_6.exe -Wl,--out-implib,libCivilization_6.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\Civilization_6.dir\linklibs.rsp

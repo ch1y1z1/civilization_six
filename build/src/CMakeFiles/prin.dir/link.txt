@@ -1,2 +1,0 @@
-D:\mingw64\bin\ar.exe qc libprin.a CMakeFiles/prin.dir/prin.cpp.obj
-D:\mingw64\bin\ranlib.exe libprin.a
