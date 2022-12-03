@@ -14,9 +14,9 @@
 
 ```
 civilization_six
-├── CMakeLists.txt
 ├── README.md
 ├── main.cpp
+├── CMakeLists.txt
 ├── resource
 │   └── map.txt
 ├── include
