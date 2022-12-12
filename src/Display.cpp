@@ -14,19 +14,20 @@ Display::~Display()
 }
 
 void Display::DrawMap(Grid* grid){
-    // todo: draw the map
+    // TODO: draw the map
+    
 }
 
 int Display::DrawAttributes(Controller* controller){
-    // todo: draw the attributes, population, and the distribution of workers, return the population
+    // TODO: draw the attributes, population, and the distribution of workers, return the population绘制属性、人口和工人的分布，返回人口
 }
 
 void Display::DrawWorkersChange(Controller* controller, int pop){
-    // todo: draw the change of workers, and receive the input for changing the distribution of workers
+    // TODO: draw the change of workers, and receive the input for changing the distribution of workers绘制工人的变化，并接收改变工人分布的输入
 }
 
 void Display::DrawProduction(Controller* controller, Building** buildings){
-    // todo: draw the current production, and receive the input for changing the current production
+    // TODO: draw the current production, and receive the input for changing the current production绘制当前产量，并接收改变当前产量的输入
 }
 
 void Display::MainProcess(Controller* controller, Grid* grid, Building** buildings, Activity** activities){

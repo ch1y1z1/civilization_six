@@ -8,12 +8,12 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/Users/yankun/c++zuoye/civilization_six/civilization_six/main.cpp" "CMakeFiles/main.dir/main.cpp.o" "gcc" "CMakeFiles/main.dir/main.cpp.o.d"
-  "/Users/yankun/c++zuoye/civilization_six/civilization_six/src/Activity.cpp" "CMakeFiles/main.dir/src/Activity.cpp.o" "gcc" "CMakeFiles/main.dir/src/Activity.cpp.o.d"
-  "/Users/yankun/c++zuoye/civilization_six/civilization_six/src/Building.cpp" "CMakeFiles/main.dir/src/Building.cpp.o" "gcc" "CMakeFiles/main.dir/src/Building.cpp.o.d"
-  "/Users/yankun/c++zuoye/civilization_six/civilization_six/src/Controller.cpp" "CMakeFiles/main.dir/src/Controller.cpp.o" "gcc" "CMakeFiles/main.dir/src/Controller.cpp.o.d"
-  "/Users/yankun/c++zuoye/civilization_six/civilization_six/src/Display.cpp" "CMakeFiles/main.dir/src/Display.cpp.o" "gcc" "CMakeFiles/main.dir/src/Display.cpp.o.d"
-  "/Users/yankun/c++zuoye/civilization_six/civilization_six/src/Grid.cpp" "CMakeFiles/main.dir/src/Grid.cpp.o" "gcc" "CMakeFiles/main.dir/src/Grid.cpp.o.d"
+  "D:/civilization000000006/civilization_six/main.cpp" "CMakeFiles/main.dir/main.cpp.obj" "gcc" "CMakeFiles/main.dir/main.cpp.obj.d"
+  "D:/civilization000000006/civilization_six/src/Activity.cpp" "CMakeFiles/main.dir/src/Activity.cpp.obj" "gcc" "CMakeFiles/main.dir/src/Activity.cpp.obj.d"
+  "D:/civilization000000006/civilization_six/src/Building.cpp" "CMakeFiles/main.dir/src/Building.cpp.obj" "gcc" "CMakeFiles/main.dir/src/Building.cpp.obj.d"
+  "D:/civilization000000006/civilization_six/src/Controller.cpp" "CMakeFiles/main.dir/src/Controller.cpp.obj" "gcc" "CMakeFiles/main.dir/src/Controller.cpp.obj.d"
+  "D:/civilization000000006/civilization_six/src/Display.cpp" "CMakeFiles/main.dir/src/Display.cpp.obj" "gcc" "CMakeFiles/main.dir/src/Display.cpp.obj.d"
+  "D:/civilization000000006/civilization_six/src/Grid.cpp" "CMakeFiles/main.dir/src/Grid.cpp.obj" "gcc" "CMakeFiles/main.dir/src/Grid.cpp.obj.d"
   )
 
 # Targets to which this target links.

@@ -30,6 +30,7 @@ class Grid
         int getGridWidth();
 
         char* getRepresent(int m, int n);
+        
 
     protected:
 
