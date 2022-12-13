@@ -1,3 +1,0 @@
-/Users/yankun/c++zuoye/civilization_six/civilization_six/build/CMakeFiles/main.dir
-/Users/yankun/c++zuoye/civilization_six/civilization_six/build/CMakeFiles/edit_cache.dir
-/Users/yankun/c++zuoye/civilization_six/civilization_six/build/CMakeFiles/rebuild_cache.dir
