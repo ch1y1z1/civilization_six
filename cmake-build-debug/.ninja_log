@@ -1,8 +1,0 @@
-# ninja log v5
-1	501	1670914258931962470	CMakeFiles/main.dir/src/Building.cpp.o	b2f380a8b1cb58a5
-1	507	1670914258936605854	CMakeFiles/main.dir/src/Controller.cpp.o	533cc7c4a75d6f99
-1	531	1670914258961248822	CMakeFiles/main.dir/src/Display.cpp.o	96cba6164c9450c4
-0	540	1670914258969671571	CMakeFiles/main.dir/main.cpp.o	8160f92c7b606b67
-1	542	1670914258972475751	CMakeFiles/main.dir/src/Activity.cpp.o	102bb6e4374c2bab
-2	562	1670914258993741053	CMakeFiles/main.dir/src/Grid.cpp.o	2577399cc19724f8
-563	595	1670914259028606475	main	e43433167f58d908
