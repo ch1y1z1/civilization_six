@@ -1,8 +1,14 @@
 #ifndef DISPLAY_H
 #define DISPLAY_H
-
+#define DEFAULT "\033[0m"
+#define Blue "\033[0;34m"
+#define Green "\033[0;32m"
+#define Red "\033[0;31m"
+#define Yellow "\033[0;33m"
+#define White "\033[0;37m"
 #include "Controller.h"
-
+#include <windows.h>
+#include <iostream>
 class Display
 {
     public:
@@ -10,7 +16,9 @@ class Display
 
         ~Display();
 
-        void DrawMap(Grid* grid);
+        void go(float x, float y);
+
+        void DrawMap(Grid *grid);
 
         int DrawAttributes(Controller* controller);
 
