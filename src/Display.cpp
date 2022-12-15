@@ -10,9 +10,9 @@ void Display::go(float x, float y)
     HANDLE a = GetStdHandle(STD_OUTPUT_HANDLE); 
     SetConsoleCursorPosition(a, coord);
     CONSOLE_CURSOR_INFO CursorInfo;
-    GetConsoleCursorInfo(a, &CursorInfo); // 获取控制台光标信息
-    CursorInfo.bVisible = false;               // 隐藏控制台光标
-    SetConsoleCursorInfo(a, &CursorInfo); // 设置控制台光标状态
+    GetConsoleCursorInfo(a, &CursorInfo); 
+    CursorInfo.bVisible = false;             
+    SetConsoleCursorInfo(a, &CursorInfo); 
 }
 //构造
 Display::Display()
