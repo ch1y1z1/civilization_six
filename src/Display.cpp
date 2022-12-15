@@ -2,7 +2,7 @@
 using namespace std;
 // 移动光标位置至(x,y);
 // 隐藏光标;
-void go(float x, float y) 
+void Display::go(float x, float y) 
 {
     COORD coord; 
     coord.X = x; 
@@ -27,7 +27,7 @@ Display::~Display()
 //画地图
 void Display::DrawMap(Grid* grid){
     // TODO: draw the map
-    cout << "012345678901234567890\n"
+    cout << "012345678901234567890X\n"
             "1\n"
             "2\n"
             "3\n"
@@ -47,7 +47,8 @@ void Display::DrawMap(Grid* grid){
             "7\n"
             "8\n"
             "9\n"
-            "0\n";
+            "0\n"
+            "Y\n";
 }
 
 int Display::DrawAttributes(Controller* controller){

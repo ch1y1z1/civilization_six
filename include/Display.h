@@ -16,7 +16,9 @@ class Display
 
         ~Display();
 
-        void DrawMap(Grid* grid);
+        void go(float x, float y);
+
+        void DrawMap(Grid *grid);
 
         int DrawAttributes(Controller* controller);
 
