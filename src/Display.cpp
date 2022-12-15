@@ -1,21 +1,53 @@
 #include "Display.h"
-
-#include <iostream>
 using namespace std;
-
+// 移动光标位置至(x,y);
+// 隐藏光标;
+void go(float x, float y) 
+{
+    COORD coord; 
+    coord.X = x; 
+    coord.Y = y;
+    HANDLE a = GetStdHandle(STD_OUTPUT_HANDLE); 
+    SetConsoleCursorPosition(a, coord);
+    CONSOLE_CURSOR_INFO CursorInfo;
+    GetConsoleCursorInfo(a, &CursorInfo); // 获取控制台光标信息
+    CursorInfo.bVisible = false;               // 隐藏控制台光标
+    SetConsoleCursorInfo(a, &CursorInfo); // 设置控制台光标状态
+}
+//构造
 Display::Display()
 {
     //ctor
 }
-
+//析构
 Display::~Display()
 {
     //dtor
 }
-
+//画地图
 void Display::DrawMap(Grid* grid){
     // TODO: draw the map
-    
+    cout << "012345678901234567890\n"
+            "1\n"
+            "2\n"
+            "3\n"
+            "4\n"
+            "5\n"
+            "6\n"
+            "7\n"
+            "8\n"
+            "9\n"
+            "0\n"
+            "1\n"
+            "2\n"
+            "3\n"
+            "4\n"
+            "5\n"
+            "6\n"
+            "7\n"
+            "8\n"
+            "9\n"
+            "0\n";
 }
 
 int Display::DrawAttributes(Controller* controller){
