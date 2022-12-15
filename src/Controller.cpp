@@ -92,7 +92,11 @@ bool Controller::SetProductionActivity(int activityOrder){
 }
 
 bool Controller::nextRound(int &newX, int &newY, float &nextThres){
-    // todo: continue to the next round with border expanding at (newX, newY) and next expansion culture threshold nextThres
+    if (this->checkWin())
+        return 1;
+    std::cin >> newX >> newY;
+
+    return 0;
 }
 
 int Controller::updateProduction(){

@@ -1,3 +1,0 @@
-D:/civilization000000006/civilization_six/build/CMakeFiles/main.dir
-D:/civilization000000006/civilization_six/build/CMakeFiles/edit_cache.dir
-D:/civilization000000006/civilization_six/build/CMakeFiles/rebuild_cache.dir
