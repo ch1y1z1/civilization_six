@@ -27,4 +27,5 @@ int main()
     d.MainProcess(controller, grid, buildings, activities);
 
     return 0;
+    
 }

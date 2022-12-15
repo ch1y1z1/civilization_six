@@ -4,7 +4,7 @@ project(Civilization_6_1.0)
 
 include_directories(${PROJECT_SOURCE_DIR}/include)
 
-add_definitions("-g -Wall -std=c++20")
+add_definitions("-g -Wall -std=c++2a")
 
 aux_source_directory(${CMAKE_CURRENT_LIST_DIR}/src/ SOURCE_ALL)
 

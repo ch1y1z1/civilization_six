@@ -1,14 +1,15 @@
 #ifndef DISPLAY_H
 #define DISPLAY_H
 #define DEFAULT "\033[0m"
-#define Blue "\033[0;34m"
-#define Green "\033[0;32m"
-#define Red "\033[0;31m"
-#define Yellow "\033[0;33m"
-#define White "\033[0;37m"
+#define RED "\033[31m" 
+#define GREEN "\033[32m" 
+#define BLUE "\033[34m" 
+#define YELLOW "\033[33m"
+#define WHITE "\033[37m"
 #include "Controller.h"
 #include <windows.h>
 #include <iostream>
+
 class Display
 {
     public:
