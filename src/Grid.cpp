@@ -48,16 +48,16 @@ Grid::Grid(char *filename)
         }
     }
 }
-void trim(string &s)
+void trim(string& s)
 {
-    int index = 0;
-    if (!s.empty())
-    {
-        while ((index = s.find(' ', index)) != string::npos)
-        {
-            s.erase(index, 1);
-        }
-    }
+	int index = 0;
+	if (!s.empty())
+	{
+		while ((index = s.find(' ', index)) != string::npos)
+		{
+			s.erase(index, 1);
+		}
+	}
 }
 
 Grid::~Grid()
