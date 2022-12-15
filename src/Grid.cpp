@@ -10,23 +10,57 @@ Grid::Grid()
     this->height = this->width = 0;
 }
 
+
 Grid::Grid(char *filename)
 {
     // todo: open the file, read it and save the data to this->grid
-    ifstream infile1;
-    infile1.open("map.txt", ios::in);
-    if (!infile1.is_open())
+    ifstream map;
+    map.open("map.txt", ios::in);
+    string *map_1 = new string[20];
+    string a;
+    getline(map, a);
+    cout << a << endl;
+    this->height = 10 * (a[0] - '0') + a[1] - '0';
+    this->width = 10 * (a[3] - '0') + a[4] - '0';
+    for (int i = 0; i < this->height; i++)
     {
-        cout << "读取文件失败" << endl;
-        return;
+        getline(map, map_1[i]);
+        trim(map_1[i]);
     }
-    // 第三种读取方法
-    string buf;
-    while (getline(infile1, buf))
+   this->grid=new Cell *[this->height];
+   for(int i=0;i<this->height;i++){this->grid[i]=new Cell [this->width];}
+    for (int i = 0; i < this->height; i++)
     {
-        cout << buf << endl;
+        for (int j = 0; j < this->width; j++)
+        {
+            if (map_1[i][j] == 0)
+                this->grid[i][j].landform =  OCEAN;
+            if (map_1[i][j] == 1)
+               this->grid[i][j].landform = SEA;
+            if (map_1[i][j] == 2)
+                this->grid[i][j].landform = PLAIN;
+            if (map_1[i][j] == 3)
+                this->grid[i][j].landform = HILLY;
+            if (map_1[i][j] == 4)
+                this->grid[i][j].landform = DESERT;
+            if (map_1[i][j] == 5)
+               this->grid[i][j].landform = MOUNTAIN;
+            else
+                this->grid[i][j].landform = NOTYPE;
+        }
     }
-    return;
+}
+//delete all space in string objects
+void trim(string& s)
+{
+	int index = 0;
+	if (!s.empty())
+	{
+		while ((index = s.find(' ', index)) != string::npos)
+		{
+			s.erase(index, 1);
+		}
+	}
 }
 
 Grid::~Grid()
