@@ -20,34 +20,37 @@ Grid::Grid(char *filename)
     string a;
     getline(map, a);
     cout << a << endl;
-    height = 10 * (a[0] - '0') + a[1] - '0';
-    width = 10 * (a[3] - '0') + a[4] - '0';
-    for (int i = 0; i < height; i++)
+    this->height = 10 * (a[0] - '0') + a[1] - '0';
+    this->width = 10 * (a[3] - '0') + a[4] - '0';
+    for (int i = 0; i < this->height; i++)
     {
         getline(map, map_1[i]);
         trim(map_1[i]);
     }
-    for (int i = 0; i < height; i++)
+   this->grid=new Cell *[this->height];
+   for(int i=0;i<this->height;i++){this->grid[i]=new Cell [this->width];}
+    for (int i = 0; i < this->height; i++)
     {
-        for (int j = 0; j < width; j++)
+        for (int j = 0; j < this->width; j++)
         {
             if (map_1[i][j] == 0)
-                grid[i][j].landform =  OCEAN;
+                this->grid[i][j].landform =  OCEAN;
             if (map_1[i][j] == 1)
-                grid[i][j].landform = SEA;
+               this->grid[i][j].landform = SEA;
             if (map_1[i][j] == 2)
-                grid[i][j].landform = PLAIN;
+                this->grid[i][j].landform = PLAIN;
             if (map_1[i][j] == 3)
-                grid[i][j].landform = HILLY;
+                this->grid[i][j].landform = HILLY;
             if (map_1[i][j] == 4)
-                grid[i][j].landform = DESERT;
+                this->grid[i][j].landform = DESERT;
             if (map_1[i][j] == 5)
-                grid[i][j].landform = MOUNTAIN;
+               this->grid[i][j].landform = MOUNTAIN;
             else
-                grid[i][j].landform = NOTYPE;
+                this->grid[i][j].landform = NOTYPE;
         }
     }
 }
+//delete all space in string objects
 void trim(string& s)
 {
 	int index = 0;
