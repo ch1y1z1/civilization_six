@@ -2,7 +2,7 @@
 #include <fstream>
 #include <iostream>
 #include <cstring>
-#include<string>
+#include <string>
 using namespace std;
 Grid::Grid()
 {
@@ -10,22 +10,23 @@ Grid::Grid()
     this->height = this->width = 0;
 }
 
-Grid::Grid(char* filename){
+Grid::Grid(char *filename)
+{
     // todo: open the file, read it and save the data to this->grid
     ifstream infile1;
-	infile1.open("map.txt", ios::in);
-	if (!infile1.is_open())
-	{
-		cout << "读取文件失败" << endl;
-		return ;
-	}
-	//第三种读取方法
-	string buf;
-	while (getline(infile1, buf))
-	{
-		cout << buf << endl;
-	}
-	return ;
+    infile1.open("map.txt", ios::in);
+    if (!infile1.is_open())
+    {
+        cout << "读取文件失败" << endl;
+        return;
+    }
+    // 第三种读取方法
+    string buf;
+    while (getline(infile1, buf))
+    {
+        cout << buf << endl;
+    }
+    return;
 }
 
 Grid::~Grid()
