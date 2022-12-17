@@ -1,6 +1,7 @@
 #ifndef GRID_H
 #define GRID_H
 #include "Building.h"
+#include <string>
 void trim(string &s);
 // this enumerate type represents if the cell is a wild area or owned by a city, or covered with population
 enum Civilized{WILD=0, OWNED, COLONIZED};
@@ -29,7 +30,7 @@ class Grid
         int getGridHeight();
         int getGridWidth();
 
-        char* getRepresent(int m, int n);
+        Cell getRepresent(int m, int n);
         
 
     protected:

@@ -1,8 +1,7 @@
 #include "Grid.h"
 #include <fstream>
 #include <iostream>
-#include <cstring>
-#include<string>
+
 using namespace std;
 Grid::Grid()
 {
@@ -71,10 +70,10 @@ Grid::~Grid()
     delete[] this->grid;
 }
 
-char *Grid::getRepresent(int m, int n)
+Cell Grid::getRepresent(int m, int n)
 {
     // todo: make up the represent text
-    return "repr";
+    return this->grid[m][n];
 }
 
 Cell **Grid::getGrid()
