@@ -65,7 +65,7 @@ int Controller::getWorkingPop(int &workersNumber, int *&workersCellCoords){
     return 0;
 }
 
-char* Controller::getCellDescription(int m, int n){
+Cell Controller::getCellDescription(int m, int n){
     return world->getRepresent(m, n);
 }
 

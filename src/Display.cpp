@@ -49,19 +49,60 @@ void Display::DrawMap(Grid* grid){
             "9NNNNNNNNNNNNNNNNNNNN\n"
             "0NNNNNNNNNNNNNNNNNNNN\n"
             "Y\n";
+        int m,int n;//坐标(m,n)
+   Cell arr= grid->getRepresent(m,n);
+
     go(0, 22);
 }
 
 int Display::DrawAttributes(Controller* controller){
     // TODO: draw the attributes, population, and the distribution of workers, return the population绘制属性、人口和工人的分布，返回人口
+    go(25, 0);
+    cout << "当前人口为";
+    go(25, 1); //(36,0)
+    cout << "最大人口为";
+    go(25, 2); //(36,1)
+    cout << "预计\t回合内人口改变为";
+    go(25, 3);       //(50,2)(30,2)
+    cout << "分布:"; //(36,0)     
+    go(50, 22);
+    cout << "科技:";
+    go(50, 23);
+    cout << "文化:";
+    go(50, 24);
+    cout << "分数:";
+    return 0;
 }
 
 void Display::DrawWorkersChange(Controller* controller, int pop){
     // TODO: draw the change of workers, and receive the input for changing the distribution of workers绘制工人的变化，并接收改变工人分布的输入
+    go(0, 22);
+    cout << "工人移动实例:(1 1)到(2 3)(数字间以空格分隔)";
+    go(0, 23);
+    cout << "工人变化为:从(";//(12,22)
+    go(18, 23);
+    cout << ")到( ";
+    go(28, 23);
+    cout << ")";
+    go(12, 23);
+    int x0, y0;
+    cin >> x0 >> y0;
+    go(22, 23);
+    int x1, y1;
+    cin >> x1 >> y1;
 }
 
 void Display::DrawProduction(Controller* controller, Building** buildings){
     // TODO: draw the current production, and receive the input for changing the current production绘制当前产量，并接收改变当前产量的输入
+    go(0, 24);
+    cout << "当前正在生产      ，已生产    %";
+    go(14, 24);
+    cout << "";
+    go(0, 25);
+    cout << "     提供的加成剩余  回合";
+    go(0, 25);
+
+    go(20, 25);
 }
 
 void Display::MainProcess(Controller* controller, Grid* grid, Building** buildings, Activity** activities){
