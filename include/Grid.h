@@ -2,6 +2,7 @@
 #define GRID_H
 #include "Building.h"
 #include <string>
+
 void trim(string &s);
 // this enumerate type represents if the cell is a wild area or owned by a city, or covered with population
 enum Civilized{WILD=0, OWNED, COLONIZED};

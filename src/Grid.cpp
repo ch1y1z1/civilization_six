@@ -5,6 +5,7 @@
 using namespace std;
 Grid::Grid()
 {
+    
     // default constructor is optional
     this->height = this->width = 0;
 }
