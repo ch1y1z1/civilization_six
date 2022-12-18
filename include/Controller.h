@@ -37,7 +37,7 @@ class Controller
 
         Production* getProduction(int &productionType, Cell *&currentProductionCell);
 
-        char* getCellDescription(int m, int n);
+        Cell getCellDescription(int m, int n);
 
         int getRound();
 
