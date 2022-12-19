@@ -37,7 +37,7 @@ public:
 
     Production* getProduction(int& productionType, Cell*& currentProductionCell);
 
-    Cell getCellDescription(int m, int n);
+    Cell& getCellDescription(int m, int n);
 
     int getRound();
 

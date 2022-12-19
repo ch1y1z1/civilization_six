@@ -69,7 +69,7 @@ int Controller::getWorkingPop(int& workersNumber, int*& workersCellCoords) {
     return 0;
 }
 
-Cell Controller::getCellDescription(int m, int n) {
+Cell& Controller::getCellDescription(int m, int n) {
     return world->getRepresent(m, n);
 }
 
@@ -79,7 +79,7 @@ int Controller::getRound() {
 
 bool Controller::SetProductionBuilding(int m, int n, Building* building) {
     // todo: set the current production to building at coordinates (m, n), return true if the action is successful
-
+    this->getCellDescription(m, n).buildingType = building;
 }
 
 bool Controller::SetProductionActivity(Activity* activity) {
@@ -151,6 +151,8 @@ int Controller::checkBorderUpdate(int& newX, int& newY, float& nextThres) {
         std::cin >> newX >> newY;
         return 1;
     }
+    newX = -1;
+    return 0;
 }
 
 int Controller::setPopAt(int m, int n, bool isAdding) {
