@@ -10,71 +10,71 @@
 
 class Controller
 {
-    public:
-        Controller();
+public:
+    Controller();
 
-        virtual ~Controller();
+    virtual ~Controller();
 
-        bool bindGrid(Grid* grid);
+    bool bindGrid(Grid* grid);
 
-        bool nextRound(int &newX, int &newY, float &nextThres);
+    bool nextRound(int& newX, int& newY, float& nextThres);
 
-        int checkPop();
+    int checkPop();
 
-        Activity** availableActivities;
-        int activitySize = 0;
+    Activity** availableActivities;
+    int activitySize = 0;
 
-        bool SetProductionBuilding(int m, int n, Building* Building);
-        bool SetProductionActivity(Activity* activity);
-        bool SetProductionActivity(int activityOrder);
+    bool SetProductionBuilding(int m, int n, Building* Building);
+    bool SetProductionActivity(Activity* activity);
+    bool SetProductionActivity(int activityOrder);
 
-        int setPopAt(int m, int n, bool isAdding=true);
+    int setPopAt(int m, int n, bool isAdding = true);
 
-        Attributes getAttributes();
+    Attributes getAttributes();
 
-        int getPop();
-        int getWorkingPop(int &workersNumber, int *&workersCellCoords);
+    int getPop();
+    int getWorkingPop(int& workersNumber, int*& workersCellCoords);
 
-        Production* getProduction(int &productionType, Cell *&currentProductionCell);
+    Production* getProduction(int& productionType, Cell*& currentProductionCell);
 
-        Cell getCellDescription(int m, int n);
+    Cell getCellDescription(int m, int n);
 
-        int getRound();
+    int getRound();
 
-        void reset(int pop, float firstBorderThreshold = 5.0);
+    void reset(int pop, float firstBorderThreshold = 5.0);
 
-        int checkBorderUpdate(int &newX, int &newY);
+    int checkBorderUpdate(int& newX, int& newY, float& nextThres);
 
-    protected:
+protected:
 
-    private:
-        Attributes currentAttributes;
+private:
+    Attributes currentAttributes;
 
-        float pop;
+    float pop;
 
-        int workingPop;
+    int workingPop;
 
-        float BorderExpandThreshold = 0.0;
+    float BorderExpandThreshold = 0.2;
 
-        int currentRound;
+    int currentRound;
 
-        Production* currentProduction;
-        int currentProductionType = 0;
-        Cell* currentProductionCell = 0;
+    Production* currentProduction;
+    int currentProductionType = 0;
+    Cell* currentProductionCell = 0;
 
-        Grid *world;
+    Grid* world;
 
-        int updateProduction();
+    int updateProduction();
 
-        void updatePop();
+    void updatePop();
 
-        void updateAttributes();
+    void updateAttributes();
 
-        bool checkWin();
+    bool checkWin();
 
-        Cell** getAdjacentCells(int m, int n);
+    Cell** getAdjacentCells(int m, int n);
 
-        int getAdjacentSatisfied(Cell** adjacents, char buildingName, Landform landformType);
+    int getAdjacentSatisfied(Cell** adjacents, char buildingName, Landform landformType);
 
 };
 

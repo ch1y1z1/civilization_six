@@ -98,26 +98,13 @@ bool Controller::SetProductionActivity(int activityOrder) {
 bool Controller::nextRound(int& newX, int& newY, float& nextThres) {  // ! main here
     if (this->checkWin())
         return 1;
-    std::cin >> newX >> newY;
 
     this->currentRound++;
-    this->checkBorderUpdate(newX, newY);
+    this->checkBorderUpdate(newX, newY, nextThres);
     this->updatePop();
     this->updateProduction();
     this->updateAttributes();
 
-
-    nextThres = this->BorderExpandThreshold;
-    int borderUpdate = this->checkBorderUpdate(newX, newY);
-    if (borderUpdate == 1) {
-        this->BorderExpandThreshold = 0.5;
-    }
-    else if (borderUpdate == 0) {
-        this->BorderExpandThreshold += 0.1;
-    }
-    else {
-        this->BorderExpandThreshold = 0.5;
-    }
 
 
 
@@ -153,13 +140,23 @@ void Controller::updatePop() {
     this->pop += popDelta;
 }
 
-int Controller::checkBorderUpdate(int& newX, int& newY) {
+int Controller::checkBorderUpdate(int& newX, int& newY, float& nextThres) {
     // todo: check whether the border should update or not, and if so, return the new culture threshold and expansion coordinates (newX, newY)
-
+    nextThres = this->BorderExpandThreshold;
+    if (this->currentAttributes.cul >= this->BorderExpandThreshold)
+    {
+        this->BorderExpandThreshold *= 2;
+        std::cout << "Border is now Expandable" << std::endl;
+        std::cout << "Please input the coordinates of the new border" << std::endl;
+        std::cin >> newX >> newY;
+        return 1;
+    }
 }
 
 int Controller::setPopAt(int m, int n, bool isAdding) {
     // todo: add or remove the worker at (m, n), return 0 if the action is successful
+
+
 }
 
 void Controller::updateAttributes() {
