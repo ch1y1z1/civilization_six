@@ -79,6 +79,8 @@ int Controller::getRound() {
 
 bool Controller::SetProductionBuilding(int m, int n, Building* building) {
     // todo: set the current production to building at coordinates (m, n), return true if the action is successful
+    if (this->getCellDescription(m, n).buildingType == 0)
+        return false;
     this->getCellDescription(m, n).buildingType = building;
 }
 
