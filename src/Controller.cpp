@@ -81,6 +81,11 @@ bool Controller::SetProductionBuilding(int m, int n, Building* building) {
     // todo: set the current production to building at coordinates (m, n), return true if the action is successful
     if (this->getCellDescription(m, n).buildingType != 0)
         return false;
+    if (m > this->world->getGridHeight() || n > this->world->getGridWidth() || m < 0 || n < 0)
+        return false;
+    // if (this->getAdjacentSatisfied(this->getAdjacentCells(m, n), m, n) == 0)
+    //     return false;
+    // TODO: check if the building is beside another building
     this->getCellDescription(m, n).buildingType = building;
 }
 
