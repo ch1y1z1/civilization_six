@@ -95,15 +95,17 @@ bool Controller::SetProductionActivity(int activityOrder) {
     return true;
 }
 
-bool Controller::nextRound(int& newX, int& newY, float& nextThres) {
+bool Controller::nextRound(int& newX, int& newY, float& nextThres) {  // ! main here
     if (this->checkWin())
         return 1;
     std::cin >> newX >> newY;
 
     this->currentRound++;
+    this->checkBorderUpdate(newX, newY);
     this->updatePop();
     this->updateProduction();
     this->updateAttributes();
+
 
     nextThres = this->BorderExpandThreshold;
     int borderUpdate = this->checkBorderUpdate(newX, newY);
@@ -153,6 +155,7 @@ void Controller::updatePop() {
 
 int Controller::checkBorderUpdate(int& newX, int& newY) {
     // todo: check whether the border should update or not, and if so, return the new culture threshold and expansion coordinates (newX, newY)
+
 }
 
 int Controller::setPopAt(int m, int n, bool isAdding) {

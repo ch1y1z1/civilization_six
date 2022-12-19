@@ -1,7 +1,6 @@
 #include <iostream>
 #include "Display.h"
 #include <cstring>
-#include <vector>
 using namespace std;
 
 int main()
