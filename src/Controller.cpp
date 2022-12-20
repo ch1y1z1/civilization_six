@@ -164,6 +164,81 @@ int Controller::checkBorderUpdate(int& newX, int& newY, float& nextThres) {
 
 int Controller::setPopAt(int m, int n, bool isAdding) {
     // todo: add or remove the worker at (m, n), return 0 if the action is successful
+    int flag = this->checkPop();
+    switch (flag)
+    {
+    case -1:
+        std::cout << "You have to remove pops" << std::endl;
+        while (true)
+        {
+            std::cout << "Please input the coordinates of the pop you want to remove" << std::endl;
+            int x, y;
+            std::cin >> x >> y;
+            if (this->getCellDescription(x, y).Pop == COLONIZED)
+            {
+                this->getCellDescription(x, y).Pop = OWNED;
+                this->workingPop--;
+                break;
+            }
+            else
+            {
+                std::cout << "There is no pop at this cell" << std::endl;
+            }
+        }
+        break;
+    case 1:
+        std::cout << "you may add pop to work" << std::endl;
+        while (true)
+        {
+            std::cout << "Please input the coordinates of the pop you want to add" << std::endl;
+            int x, y;
+            std::cin >> x >> y;
+            if (this->getCellDescription(x, y).Pop == OWNED)
+            {
+                this->getCellDescription(x, y).Pop = COLONIZED;
+                this->workingPop++;
+                break;
+            }
+            else if (this->getCellDescription(x, y).Pop == COLONIZED)
+            {
+                std::cout << "There has already been a pop at this cell" << std::endl;
+            }
+            else if (this->getCellDescription(x, y).Pop == WILD)
+            {
+                std::cout << "The cell havn't been owned now" << std::endl;
+            }
+        }
+        break;
+    }
+
+    while (true)
+    {
+        std::cout << "you may switch pops now" << std::endl;
+        std::cout << "Please input the coordinates of the pop you want to switch or you may input '0' to skip this step" << std::endl;
+        int x, y, newx, newy;
+        std::cin >> x;
+        if (x == 0)
+            return 0;
+        std::cin >> y >> newx >> newy;
+        if (!(this->getCellDescription(x, y).Pop == OWNED))
+        {
+            std::cout << "There is no pop at this cell" << std::endl;
+            continue;
+        }
+        if (this->getCellDescription(newx, newy).Pop == COLONIZED)
+        {
+            std::cout << "There has already been a pop at this cell" << std::endl;
+            continue;
+        }
+        if (this->getCellDescription(newx, newy).Pop == WILD)
+        {
+            std::cout << "The cell havn't been owned now" << std::endl;
+            continue;
+        }
+        this->getCellDescription(x, y).Pop = OWNED;
+        this->getCellDescription(newx, newy).Pop = COLONIZED;
+        std::cout << "Switch successfully" << std::endl;
+    }
 
 
 }
