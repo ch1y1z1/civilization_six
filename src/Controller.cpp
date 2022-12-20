@@ -120,6 +120,7 @@ bool Controller::nextRound(int& newX, int& newY, float& nextThres) {  // ! main 
 
 int Controller::updateProduction() {
     // todo: update the process of current prodution
+    // std::cout << "Please select one production" << std::endl;
 }
 
 Production* Controller::getProduction(int& productionType, Cell*& currentProductionCell) {
