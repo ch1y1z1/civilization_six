@@ -11,7 +11,7 @@ Grid::Grid()
 }
 
 
-Grid::Grid(char *filename)
+Grid::Grid(const char *filename)
 {
     // todo: open the file, read it and save the data to this->grid
     ifstream map;

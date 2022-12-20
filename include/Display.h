@@ -21,7 +21,7 @@ class Display
 
         void DrawMap(Grid *grid);
 
-        int DrawAttributes(Controller* controller);
+        int DrawAttributes(Controller *controller, Grid *grid);
 
         void DrawWorkersChange(Controller* controller, int workersNum=0);
 

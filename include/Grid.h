@@ -3,12 +3,12 @@
 #include "Building.h"
 #include <string>
 
-void trim(string &s);
+// void trim(string &s);
 // this enumerate type represents if the cell is a wild area or owned by a city, or covered with population
 enum Civilized{WILD=0, OWNED, COLONIZED};
 
 struct Cell{
-    Landform landform = PLAIN;
+    Landform landform = NOTYPE;
     Civilized Pop = WILD;   // whether the cell has population
     Building* buildingType = 0;
     float prodAccumulated = 0.0;

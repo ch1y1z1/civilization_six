@@ -37,10 +37,10 @@ bool Controller::bindGrid(Grid* grid) {
     return (grid != 0);
 }
 
+
 Attributes Controller::getAttributes() {
     return this->currentAttributes;
 }
-
 int Controller::getPop() {
     return this->pop;
 }
