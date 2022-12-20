@@ -22,7 +22,7 @@ class Grid
     public:
         Grid();
 
-        Grid(char* filename);
+        Grid(const char* filename);
 
         ~Grid();
 

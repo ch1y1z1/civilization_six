@@ -28,31 +28,39 @@ Display::~Display()
 void Display::DrawMap(Grid* grid){
     // TODO: draw the map
     cout << "012345678901234567890X\n"
-            "1NNNNNNNNNNNNNNNNNNNN\n"
-            "2NNNNNNNNNNNNNNNNNNNN\n"
-            "3NNNNNNNNNNNNNNNNNNNN\n"
-            "4NNNNNNNNNNNNNNNNNNNN\n"
-            "5NNNNNNNNNNNNNNNNNNNN\n"
-            "6NNNNNNNNNNNNNNNNNNNN\n"
-            "7NNNNNNNNNNNNNNNNNNNN\n"
-            "8NNNNNNNNNNNNNNNNNNNN\n"
-            "9NNNNNNNNNNNNNNNNNNNN\n"
-            "0NNNNNNNNNNNNNNNNNNNN\n"
-            "1NNNNNNNNNNNNNNNNNNNN\n"
-            "2NNNNNNNNNNNNNNNNNNNN\n"
-            "3NNNNNNNNNNNNNNNNNNNN\n"
-            "4NNNNNNNNNNNNNNNNNNNN\n"
-            "5NNNNNNNNNNNNNNNNNNNN\n"
-            "6NNNNNNNNNNNNNNNNNNNN\n"
-            "7NNNNNNNNNNNNNNNNNNNN\n"
-            "8NNNNNNNNNNNNNNNNNNNN\n"
-            "9NNNNNNNNNNNNNNNNNNNN\n"
-            "0NNNNNNNNNNNNNNNNNNNN\n"
+            "1\n"
+            "2\n"
+            "3\n"
+            "4\n"
+            "5\n"
+            "6\n"
+            "7\n"
+            "8\n"
+            "9\n"
+            "0\n"
+            "1\n"
+            "2\n"
+            "3\n"
+            "4\n"
+            "5\n"
+            "6\n"
+            "7\n"
+            "8\n"
+            "9\n"
+            "0\n"
             "Y\n";
-        int m,int n;//坐标(m,n)
-   Cell arr= grid->getRepresent(m,n);
+    // enum Landform{OCEAN=0, SEA, PLAIN, HILLY, DESERT, MOUNTAIN, NOTYPE};
+    for (int i = 1; i < 21;i++){
+        for (int j = 0; j < 21;j++){
+            Cell arr = grid->getRepresent(i, j);
+            Landform form = arr.landform;
+            int form_int = (int)form;
+            go(i, j);
+            cout << landformNames[form_int];
+        }
+    }
 
-    go(0, 22);
+        go(0, 22);
 }
 
 int Display::DrawAttributes(Controller* controller){
