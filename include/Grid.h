@@ -31,7 +31,7 @@ class Grid
         int getGridHeight();
         int getGridWidth();
 
-        Cell getRepresent(int m, int n);
+        Cell& getRepresent(int m, int n);
         
 
     protected:

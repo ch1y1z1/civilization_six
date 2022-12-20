@@ -71,7 +71,7 @@ Grid::~Grid()
     delete[] this->grid;
 }
 
-Cell Grid::getRepresent(int m, int n)
+Cell& Grid::getRepresent(int m, int n)
 {
     // todo: make up the represent text
     return this->grid[m][n];
