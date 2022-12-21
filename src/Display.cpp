@@ -171,7 +171,7 @@ void Display::MainProcess(Controller *controller, Grid *grid, Building **buildin
             cout << "Border expanded at (" << newX << ", " << newY << "), when culture reaches " << nextThres << " border will expand again." << endl;
         }
         DrawMap(grid);
-        int pop = DrawAttributes(controller);
+        int pop = DrawAttributes(controller,grid);
         DrawProduction(controller, buildings);
         DrawWorkersChange(controller, pop);
         cout << "\n\nRound: " << controller->getRound() << endl;
