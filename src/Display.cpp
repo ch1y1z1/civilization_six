@@ -1,5 +1,6 @@
 #include "Display.h"
 using namespace std;
+char landformNames[8] = {'O', 'S', 'P', 'H', 'D', 'M', 'N'};
 // 移动光标位置至(x,y);
 // 隐藏光标;
 void Display::go(float x, float y)

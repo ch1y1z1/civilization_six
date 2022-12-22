@@ -16,7 +16,7 @@ enum Landform
 // this constant two-dimension array represents landform buffs on food and productivity respectively
 static int landformBuffs[7][2] = {
     {1, 0}, {1, 1}, {2, 1}, {2, 2}, {0, 1}, {0, 0}, {0, 0}};
-char landformNames[8] = {'O', 'S', 'P', 'H', 'D', 'M', 'N'};
+
 
 class Building : public Production
 {
