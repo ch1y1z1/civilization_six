@@ -2,43 +2,43 @@
 #define GRID_H
 #include "Building.h"
 #include <string>
-
-// void trim(string &s);
+using namespace std;
+void trim(string& s);
 // this enumerate type represents if the cell is a wild area or owned by a city, or covered with population
-enum Civilized{WILD=0, OWNED, COLONIZED};
+enum Civilized { WILD = 0, OWNED, COLONIZED };
 
-struct Cell{
+struct Cell {
     Landform landform = NOTYPE;
     Civilized Pop = WILD;   // whether the cell has population
     Building* buildingType = 0;
     float prodAccumulated = 0.0;
-    Cell(){}
-    Cell(Landform landform):landform(landform){}
-    ~Cell(){}
+    Cell() {}
+    Cell(Landform landform) :landform(landform) {}
+    ~Cell() {}
 };
 
 class Grid
 {
-    public:
-        Grid();
+public:
+    Grid();
 
-        Grid(const char* filename);
+    Grid(const char* filename);
 
-        ~Grid();
+    ~Grid();
 
-        Cell** getGrid();
+    Cell** getGrid();
 
-        int getGridHeight();
-        int getGridWidth();
+    int getGridHeight();
+    int getGridWidth();
 
-        Cell& getRepresent(int m, int n);
-        
+    Cell& getRepresent(int m, int n);
 
-    protected:
 
-    private:
-        Cell **grid;
-        int height, width;
+protected:
+
+private:
+    Cell** grid;
+    int height, width;
 };
 
 #endif // GRID_H
