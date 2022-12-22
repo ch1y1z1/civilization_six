@@ -158,11 +158,11 @@ void Display::MainProcess(Controller* controller, Grid* grid, Building** buildin
     cout << "Select your city center coords:" << endl;
     int x, y;
     cin >> x >> y;
-    this->getCellDescription(x, y).Pop = OWNED;
-    this->getCellDescription(x - 1, y).Pop = OWNED;
-    this->getCellDescription(x, y - 1).Pop = OWNED;
-    this->getCellDescription(x + 1, y).Pop = OWNED;
-    this->getCellDescription(x, y + 1).Pop = OWNED;
+    controller->getCellDescription(x, y).Pop = OWNED;
+    controller->getCellDescription(x - 1, y).Pop = OWNED;
+    controller->getCellDescription(x, y - 1).Pop = OWNED;
+    controller->getCellDescription(x + 1, y).Pop = OWNED;
+    controller->getCellDescription(x, y + 1).Pop = OWNED;
     controller->SetProductionBuilding(x, y, buildings[0]);
 
     while (true)
