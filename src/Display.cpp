@@ -137,15 +137,17 @@ void Display::DrawWorkersChange(Controller *controller, int pop)
 void Display::DrawProduction(Controller *controller, Building **buildings)
 {
     // TODO: draw the current production, and receive the input for changing the current production绘制当前产量，并接收改变当前产量的输入
-    go(0, 24);
+    go(0, 25);
     cout << "当前正在生产      ，已生产    %";
-    go(14, 24);
-    cout << "";
-    go(0, 25);
+    go(14, 26);
+    cout << "请选择是否该改变生产:";
+    string product;
+    
+    go(0, 27);
     cout << "     提供的加成剩余  回合";
-    go(0, 25);
+    go(0, 27);
 
-    go(20, 25);
+    go(0, 28);
 }
 
 void Display::MainProcess(Controller *controller, Grid *grid, Building **buildings, Activity **activities)
@@ -171,7 +173,7 @@ void Display::MainProcess(Controller *controller, Grid *grid, Building **buildin
             cout << "Border expanded at (" << newX << ", " << newY << "), when culture reaches " << nextThres << " border will expand again." << endl;
         }
         DrawMap(grid);
-        int pop = DrawAttributes(controller);
+        int pop = DrawAttributes(controller,grid);
         DrawProduction(controller, buildings);
         DrawWorkersChange(controller, pop);
         cout << "\n\nRound: " << controller->getRound() << endl;
