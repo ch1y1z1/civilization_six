@@ -25,31 +25,31 @@ Display::~Display()
     // dtor
 }
 // 画地图
-void Display::DrawMap(Grid *grid)
+void Display::DrawMap(Grid* grid)
 {
     // TODO: draw the map
     cout << "012345678901234567890X\n"
-            "1\n"
-            "2\n"
-            "3\n"
-            "4\n"
-            "5\n"
-            "6\n"
-            "7\n"
-            "8\n"
-            "9\n"
-            "0\n"
-            "1\n"
-            "2\n"
-            "3\n"
-            "4\n"
-            "5\n"
-            "6\n"
-            "7\n"
-            "8\n"
-            "9\n"
-            "0\n"
-            "Y\n";
+        "1\n"
+        "2\n"
+        "3\n"
+        "4\n"
+        "5\n"
+        "6\n"
+        "7\n"
+        "8\n"
+        "9\n"
+        "0\n"
+        "1\n"
+        "2\n"
+        "3\n"
+        "4\n"
+        "5\n"
+        "6\n"
+        "7\n"
+        "8\n"
+        "9\n"
+        "0\n"
+        "Y\n";
     // enum Landform{OCEAN=0, SEA, PLAIN, HILLY, DESERT, MOUNTAIN, NOTYPE};
     for (int i = 1; i < 21; i++)
     {
@@ -66,7 +66,7 @@ void Display::DrawMap(Grid *grid)
     go(0, 22);
 }
 
-int Display::DrawAttributes(Controller *controller, Grid *grid)
+int Display::DrawAttributes(Controller* controller, Grid* grid)
 {
     // TODO: draw the attributes, population, and the distribution of workers, return the population绘制属性、人口和工人的分布，返回人口
     int pop = controller->getPop();
@@ -102,7 +102,7 @@ int Display::DrawAttributes(Controller *controller, Grid *grid)
     return pop;
 }
 
-void Display::DrawWorkersChange(Controller *controller, int pop)
+void Display::DrawWorkersChange(Controller* controller, int pop)
 {
     // TODO: draw the change of workers, and receive the input for changing the distribution of workers绘制工人的变化，并接收改变工人分布的输入
     go(0, 22);
@@ -134,7 +134,7 @@ void Display::DrawWorkersChange(Controller *controller, int pop)
     }
 }
 
-void Display::DrawProduction(Controller *controller, Building **buildings)
+void Display::DrawProduction(Controller* controller, Building** buildings)
 {
     // TODO: draw the current production, and receive the input for changing the current production绘制当前产量，并接收改变当前产量的输入
     go(0, 25);
@@ -142,7 +142,7 @@ void Display::DrawProduction(Controller *controller, Building **buildings)
     go(14, 26);
     cout << "请选择是否该改变生产:";
     string product;
-    
+
     go(0, 27);
     cout << "     提供的加成剩余  回合";
     go(0, 27);
@@ -150,7 +150,7 @@ void Display::DrawProduction(Controller *controller, Building **buildings)
     go(0, 28);
 }
 
-void Display::MainProcess(Controller *controller, Grid *grid, Building **buildings, Activity **activities)
+void Display::MainProcess(Controller* controller, Grid* grid, Building** buildings, Activity** activities)
 {
     controller->reset(3);
     controller->bindGrid(grid);
@@ -158,7 +158,13 @@ void Display::MainProcess(Controller *controller, Grid *grid, Building **buildin
     cout << "Select your city center coords:" << endl;
     int x, y;
     cin >> x >> y;
+    this->getCellDescription(x, y).Pop = OWNED;
+    this->getCellDescription(x - 1, y).Pop = OWNED;
+    this->getCellDescription(x, y - 1).Pop = OWNED;
+    this->getCellDescription(x + 1, y).Pop = OWNED;
+    this->getCellDescription(x, y + 1).Pop = OWNED;
     controller->SetProductionBuilding(x, y, buildings[0]);
+
     while (true)
     {
         int newX, newY;
@@ -173,7 +179,7 @@ void Display::MainProcess(Controller *controller, Grid *grid, Building **buildin
             cout << "Border expanded at (" << newX << ", " << newY << "), when culture reaches " << nextThres << " border will expand again." << endl;
         }
         DrawMap(grid);
-        int pop = DrawAttributes(controller,grid);
+        int pop = DrawAttributes(controller, grid);
         DrawProduction(controller, buildings);
         DrawWorkersChange(controller, pop);
         cout << "\n\nRound: " << controller->getRound() << endl;
