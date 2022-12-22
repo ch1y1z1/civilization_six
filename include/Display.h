@@ -1,9 +1,9 @@
 #ifndef DISPLAY_H
 #define DISPLAY_H
 #define DEFAULT "\033[0m"
-#define RED "\033[31m" 
-#define GREEN "\033[32m" 
-#define BLUE "\033[34m" 
+#define RED "\033[31m"
+#define GREEN "\033[32m"
+#define BLUE "\033[34m"
 #define YELLOW "\033[33m"
 #define WHITE "\033[37m"
 #include "Controller.h"
@@ -12,26 +12,29 @@
 
 class Display
 {
-    public:
-        Display();
+public:
+    Display();
 
-        ~Display();
+    ~Display();
 
-        void go(float x, float y);
+    void out();
 
-        void DrawMap(Grid *grid);
+    void clear();
 
-        int DrawAttributes(Controller *controller, Grid *grid);
+    void go(float x, float y);
 
-        void DrawWorkersChange(Controller* controller, int workersNum=0);
+    void DrawMap(Grid *grid);
 
-        void DrawProduction(Controller* controller, Building** buildings);
+    int DrawAttributes(Controller *controller, Grid *grid);
 
-        void MainProcess(Controller* controller, Grid* grid, Building** buildings, Activity** activities);
+    void DrawWorkersChange(Controller *controller, int workersNum = 0);
 
-    protected:
+    void DrawProduction(Controller *controller, Building **buildings);
 
-    private:
+    void MainProcess(Controller *controller, Grid *grid, Building **buildings, Activity **activities);
+
+protected:
+private:
 };
 
 #endif // DISPLAY_H

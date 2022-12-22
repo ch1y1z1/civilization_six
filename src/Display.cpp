@@ -25,11 +25,32 @@ Display::~Display()
 {
     // dtor
 }
+// 划分输入区
+void Display::out()
+{
+    go(0, 22);
+    cout << "--------------------------------------------\n";
+    cout << "              INTERACT HERE\n";
+    go(0, 24);
+}
+// 清空输入区
+void Display::clear()
+{
+    go(0, 24);
+    for (int j = 0; j < 8; j++)
+    {
+        for (int i = 0; i < 50; i++)
+        {
+            cout << " ";
+        }
+        cout << endl;
+    }  
+}
 // 画地图
 void Display::DrawMap(Grid *grid)
 {
     // TODO: draw the map
-    cout << "012345678901234567890X\n"
+    cout << "0 2 4 6 8 10121416182022242628303234363840X\n"
             "1\n"
             "2\n"
             "3\n"
@@ -60,7 +81,7 @@ void Display::DrawMap(Grid *grid)
             Landform form = arr.landform;
             int form_int = (int)form;
             go(i, j);
-            cout << landformNames[form_int];
+            cout << landformNames[form_int] << " ";
         }
     }
 
@@ -138,17 +159,17 @@ void Display::DrawWorkersChange(Controller *controller, int pop)
 void Display::DrawProduction(Controller *controller, Building **buildings)
 {
     // TODO: draw the current production, and receive the input for changing the current production绘制当前产量，并接收改变当前产量的输入
-    go(0, 25);
+    go(50, 25);
     cout << "当前正在生产      ，已生产    %";
-    go(14, 26);
+    go(50, 26);
     cout << "请选择是否该改变生产:";
     string product;
 
-    go(0, 27);
+    go(50, 27);
     cout << "     provided bonus remaining      rounds ";
-    go(0, 27);
+    go(50, 27);
 
-    go(0, 28);
+    go(50, 28);
 }
 
 void Display::MainProcess(Controller *controller, Grid *grid, Building **buildings, Activity **activities)
