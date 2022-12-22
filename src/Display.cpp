@@ -25,31 +25,31 @@ Display::~Display()
     // dtor
 }
 // 画地图
-void Display::DrawMap(Grid* grid)
+void Display::DrawMap(Grid *grid)
 {
     // TODO: draw the map
     cout << "012345678901234567890X\n"
-        "1\n"
-        "2\n"
-        "3\n"
-        "4\n"
-        "5\n"
-        "6\n"
-        "7\n"
-        "8\n"
-        "9\n"
-        "0\n"
-        "1\n"
-        "2\n"
-        "3\n"
-        "4\n"
-        "5\n"
-        "6\n"
-        "7\n"
-        "8\n"
-        "9\n"
-        "0\n"
-        "Y\n";
+            "1\n"
+            "2\n"
+            "3\n"
+            "4\n"
+            "5\n"
+            "6\n"
+            "7\n"
+            "8\n"
+            "9\n"
+            "0\n"
+            "1\n"
+            "2\n"
+            "3\n"
+            "4\n"
+            "5\n"
+            "6\n"
+            "7\n"
+            "8\n"
+            "9\n"
+            "0\n"
+            "Y\n";
     // enum Landform{OCEAN=0, SEA, PLAIN, HILLY, DESERT, MOUNTAIN, NOTYPE};
     for (int i = 1; i < 21; i++)
     {
@@ -66,19 +66,19 @@ void Display::DrawMap(Grid* grid)
     go(0, 22);
 }
 
-int Display::DrawAttributes(Controller* controller, Grid* grid)
+int Display::DrawAttributes(Controller *controller, Grid *grid)
 {
     // TODO: draw the attributes, population, and the distribution of workers, return the population绘制属性、人口和工人的分布，返回人口
     int pop = controller->getPop();
     int max_pop = controller->getAttributes().food;
     go(25, 0);
-    cout << "当前人口为 " << pop;
+    cout << "population now:" << pop;
     go(25, 1);
-    cout << "最大人口为 " << max_pop;
+    cout << "max population:" << max_pop;
     go(25, 2);
-    cout << "预计\t回合内人口改变为";
+    cout << "expected that the population will change to    in Round  ";
     go(25, 3);
-    cout << "分布:";
+    cout << "distribution:";
     static int pop_num = 0;
     for (int i = 1; i < 21; i++)
     {
@@ -94,22 +94,22 @@ int Display::DrawAttributes(Controller* controller, Grid* grid)
         }
     }
     go(50, 22);
-    cout << "科技:" << controller->getAttributes().tech;
+    cout << "technology:" << controller->getAttributes().tech;
     go(50, 23);
-    cout << "文化:" << controller->getAttributes().cul;
+    cout << "culture:" << controller->getAttributes().cul;
     go(50, 24);
-    cout << "分数:" << controller->getAttributes().prod;
+    cout << "score:" << controller->getAttributes().prod;
     return pop;
 }
 
-void Display::DrawWorkersChange(Controller* controller, int pop)
+void Display::DrawWorkersChange(Controller *controller, int pop)
 {
     // TODO: draw the change of workers, and receive the input for changing the distribution of workers绘制工人的变化，并接收改变工人分布的输入
     go(0, 22);
-    cout << "工人移动实例:(1 1)到(2 3)(数字间以空格分隔)";
+    cout << "For example : from (1 1) to (2 3) ";
 
     go(0, 23);
-    cout << "是否要移动人口：(y代表是,n代表否)";
+    cout << "choose whether to change (y means yes,n means no)";
     char s;
     cin >> s;
     if (s == 'y' || 'Y')
@@ -117,7 +117,7 @@ void Display::DrawWorkersChange(Controller* controller, int pop)
         go(0, 24);
         cout << "工人变化为:从("; //(12,22)
         go(19, 24);
-        cout << ")到( ";
+        cout << ")to( ";
         go(25, 24);
         cout << ")";
         go(15, 24);
@@ -130,11 +130,11 @@ void Display::DrawWorkersChange(Controller* controller, int pop)
     else
     {
         go(50, 23);
-        cout << "您选择了不移动人口";
+        cout << "you choose not to change the workers";
     }
 }
 
-void Display::DrawProduction(Controller* controller, Building** buildings)
+void Display::DrawProduction(Controller *controller, Building **buildings)
 {
     // TODO: draw the current production, and receive the input for changing the current production绘制当前产量，并接收改变当前产量的输入
     go(0, 25);
@@ -144,13 +144,13 @@ void Display::DrawProduction(Controller* controller, Building** buildings)
     string product;
 
     go(0, 27);
-    cout << "     提供的加成剩余  回合";
+    cout << "     provided bonus remaining      rounds ";
     go(0, 27);
 
     go(0, 28);
 }
 
-void Display::MainProcess(Controller* controller, Grid* grid, Building** buildings, Activity** activities)
+void Display::MainProcess(Controller *controller, Grid *grid, Building **buildings, Activity **activities)
 {
     controller->reset(3);
     controller->bindGrid(grid);
