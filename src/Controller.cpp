@@ -157,6 +157,7 @@ int Controller::checkBorderUpdate(int& newX, int& newY, float& nextThres) {
         std::cout << "Border is now Expandable" << std::endl;
         std::cout << "Please input the coordinates of the new border" << std::endl;
         std::cin >> newX >> newY;
+        this->getCellDescription(newX, newY).Pop = OWNED;
         return 1;
     }
     newX = -1;
