@@ -49,6 +49,7 @@ void Display::clear()
 // 画地图
 void Display::DrawMap(Grid *grid)
 {
+    go(0, 0);
     // TODO: draw the map
     cout << "0 2 4 6 8 10121416182022242628303234363840X\n"
             "1\n"
@@ -80,7 +81,7 @@ void Display::DrawMap(Grid *grid)
             Cell arr = grid->getRepresent(i - 1, j - 1);
             Landform form = arr.landform;
             int form_int = (int)form;
-            go(i, j);
+            go(2*i, j);
             cout << landformNames[form_int] << " ";
         }
     }
@@ -93,13 +94,13 @@ int Display::DrawAttributes(Controller *controller, Grid *grid)
     // TODO: draw the attributes, population, and the distribution of workers, return the population绘制属性、人口和工人的分布，返回人口
     int pop = controller->getPop();
     int max_pop = controller->getAttributes().food;
-    go(25, 0);
+    go(50, 0);
     cout << "population now:" << pop;
-    go(25, 1);
+    go(50, 1);
     cout << "max population:" << max_pop;
-    go(25, 2);
+    go(50, 2);
     cout << "expected that the population will change to    in Round  ";
-    go(25, 3);
+    go(50, 3);
     cout << "distribution:";
     static int pop_num = 0;
     for (int i = 1; i < 21; i++)
@@ -110,7 +111,7 @@ int Display::DrawAttributes(Controller *controller, Grid *grid)
             if (arr.Pop != 0)
             {
                 pop_num++;
-                go(25, 3 + pop_num);
+                go(50, 3 + pop_num);
                 cout << "( " << i << " , " << j << " )";
             }
         }
