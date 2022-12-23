@@ -166,6 +166,7 @@ void Display::MainProcess(Controller* controller, Grid* grid, Building** buildin
     controller->reset(3);
     controller->bindGrid(grid);
     this->DrawMap(grid);
+    out();
     cout << "Select your city center coords:" << endl;
     int x, y;
     cin >> x >> y;
@@ -175,6 +176,7 @@ void Display::MainProcess(Controller* controller, Grid* grid, Building** buildin
     controller->getCellDescription(x + 1, y).Pop = OWNED;
     controller->getCellDescription(x, y + 1).Pop = OWNED;
     controller->SetProductionBuilding(x, y, buildings[0]);
+    clear();
     this->DrawMap(grid);
 
     while (true)
