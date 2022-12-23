@@ -136,18 +136,7 @@ void Display::DrawWorkersChange(Controller *controller, int pop)
     cin >> s;
     if (s == 'y' || 'Y')
     {
-        go(0, 24);
-        cout << "工人变化为:从("; //(12,22)
-        go(19, 24);
-        cout << ")to( ";
-        go(25, 24);
-        cout << ")";
-        go(15, 24);
-        int x0, y0;
-        cin >> x0 >> y0;
-        go(23, 24);
-        int x1, y1;
-        cin >> x1 >> y1;
+        
     }
     else
     {
@@ -159,11 +148,11 @@ void Display::DrawWorkersChange(Controller *controller, int pop)
 void Display::DrawProduction(Controller *controller, Building **buildings)
 {
     // TODO: draw the current production, and receive the input for changing the current production绘制当前产量，并接收改变当前产量的输入
-    go(50, 25);
-    cout << "当前正在生产      ，已生产    %";
-    go(50, 26);
-    cout << "请选择是否该改变生产:";
-    string product;
+    // go(50, 25);
+    // cout << "当前正在生产      ，已生产    %";
+    // go(50, 26);
+    // cout << "请选择是否该改变生产:";
+    // string product;
 
     go(50, 27);
     cout << "     provided bonus remaining      rounds ";
