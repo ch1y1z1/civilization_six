@@ -176,6 +176,7 @@ int Controller::setPopAt(int m, int n, bool isAdding) {
     switch (flag)
     {
     case -1:
+        out();
         std::cout << "You have to remove pops" << std::endl;
         while (true)
         {
@@ -193,8 +194,10 @@ int Controller::setPopAt(int m, int n, bool isAdding) {
                 std::cout << "There is no pop at this cell" << std::endl;
             }
         }
+        clear();
         break;
     case 1:
+        out();
         std::cout << "you may add pop to work" << std::endl;
         while (true)
         {
@@ -216,11 +219,13 @@ int Controller::setPopAt(int m, int n, bool isAdding) {
                 std::cout << "The cell havn't been owned now" << std::endl;
             }
         }
+        clear();
         break;
     }
 
     while (true)
     {
+        out();
         std::cout << "you may switch pops now" << std::endl;
         std::cout << "Please input the coordinates of the pop you want to switch or you may input '0' to skip this step" << std::endl;
         int x, y, newx, newy;
@@ -246,6 +251,7 @@ int Controller::setPopAt(int m, int n, bool isAdding) {
         this->getCellDescription(x, y).Pop = OWNED;
         this->getCellDescription(newx, newy).Pop = COLONIZED;
         std::cout << "Switch successfully" << std::endl;
+        clear();
     }
 
 
