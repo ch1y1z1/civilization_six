@@ -112,7 +112,7 @@ int Display::DrawAttributes(Controller* controller, Grid* grid)
             {
                 pop_num++;
                 go(50, 3 + pop_num);
-                cout << "( " << i << " , " << j << " )";
+                cout << "( " << 2*i << " , " << j << " )";
             }
         }
     }
