@@ -30,3 +30,37 @@ int main()
 
     return 0;
 }
+// 移动光标位置至(x,y);
+// 隐藏光标;
+void go(float x, float y)
+{
+    COORD coord;
+    coord.X = x;
+    coord.Y = y;
+    HANDLE a = GetStdHandle(STD_OUTPUT_HANDLE);
+    SetConsoleCursorPosition(a, coord);
+    CONSOLE_CURSOR_INFO CursorInfo;
+    GetConsoleCursorInfo(a, &CursorInfo);
+    CursorInfo.bVisible = false;
+    SetConsoleCursorInfo(a, &CursorInfo);
+}
+void out()
+{
+    go(0, 22);
+    cout << "--------------------------------------------\n";
+    cout << "              INTERACT HERE\n";
+    go(0, 24);
+}
+// 清空输入区
+void clear()
+{
+    go(0, 24);
+    for (int j = 0; j < 8; j++)
+    {
+        for (int i = 0; i < 50; i++)
+        {
+            cout << " ";
+        }
+        cout << endl;
+    }
+}

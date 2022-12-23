@@ -30,7 +30,7 @@ void Controller::reset(int pop, float firstBorderThreshold) {
 bool Controller::checkWin() {
     // todo: check whether the player has won the game
     if (this->currentAttributes.tech >= 500) return true;
-    if (this->currentAttributes.cul >= 350) return true;  // TODO: add 5 qiguan
+    if (this->currentAttributes.cul >= 350) return true;  // TODO: add 5 wonder
     int score = 0.5 * this->currentAttributes.tech + 0.5 * this->currentAttributes.cul + 10 * this->pop + this->currentAttributes.prod;
     if (score >= 500) return true;
     return false;

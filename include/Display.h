@@ -9,7 +9,9 @@
 #include "Controller.h"
 #include <windows.h>
 #include <iostream>
-
+void go(float x, float y);
+void out();
+void clear();
 class Display
 {
 public:
