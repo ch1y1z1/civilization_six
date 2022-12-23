@@ -28,7 +28,7 @@ public:
     bool SetProductionActivity(Activity* activity);
     bool SetProductionActivity(int activityOrder);
 
-    int setPopAt(int m, int n, bool isAdding = true);
+    int setPopAt();
 
     Attributes getAttributes();
 
