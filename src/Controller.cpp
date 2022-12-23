@@ -1,5 +1,6 @@
 #include "Controller.h"
 #include "cstring"
+#include "Display.h"
 
 const int landformBuffs[7][2] = {
     {1, 0}, {1, 1}, {2, 1}, {2, 2}, {0, 1}, {0, 0}, {0, 0} };
@@ -118,8 +119,6 @@ bool Controller::nextRound(int& newX, int& newY, float& nextThres) {  // ! main 
     this->updateAttributes();
 
 
-
-
     return 0;
 }
 
@@ -160,13 +159,14 @@ int Controller::checkBorderUpdate(int& newX, int& newY, float& nextThres) {
     if (this->currentAttributes.cul >= this->BorderExpandThreshold)
     {
         this->BorderExpandThreshold *= 2;
+        out();
         std::cout << "Border is now Expandable" << std::endl;
         std::cout << "Please input the coordinates of the new border" << std::endl;
         std::cin >> newX >> newY;
         this->getCellDescription(newX, newY).Pop = OWNED;
+        clear();
         return 1;
     }
-    newX = -1;
     return 0;
 }
 
