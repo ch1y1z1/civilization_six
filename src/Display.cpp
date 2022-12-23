@@ -1,6 +1,6 @@
 #include "Display.h"
 using namespace std;
-char landformNames[8] = {'O', 'S', 'P', 'H', 'D', 'M', 'N'};
+char landformNames[8] = { 'O', 'S', 'P', 'H', 'D', 'M', 'N' };
 // 移动光标位置至(x,y);
 // 隐藏光标;
 void Display::go(float x, float y)
@@ -44,35 +44,35 @@ void Display::clear()
             cout << " ";
         }
         cout << endl;
-    }  
+    }
 }
 // 画地图
-void Display::DrawMap(Grid *grid)
+void Display::DrawMap(Grid* grid)
 {
     go(0, 0);
     // TODO: draw the map
     cout << "0 2 4 6 8 10121416182022242628303234363840X\n"
-            "1\n"
-            "2\n"
-            "3\n"
-            "4\n"
-            "5\n"
-            "6\n"
-            "7\n"
-            "8\n"
-            "9\n"
-            "0\n"
-            "1\n"
-            "2\n"
-            "3\n"
-            "4\n"
-            "5\n"
-            "6\n"
-            "7\n"
-            "8\n"
-            "9\n"
-            "0\n"
-            "Y\n";
+        "1\n"
+        "2\n"
+        "3\n"
+        "4\n"
+        "5\n"
+        "6\n"
+        "7\n"
+        "8\n"
+        "9\n"
+        "0\n"
+        "1\n"
+        "2\n"
+        "3\n"
+        "4\n"
+        "5\n"
+        "6\n"
+        "7\n"
+        "8\n"
+        "9\n"
+        "0\n"
+        "Y\n";
     // enum Landform{OCEAN=0, SEA, PLAIN, HILLY, DESERT, MOUNTAIN, NOTYPE};
     for (int i = 1; i < 21; i++)
     {
@@ -89,7 +89,7 @@ void Display::DrawMap(Grid *grid)
     go(0, 22);
 }
 
-int Display::DrawAttributes(Controller *controller, Grid *grid)
+int Display::DrawAttributes(Controller* controller, Grid* grid)
 {
     // TODO: draw the attributes, population, and the distribution of workers, return the population绘制属性、人口和工人的分布，返回人口
     int pop = controller->getPop();
@@ -125,7 +125,7 @@ int Display::DrawAttributes(Controller *controller, Grid *grid)
     return pop;
 }
 
-void Display::DrawWorkersChange(Controller *controller, int pop)
+void Display::DrawWorkersChange(Controller* controller, int pop)
 {
     // TODO: draw the change of workers, and receive the input for changing the distribution of workers绘制工人的变化，并接收改变工人分布的输入
     go(0, 22);
@@ -137,7 +137,7 @@ void Display::DrawWorkersChange(Controller *controller, int pop)
     cin >> s;
     if (s == 'y' || 'Y')
     {
-        
+
     }
     else
     {
@@ -146,7 +146,7 @@ void Display::DrawWorkersChange(Controller *controller, int pop)
     }
 }
 
-void Display::DrawProduction(Controller *controller, Building **buildings)
+void Display::DrawProduction(Controller* controller, Building** buildings)
 {
     // TODO: draw the current production, and receive the input for changing the current production绘制当前产量，并接收改变当前产量的输入
     // go(50, 25);
@@ -162,11 +162,12 @@ void Display::DrawProduction(Controller *controller, Building **buildings)
     go(50, 28);
 }
 
-void Display::MainProcess(Controller *controller, Grid *grid, Building **buildings, Activity **activities)
+void Display::MainProcess(Controller* controller, Grid* grid, Building** buildings, Activity** activities)
 {
     controller->reset(3);
     controller->bindGrid(grid);
     this->DrawMap(grid);
+    out();
     cout << "Select your city center coords:" << endl;
     int x, y;
     cin >> x >> y;
@@ -176,6 +177,8 @@ void Display::MainProcess(Controller *controller, Grid *grid, Building **buildin
     controller->getCellDescription(x + 1, y).Pop = OWNED;
     controller->getCellDescription(x, y + 1).Pop = OWNED;
     controller->SetProductionBuilding(x, y, buildings[0]);
+    clear();
+    this->DrawMap(grid);
 
     while (true)
     {
