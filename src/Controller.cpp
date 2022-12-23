@@ -247,6 +247,17 @@ int Controller::setPopAt(int m, int n, bool isAdding) {
 
 void Controller::updateAttributes() {
     // todo: calculate and update the attributes according to the buffs
+    for (int i = 0; i < 20; i++)
+    {
+        for (int j = 0; j < 20; j++)
+        {
+            if (this->getCellDescription(i, j).Pop == OWNED)
+            {
+                this->currentAttributes.food += landformBuffs[this->getCellDescription(i, j).landform][0];
+                this->currentAttributes.prod += landformBuffs[this->getCellDescription(i, j).landform][1];
+            }
+        }
+    }
 }
 
 Cell** Controller::getAdjacentCells(int m, int n) {
