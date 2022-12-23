@@ -1,6 +1,9 @@
 #include "Controller.h"
 #include "cstring"
 
+const int landformBuffs[7][2] = {
+    {1, 0}, {1, 1}, {2, 1}, {2, 2}, {0, 1}, {0, 0}, {0, 0} };
+
 Controller::Controller()
 {
     this->currentRound = 0;
@@ -87,10 +90,12 @@ bool Controller::SetProductionBuilding(int m, int n, Building* building) {
     //     return false;
     // TODO: check if the building is beside another building
     this->getCellDescription(m, n).buildingType = building;
+    return true;
 }
 
 bool Controller::SetProductionActivity(Activity* activity) {
     // todo: set the current production to activity, return true if the action is successful
+    return true;
 }
 
 bool Controller::SetProductionActivity(int activityOrder) {
@@ -121,6 +126,7 @@ bool Controller::nextRound(int& newX, int& newY, float& nextThres) {  // ! main 
 int Controller::updateProduction() {
     // todo: update the process of current prodution
     // std::cout << "Please select one production" << std::endl;
+    return 1;
 }
 
 Production* Controller::getProduction(int& productionType, Cell*& currentProductionCell) {
@@ -264,12 +270,12 @@ void Controller::updateAttributes() {
     }
 }
 
-Cell **Controller::getAdjacentCells(int m, int n)
+Cell** Controller::getAdjacentCells(int m, int n)
 {
     // todo: get the adjacent cells from cell (m, n)
     // you can use this as :Cell** adjacent=getAdjacentCells(m,n) to get the details of (m,n)'s up, left ,down and right
     // Cell adj=new Cell[1];
-    Cell **adjacent = new Cell *[4];
+    Cell** adjacent = new Cell * [4];
     if (m == 0 && n == 0)
     {
         adjacent[0] = 0;
@@ -359,7 +365,7 @@ Cell **Controller::getAdjacentCells(int m, int n)
     }
 }
 
-int Controller::getAdjacentSatisfied(Cell **adjacents, char buildingName, Landform landformType)
+int Controller::getAdjacentSatisfied(Cell** adjacents, char buildingName, Landform landformType)
 {
     // todo: check whether the adjacent cells satisfy the landformType and buildingName(s), you need to rewrite it if you use a hexagonal map
     unsigned satisfiedCellsNum = 0;
