@@ -117,7 +117,7 @@ int Display::DrawAttributes(Controller* controller, Grid* grid)
         for (int j = 1; j < 21; j++)
         {
             Cell arr = grid->getRepresent(i - 1, j - 1);
-            if (arr.Pop != 0)
+            if (arr.Pop == COLONIZED)
             {
                 pop_num++;
                 go(50, 3 + pop_num);
