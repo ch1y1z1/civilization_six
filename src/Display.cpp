@@ -32,7 +32,7 @@ void Display::out()
     go(0, 23);
     cout << "--------------------------------------------\n";
     cout << "              INTERACT HERE\n";
-    go(0, 24);
+    go(0, 25);
 }
 // 清空输入区
 void Display::clear()
@@ -91,7 +91,7 @@ void Display::DrawMap(Grid* grid)
                 cout << landformNames[form_int] << " ";
             }
             else {
-                cout <<RED<< architecture[arr.buildingType->num]<<DEFAULT;
+                cout << architecture[arr.buildingType->num];
             }
         }
     }
