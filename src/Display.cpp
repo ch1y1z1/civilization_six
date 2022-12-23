@@ -1,6 +1,7 @@
 #include "Display.h"
 using namespace std;
 char landformNames[8] = { 'O', 'S', 'P', 'H', 'D', 'M', 'N' };
+char jianzhu[5] = {'C', 'S'};
 // 移动光标位置至(x,y);
 // 隐藏光标;
 void Display::go(float x, float y)
@@ -82,7 +83,15 @@ void Display::DrawMap(Grid* grid)
             Landform form = arr.landform;
             int form_int = (int)form;
             go(2*i, j);
-            cout << landformNames[form_int] << " ";
+            if(arr.Pop==WILD){
+                cout << "N"<< " ";
+            }
+            else if(arr.Pop==OWNED){
+                cout << landformNames[form_int] << " ";
+            }
+            else if (arr.Pop == COLONIZED){
+                cout << jianzhu[arr.buildingType->num];
+            }
         }
     }
 
