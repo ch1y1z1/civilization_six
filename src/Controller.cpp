@@ -251,10 +251,14 @@ void Controller::updateAttributes() {
     {
         for (int j = 0; j < 20; j++)
         {
-            if (this->getCellDescription(i, j).Pop == OWNED)
+            if (this->getCellDescription(i, j).Pop == OWNED && this->getCellDescription(i, j).buildingType == 0)
             {
                 this->currentAttributes.food += landformBuffs[this->getCellDescription(i, j).landform][0];
                 this->currentAttributes.prod += landformBuffs[this->getCellDescription(i, j).landform][1];
+            }
+            if (this->getCellDescription(i, j).buildingType != 0)
+            {
+
             }
         }
     }
