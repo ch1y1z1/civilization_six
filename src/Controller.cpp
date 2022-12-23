@@ -251,6 +251,31 @@ void Controller::updateAttributes() {
 
 Cell** Controller::getAdjacentCells(int m, int n) {
     // todo: get the adjacent cells from cell (m, n)
+    //you can use this as :Cell** adjacent=getAdjacentCells(m,n) to get the details of (m,n)'s up, left ,down and right
+    // Cell adj=new Cell[1];
+    Cell **adjacent=new Cell*[4];
+    for (int i =0 ;i < 4;i++)
+    {
+        // adjacent[i] = new Cell ;
+    }
+    if(m==0&&n==0) 
+    {
+        adjacent[0]=0;
+        adjacent[2] = new Cell ;
+        *adjacent[2]= getCellDescription(m+1,n);
+        adjacent[2]=new Cell;
+        *adjacent[3]=getCellDescription(m,n+1);
+        }
+    else if(m==19&&n==19)
+    {
+
+    }
+    else if (m==0) 
+    {
+        adjacent[1]=getCellDescription(m-1,n);
+        adjacent[2]= getCellDescription(m+1,n);
+        adjacent[3]=getCellDescription(m,n+1);
+        }
 }
 
 int Controller::getAdjacentSatisfied(Cell** adjacents, char buildingName, Landform landformType) {
@@ -262,6 +287,10 @@ int Controller::getAdjacentSatisfied(Cell** adjacents, char buildingName, Landfo
                 && adjacents[t]->landform == landformType);
         }
     }
+    for (int i=0;i<4;i++){
+        if (adjacents[i]!=0) delete  adjacents[i];
+    }
+    delete [] adjacents;
     return satisfiedCellsNum;
 }
 
