@@ -89,7 +89,7 @@ void Display::DrawMap(Grid* grid)
             else if (arr.Pop == OWNED && arr.buildingType == 0) {
                 cout << landformNames[form_int] << " ";
             }
-            else if (arr.Pop == COLONIZED) {
+            else {
                 cout << jianzhu[arr.buildingType->num];
             }
         }
