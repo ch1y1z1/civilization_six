@@ -94,7 +94,9 @@ void Display::DrawMap(Grid *grid)
             }
             else
             {
-                cout <<  architecture[arr.buildingType->num] ;
+                turn_blue();
+                cout << architecture[arr.buildingType->num] ;
+                turn_white();
             }
         }
     }
