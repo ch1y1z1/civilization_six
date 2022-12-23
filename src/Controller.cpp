@@ -96,6 +96,9 @@ bool Controller::SetProductionBuilding(int m, int n, Building* building) {
 
 bool Controller::SetProductionActivity(Activity* activity) {
     // todo: set the current production to activity, return true if the action is successful
+    this->currentProductionType = PRODUCTION_TYPE_ACTIVITY;
+    this->currentProductionCell = 0;
+    this->currentProduction = activity;
     return true;
 }
 
