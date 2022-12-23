@@ -15,7 +15,7 @@ Grid::Grid(const char* filename)
 {
     // todo: open the file, read it and save the data to this->grid
     ifstream map;
-    map.open("map.txt", ios::in);
+    map.open("../../resource/map.txt", ios::in);
     string* map_1 = new string[20];
     string a;
     getline(map, a);
