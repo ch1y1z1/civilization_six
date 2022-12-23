@@ -1,7 +1,7 @@
 #include "Display.h"
 using namespace std;
 char landformNames[8] = { 'O', 'S', 'P', 'H', 'D', 'M', 'N' };
-char jianzhu[5] = { 'C', 'S' };
+char architecture[6] = { 'C', 'A' ,'T','W','I'};
 // 移动光标位置至(x,y);
 // 隐藏光标;
 void Display::go(float x, float y)
@@ -90,7 +90,7 @@ void Display::DrawMap(Grid* grid)
                 cout << landformNames[form_int] << " ";
             }
             else {
-                cout << jianzhu[arr.buildingType->num];
+                cout <<RED<< architecture[arr.buildingType->num]<<DEFAULT;
             }
         }
     }
@@ -137,22 +137,22 @@ int Display::DrawAttributes(Controller* controller, Grid* grid)
 void Display::DrawWorkersChange(Controller* controller, int pop)
 {
     // TODO: draw the change of workers, and receive the input for changing the distribution of workers绘制工人的变化，并接收改变工人分布的输入
-    go(0, 22);
-    cout << "For example : from (1 1) to (2 3) ";
+    // go(0, 22);
+    // cout << "For example : from (1 1) to (2 3) ";
 
-    go(0, 23);
-    cout << "choose whether to change (y means yes,n means no)";
-    char s;
-    cin >> s;
-    if (s == 'y' || 'Y')
-    {
+    // go(0, 23);
+    // cout << "choose whether to change (y means yes,n means no)";
+    // char s;
+    // cin >> s;
+    // if (s == 'y' || 'Y')
+    // {
 
-    }
-    else
-    {
-        go(50, 23);
-        cout << "you choose not to change the workers";
-    }
+    // }
+    // else
+    // {
+    //     go(50, 23);
+    //     cout << "you choose not to change the workers";
+    // }
 }
 
 void Display::DrawProduction(Controller* controller, Building** buildings)
