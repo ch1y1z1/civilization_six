@@ -129,59 +129,59 @@ int Controller::updateProduction()
 {
     // todo: update the process of current prodution
     // std::cout << "Please select one production" << std::endl;
-    out();
-    std::cout << < "Please select one production" << std::endl;
-    std::cout << "1. Building" << std::endl;
-    std::cout << "2. Activity" << std::endl;
-    int choice;
-    std::cin >> choice;
-    if (choice == 1) {
-        std::cout << "Please select one building" << std::endl;
-        for (int i = 0; i < buildingSize; i++) {
-            std::cout << i + 1 << ". " << availableBuildings[i]->getName() << std::endl;
-        }
-        int buildingChoice;
-        std::cin >> buildingChoice;
-        if (buildingChoice > buildingSize || buildingChoice < 1) {
-            std::cout << "Invalid choice" << std::endl;
-            return -1;
-        }
-        std::cout << "Please select one cell" << std::endl;
-        int m, n;
-        std::cin >> m >> n;
-        if (m > this->world->getGridHeight() || n > this->world->getGridWidth() || m < 0 || n < 0) {
-            std::cout << "Invalid choice" << std::endl;
-            return -1;
-        }
-        if (this->getCellDescription(m, n).buildingType != 0) {
-            std::cout << "Invalid choice" << std::endl;
-            return -1;
-        }
-        if (this->getAdjacentSatisfied(this->getAdjacentCells(m, n), m, n) == 0) {
-            std::cout << "Invalid choice" << std::endl;
-            return -1;
-        }
-        this->getCellDescription(m, n).buildingType = availableBuildings[buildingChoice - 1];
-        this->currentProductionType = PRODUCTION_TYPE_BUILDING;
-        this->currentProductionCell = &this->getCellDescription(m, n);
-        this->currentProduction = availableBuildings[buildingChoice - 1];
-    }
-    else if (choice == 2) {
-        std::cout << "Please select one activity" << std::endl;
-        for (int i = 0; i < activitySize; i++) {
-            std::cout << i + 1 << ". " << availableActivities[i]->getName() << std::endl;
-        }
-        int activityChoice;
-        std::cin >> activityChoice;
-        if (activityChoice > activitySize || activityChoice < 1) {
-            std::cout << "Invalid choice" << std::endl;
-            return -1;
-        }
-        this->currentProductionType = PRODUCTION_TYPE_ACTIVITY;
-        this->currentProductionCell = 0;
-        this->currentProduction = availableActivities[activityChoice - 1];
-    }
-    clear();
+    // out();
+    // std::cout << < "Please select one production" << std::endl;
+    // std::cout << "1. Building" << std::endl;
+    // std::cout << "2. Activity" << std::endl;
+    // int choice;
+    // std::cin >> choice;
+    // if (choice == 1) {
+    //     std::cout << "Please select one building" << std::endl;
+    //     for (int i = 0; i < buildingSize; i++) {
+    //         std::cout << i + 1 << ". " << availableBuildings[i]->getName() << std::endl;
+    //     }
+    //     int buildingChoice;
+    //     std::cin >> buildingChoice;
+    //     if (buildingChoice > buildingSize || buildingChoice < 1) {
+    //         std::cout << "Invalid choice" << std::endl;
+    //         return -1;
+    //     }
+    //     std::cout << "Please select one cell" << std::endl;
+    //     int m, n;
+    //     std::cin >> m >> n;
+    //     if (m > this->world->getGridHeight() || n > this->world->getGridWidth() || m < 0 || n < 0) {
+    //         std::cout << "Invalid choice" << std::endl;
+    //         return -1;
+    //     }
+    //     if (this->getCellDescription(m, n).buildingType != 0) {
+    //         std::cout << "Invalid choice" << std::endl;
+    //         return -1;
+    //     }
+    //     if (this->getAdjacentSatisfied(this->getAdjacentCells(m, n), m, n) == 0) {
+    //         std::cout << "Invalid choice" << std::endl;
+    //         return -1;
+    //     }
+    //     this->getCellDescription(m, n).buildingType = availableBuildings[buildingChoice - 1];
+    //     this->currentProductionType = PRODUCTION_TYPE_BUILDING;
+    //     this->currentProductionCell = &this->getCellDescription(m, n);
+    //     this->currentProduction = availableBuildings[buildingChoice - 1];
+    // }
+    // else if (choice == 2) {
+    //     std::cout << "Please select one activity" << std::endl;
+    //     for (int i = 0; i < activitySize; i++) {
+    //         std::cout << i + 1 << ". " << availableActivities[i]->getName() << std::endl;
+    //     }
+    //     int activityChoice;
+    //     std::cin >> activityChoice;
+    //     if (activityChoice > activitySize || activityChoice < 1) {
+    //         std::cout << "Invalid choice" << std::endl;
+    //         return -1;
+    //     }
+    //     this->currentProductionType = PRODUCTION_TYPE_ACTIVITY;
+    //     this->currentProductionCell = 0;
+    //     this->currentProduction = availableActivities[activityChoice - 1];
+    // }
+    // clear();
     return 1;
 }
 
