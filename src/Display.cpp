@@ -1,7 +1,7 @@
 #include "Display.h"
 using namespace std;
 char landformNames[8] = { 'O', 'S', 'P', 'H', 'D', 'M', 'N' };
-char architecture[6] = { 'C', 'A' ,'T','W','I'};
+char architecture[6] = { 'C', 'A' ,'T','W','I' };
 // 移动光标位置至(x,y);
 // 隐藏光标;
 void Display::go(float x, float y)
@@ -74,7 +74,7 @@ void Display::DrawMap(Grid* grid)
         "9\n"
         "0\n"
         "Y\n";
-    
+
     // enum Landform{OCEAN=0, SEA, PLAIN, HILLY, DESERT, MOUNTAIN, NOTYPE};
     for (int i = 1; i < 21; i++)
     {
@@ -91,7 +91,7 @@ void Display::DrawMap(Grid* grid)
                 cout << landformNames[form_int] << " ";
             }
             else {
-                cout <<RED<< architecture[arr.buildingType->num]<<DEFAULT;
+                cout << RED << architecture[arr.buildingType->num] << DEFAULT;
             }
         }
     }
@@ -200,10 +200,6 @@ void Display::MainProcess(Controller* controller, Grid* grid, Building** buildin
         {
             cout << "You win." << endl;
             return;
-        }
-        else if (newX != -1)
-        {
-            cout << "Border expanded at (" << newX << ", " << newY << "), when culture reaches " << nextThres << " border will expand again." << endl;
         }
         DrawMap(grid);
         int pop = DrawAttributes(controller, grid);
