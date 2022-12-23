@@ -264,48 +264,117 @@ void Controller::updateAttributes() {
     }
 }
 
-Cell** Controller::getAdjacentCells(int m, int n) {
+Cell **Controller::getAdjacentCells(int m, int n)
+{
     // todo: get the adjacent cells from cell (m, n)
-    //you can use this as :Cell** adjacent=getAdjacentCells(m,n) to get the details of (m,n)'s up, left ,down and right
+    // you can use this as :Cell** adjacent=getAdjacentCells(m,n) to get the details of (m,n)'s up, left ,down and right
     // Cell adj=new Cell[1];
-    Cell** adjacent = new Cell * [4];
-    for (int i = 0;i < 4;i++)
-    {
-        // adjacent[i] = new Cell ;
-    }
+    Cell **adjacent = new Cell *[4];
     if (m == 0 && n == 0)
     {
         adjacent[0] = 0;
+        adjacent[1] = 0;
         adjacent[2] = new Cell;
+        adjacent[3] = new Cell;
         *adjacent[2] = getCellDescription(m + 1, n);
-        adjacent[2] = new Cell;
         *adjacent[3] = getCellDescription(m, n + 1);
     }
     else if (m == 19 && n == 19)
     {
-
+        adjacent[0] = new Cell;
+        adjacent[1] = new Cell;
+        adjacent[2] = 0;
+        adjacent[3] = 0;
+        *adjacent[0] = getCellDescription(m - 1, n);
+        *adjacent[1] = getCellDescription(m, n - 1);
+    }
+    else if (m == 0 && n == 19)
+    {
+        adjacent[0] = 0;
+        adjacent[1] = new Cell;
+        adjacent[2] = new Cell;
+        adjacent[3] = 0;
+        *adjacent[1] = getCellDescription(m, n - 1);
+        *adjacent[2] = getCellDescription(m + 1, n);
+    }
+    else if (m == 19 && n == 0)
+    {
+        adjacent[0] = new Cell;
+        adjacent[1] = 0;
+        adjacent[2] = 0;
+        adjacent[3] = new Cell;
+        *adjacent[0] = getCellDescription(m - 1, n);
+        *adjacent[3] = getCellDescription(m, n + 1);
     }
     else if (m == 0)
     {
-        adjacent[1] = getCellDescription(m - 1, n);
-        adjacent[2] = getCellDescription(m + 1, n);
-        adjacent[3] = getCellDescription(m, n + 1);
+        adjacent[0] = 0;
+        adjacent[1] = new Cell;
+        adjacent[2] = new Cell;
+        adjacent[3] = new Cell;
+        *adjacent[1] = getCellDescription(m, n - 1);
+        *adjacent[2] = getCellDescription(m + 1, n);
+        *adjacent[3] = getCellDescription(m, n + 1);
+    }
+    else if (n == 0)
+    {
+        adjacent[0] = new Cell;
+        adjacent[1] = 0;
+        adjacent[2] = new Cell;
+        adjacent[3] = new Cell;
+        *adjacent[0] = getCellDescription(m - 1, n);
+        *adjacent[2] = getCellDescription(m + 1, n);
+        *adjacent[3] = getCellDescription(m, n + 1);
+    }
+    else if (m == 19)
+    {
+        adjacent[0] = new Cell;
+        adjacent[1] = new Cell;
+        adjacent[2] = 0;
+        adjacent[3] = new Cell;
+        *adjacent[0] = getCellDescription(m - 1, n);
+        *adjacent[1] = getCellDescription(m, n - 1);
+        *adjacent[3] = getCellDescription(m, n + 1);
+    }
+    else if (n == 19)
+    {
+        adjacent[0] = new Cell;
+        adjacent[1] = new Cell;
+        adjacent[2] = new Cell;
+        adjacent[3] = 0;
+        *adjacent[0] = getCellDescription(m - 1, n);
+        *adjacent[1] = getCellDescription(m, n - 1);
+        *adjacent[2] = getCellDescription(m + 1, n);
+    }
+    else
+    {
+        adjacent[0] = new Cell;
+        adjacent[1] = new Cell;
+        adjacent[2] = new Cell;
+        adjacent[3] = new Cell;
+        *adjacent[0] = getCellDescription(m - 1, n);
+        *adjacent[1] = getCellDescription(m, n - 1);
+        *adjacent[2] = getCellDescription(m + 1, n);
+        *adjacent[3] = getCellDescription(m, n + 1);
     }
 }
 
-int Controller::getAdjacentSatisfied(Cell** adjacents, char buildingName, Landform landformType) {
+int Controller::getAdjacentSatisfied(Cell **adjacents, char buildingName, Landform landformType)
+{
     // todo: check whether the adjacent cells satisfy the landformType and buildingName(s), you need to rewrite it if you use a hexagonal map
     unsigned satisfiedCellsNum = 0;
-    for (int t = 0; t < 4; t++) {
-        if (adjacents[t] != 0) {
-            satisfiedCellsNum += ((adjacents[t]->buildingType && (buildingName == 'a' || adjacents[t]->buildingType->name[0] == buildingName))
-                && adjacents[t]->landform == landformType);
+    for (int t = 0; t < 4; t++)
+    {
+        if (adjacents[t] != 0)
+        {
+            satisfiedCellsNum += ((adjacents[t]->buildingType && (buildingName == 'a' || adjacents[t]->buildingType->name[0] == buildingName)) && adjacents[t]->landform == landformType);
         }
     }
-    for (int i = 0;i < 4;i++) {
-        if (adjacents[i] != 0) delete  adjacents[i];
+    for (int i = 0; i < 4; i++)
+    {
+        if (adjacents[i] != 0)
+            delete adjacents[i];
     }
     delete[] adjacents;
     return satisfiedCellsNum;
 }
-
