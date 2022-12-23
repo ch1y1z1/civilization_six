@@ -29,7 +29,7 @@ Display::~Display()
 // 划分输入区
 void Display::out()
 {
-    go(0, 22);
+    go(0, 23);
     cout << "--------------------------------------------\n";
     cout << "              INTERACT HERE\n";
     go(0, 24);
@@ -74,6 +74,7 @@ void Display::DrawMap(Grid* grid)
         "9\n"
         "0\n"
         "Y\n";
+    
     // enum Landform{OCEAN=0, SEA, PLAIN, HILLY, DESERT, MOUNTAIN, NOTYPE};
     for (int i = 1; i < 21; i++)
     {
@@ -101,6 +102,8 @@ void Display::DrawMap(Grid* grid)
 int Display::DrawAttributes(Controller* controller, Grid* grid)
 {
     // TODO: draw the attributes, population, and the distribution of workers, return the population绘制属性、人口和工人的分布，返回人口
+    go(0, 22);
+    cout << "\n\nRound: " << controller->getRound() << endl;
     int pop = controller->getPop();
     int max_pop = controller->getAttributes().food;
     go(50, 0);
@@ -206,6 +209,6 @@ void Display::MainProcess(Controller* controller, Grid* grid, Building** buildin
         int pop = DrawAttributes(controller, grid);
         DrawProduction(controller, buildings);
         DrawWorkersChange(controller, pop);
-        cout << "\n\nRound: " << controller->getRound() << endl;
+       
     }
 }
