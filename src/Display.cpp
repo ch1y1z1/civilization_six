@@ -209,6 +209,5 @@ void Display::MainProcess(Controller* controller, Grid* grid, Building** buildin
         int pop = DrawAttributes(controller, grid);
         DrawProduction(controller, buildings);
         DrawWorkersChange(controller, pop);
-       
     }
 }
