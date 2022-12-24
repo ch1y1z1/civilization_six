@@ -139,7 +139,7 @@ bool Controller::nextRound(int& newX, int& newY, float& nextThres)
     this->checkBorderUpdate(newX, newY, nextThres);
     this->setPopAt();
     this->updateProduction();
-    this->updateAttributes();
+    // this->updateAttributes();
 
     return 0;
 }
