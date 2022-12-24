@@ -58,6 +58,12 @@ void Display::DrawMap(Grid *grid)
                 cout << landformNames[form_int] << " ";
                 turn_white();
             }
+            else if (arr.buildingType == 0)
+            {
+                turn_green();
+                cout << landformNames[form_int] << " ";
+                turn_white();
+            }
             else
             {
                 turn_blue();
@@ -66,7 +72,6 @@ void Display::DrawMap(Grid *grid)
             }
         }
     }
-    cout << "map success";
 }
 
 int Display::DrawAttributes(Controller *controller, Grid *grid)
@@ -156,21 +161,21 @@ void Display::MainProcess(Controller *controller, Grid *grid, Building **buildin
     {
         int x, y;
         cin >> x >> y;
-        Cell arr = grid->getRepresent(x/2-1,y-1);
+        Cell arr = grid->getRepresent(x / 2 - 1, y - 1);
         Landform form = arr.landform;
-        if (x % 2 != 0||form==SEA||form==OCEAN||form==MOUNTAIN)
+        if (x % 2 != 0 || form == SEA || form == OCEAN || form == MOUNTAIN)
         {
             cout << "invalid input or this place cannot be a center";
             continue;
         }
-            controller->getCellDescription(x / 2 - 1, y - 1).Pop = OWNED;
-            controller->getCellDescription(x / 2 - 1 - 1, y - 1).Pop = OWNED;
-            controller->getCellDescription(x / 2 - 1, y - 1 - 1).Pop = OWNED;
-            controller->getCellDescription(x / 2 - 1 + 1, y - 1).Pop = OWNED;
-            controller->getCellDescription(x / 2 - 1, y + 1 - 1).Pop = OWNED;
-            controller->SetProductionBuilding(x / 2 - 1, y - 1, buildings[0]);
-            break;
-            clear();
+        controller->getCellDescription(x / 2 - 1, y - 1).Pop = OWNED;
+        controller->getCellDescription(x / 2 - 1 - 1, y - 1).Pop = OWNED;
+        controller->getCellDescription(x / 2 - 1, y - 1 - 1).Pop = OWNED;
+        controller->getCellDescription(x / 2 - 1 + 1, y - 1).Pop = OWNED;
+        controller->getCellDescription(x / 2 - 1, y + 1 - 1).Pop = OWNED;
+        controller->SetProductionBuilding(x / 2 - 1, y - 1, buildings[0]);
+        break;
+        clear();
     }
     this->DrawMap(grid);
     while (true)
