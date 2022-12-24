@@ -151,6 +151,7 @@ int Controller::updateProduction()
     // char Buildingnames[20][20] = { "center", "campus", "theatre", "wonder", "industrialpark" };
     if (this->currentProduction == 0)
     {
+        clear();
         out();
         std::cout << "Please select one production" << std::endl;
         std::cout << "1. Building" << std::endl;
