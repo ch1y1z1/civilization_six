@@ -30,7 +30,7 @@ public:
     bool SetProductionActivity(Activity* activity);
     bool SetProductionActivity(int activityOrder);
 
-    int setPopAt();
+    int setPopAt(Display* display);
 
     Attributes getAttributes();
 

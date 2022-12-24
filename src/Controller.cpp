@@ -137,7 +137,7 @@ bool Controller::nextRound(int& newX, int& newY, float& nextThres, Display* disp
 
     this->currentRound++;
     this->checkBorderUpdate(newX, newY, nextThres);
-    this->setPopAt();
+    this->setPopAt(display);
     this->updateProduction();
     this->updateAttributes();
 
@@ -258,7 +258,7 @@ int Controller::checkBorderUpdate(int& newX, int& newY, float& nextThres)
     return 0;
 }
 
-int Controller::setPopAt()
+int Controller::setPopAt(Display* display)
 {
     // todo: add or remove the worker at (m, n), return 0 if the action is successful
     bool flag = this->checkPop();
