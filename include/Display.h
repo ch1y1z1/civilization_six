@@ -13,7 +13,7 @@ public:
 
     ~Display();
 
-    void DrawMap(Grid *grid);
+    void DrawMap(Grid *grid,Controller *controller);
 
     int DrawAttributes(Controller *controller, Grid *grid);
 

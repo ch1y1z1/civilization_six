@@ -209,7 +209,6 @@ int Controller::updateProduction()
         clear();
     }
     // this->DrawMap(grid);
-    system("pause");
     return 1;
 }
 
@@ -252,7 +251,7 @@ int Controller::checkBorderUpdate(int& newX, int& newY, float& nextThres)
         std::cout << "Border is now Expandable" << std::endl;
         std::cout << "Please input the coordinates of the new border" << std::endl;
         std::cin >> newX >> newY;
-        this->getCellDescription(newX, newY).Pop = OWNED;
+        this->getCellDescription(newX/2-1, newY-1).Pop = OWNED;
         clear();
         return 1;
     }

@@ -13,7 +13,7 @@ Display::~Display()
     // dtor
 }
 // 画地图
-void Display::DrawMap(Grid *grid)
+void Display::DrawMap(Grid *grid, Controller *controller)
 {
     go(0, 0);
     cout << "0 2 4 6 8 10121416182022242628303234363840X\n"
@@ -38,6 +38,8 @@ void Display::DrawMap(Grid *grid)
             "9\n"
             "0\n"
             "Y\n";
+    go(0, 22);
+    cout << "Round: " << controller->getRound();
     // enum Landform{OCEAN=0, SEA, PLAIN, HILLY, DESERT, MOUNTAIN, NOTYPE};
     for (int i = 1; i < 21; i++)
     {
@@ -77,8 +79,6 @@ void Display::DrawMap(Grid *grid)
 int Display::DrawAttributes(Controller *controller, Grid *grid)
 {
     // TODO: draw the attributes, population, and the distribution of workers, return the population绘制属性、人口和工人的分布，返回人口
-    go(0, 22);
-    cout << "\n\nRound: " << controller->getRound() << endl;
     int pop = controller->getPop();
     int max_pop = controller->getAttributes().food;
     go(50, 0);
@@ -89,7 +89,7 @@ int Display::DrawAttributes(Controller *controller, Grid *grid)
     cout << "expected that the population will change to    in Round  ";
     go(50, 3);
     cout << "distribution:";
-    static int pop_num = 0;
+    int pop_num = 0;
     for (int i = 1; i < 21; i++)
     {
         for (int j = 1; j < 21; j++)
@@ -112,26 +112,26 @@ int Display::DrawAttributes(Controller *controller, Grid *grid)
     return pop;
 }
 
-// void Display::DrawWorkersChange(Controller *controller, int pop)
-// {
-//     // TODO: draw the change of workers, and receive the input for changing the distribution of workers绘制工人的变化，并接收改变工人分布的输入
-//     // go(0, 22);
-//     // cout << "For example : from (1 1) to (2 3) ";
+void Display::DrawWorkersChange(Controller *controller, int pop)
+{
+    // TODO: draw the change of workers, and receive the input for changing the distribution of workers绘制工人的变化，并接收改变工人分布的输入
+    // go(0, 22);
+    // cout << "For example : from (1 1) to (2 3) ";
 
-//     // go(0, 23);
-//     // cout << "choose whether to change (y means yes,n means no)";
-//     // char s;
-//     // cin >> s;
-//     // if (s == 'y' || 'Y')
-//     // {
+    // go(0, 23);
+    // cout << "choose whether to change (y means yes,n means no)";
+    // char s;
+    // cin >> s;
+    // if (s == 'y' || 'Y')
+    // {
 
-//     // }
-//     // else
-//     // {
-//     //     go(50, 23);
-//     //     cout << "you choose not to change the workers";
-//     // }
-// }
+    // }
+    // else
+    // {
+    //     go(50, 23);
+    //     cout << "you choose not to change the workers";
+    // }
+}
 
 void Display::DrawProduction(Controller *controller, Building **buildings)
 {
@@ -191,6 +191,5 @@ void Display::MainProcess(Controller *controller, Grid *grid, Building **buildin
         int pop = DrawAttributes(controller, grid);
         DrawProduction(controller, buildings);
         DrawWorkersChange(controller, pop);
-        system("pause");
     }
 }
