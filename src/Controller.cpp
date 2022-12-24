@@ -129,7 +129,7 @@ int Controller::updateProduction()
 {
     // todo: update the process of current prodution
     // std::cout << "Please select one production" << std::endl;
-    char Buildingnames[20][20] = { "center", "campus", "theatre", "wonder", "industrialpark" };
+    // char Buildingnames[20][20] = { "center", "campus", "theatre", "wonder", "industrialpark" };
     if (this->currentProduction == 0)
     {
         out();
