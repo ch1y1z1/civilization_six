@@ -23,6 +23,8 @@ public:
 
     Activity** availableActivities;
     int activitySize = 0;
+    Building** availableBuildings;
+    // int buildingSize = 0;
 
     bool SetProductionBuilding(int m, int n, Building* Building);
     bool SetProductionActivity(Activity* activity);

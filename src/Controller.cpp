@@ -129,6 +129,7 @@ int Controller::updateProduction()
 {
     // todo: update the process of current prodution
     // std::cout << "Please select one production" << std::endl;
+    char Buildingnames[20][20] = { "center", "campus", "theatre", "wonder", "industrialpark" };
     if (this->currentProduction == 0)
     {
         out();
@@ -163,7 +164,7 @@ int Controller::updateProduction()
                 std::cout << "please select one building" << std::endl;
                 for (int i = 0; i < 5; i++)
                 {
-                    std::cout << i << ". " << availableBuildings[i]->getName() << std::endl;
+                    std::cout << i << ". " << Buildingnames[i] << std::endl;
                 }
                 break;
             }
