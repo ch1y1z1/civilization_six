@@ -16,7 +16,6 @@ Display::~Display()
 void Display::DrawMap(Grid *grid)
 {
     go(0, 0);
-    // TODO: draw the map
     cout << "0 2 4 6 8 10121416182022242628303234363840X\n"
             "1\n"
             "2\n"
@@ -67,7 +66,7 @@ void Display::DrawMap(Grid *grid)
             }
         }
     }
-    go(0, 22);
+    cout << "map success";
 }
 
 int Display::DrawAttributes(Controller *controller, Grid *grid)
@@ -108,26 +107,26 @@ int Display::DrawAttributes(Controller *controller, Grid *grid)
     return pop;
 }
 
-void Display::DrawWorkersChange(Controller *controller, int pop)
-{
-    // TODO: draw the change of workers, and receive the input for changing the distribution of workers绘制工人的变化，并接收改变工人分布的输入
-    // go(0, 22);
-    // cout << "For example : from (1 1) to (2 3) ";
+// void Display::DrawWorkersChange(Controller *controller, int pop)
+// {
+//     // TODO: draw the change of workers, and receive the input for changing the distribution of workers绘制工人的变化，并接收改变工人分布的输入
+//     // go(0, 22);
+//     // cout << "For example : from (1 1) to (2 3) ";
 
-    // go(0, 23);
-    // cout << "choose whether to change (y means yes,n means no)";
-    // char s;
-    // cin >> s;
-    // if (s == 'y' || 'Y')
-    // {
+//     // go(0, 23);
+//     // cout << "choose whether to change (y means yes,n means no)";
+//     // char s;
+//     // cin >> s;
+//     // if (s == 'y' || 'Y')
+//     // {
 
-    // }
-    // else
-    // {
-    //     go(50, 23);
-    //     cout << "you choose not to change the workers";
-    // }
-}
+//     // }
+//     // else
+//     // {
+//     //     go(50, 23);
+//     //     cout << "you choose not to change the workers";
+//     // }
+// }
 
 void Display::DrawProduction(Controller *controller, Building **buildings)
 {
@@ -161,7 +160,7 @@ void Display::MainProcess(Controller *controller, Grid *grid, Building **buildin
         Landform form = arr.landform;
         if (x % 2 != 0||form==SEA||form==OCEAN||form==MOUNTAIN)
         {
-            cout << "invalid input or this place cannot be a center\n";
+            cout << "invalid input or this place cannot be a center";
             continue;
         }
             controller->getCellDescription(x / 2 - 1, y - 1).Pop = OWNED;
@@ -183,9 +182,10 @@ void Display::MainProcess(Controller *controller, Grid *grid, Building **buildin
             cout << "You win." << endl;
             return;
         }
-        DrawMap(grid);
+        this->DrawMap(grid);
         int pop = DrawAttributes(controller, grid);
         DrawProduction(controller, buildings);
         DrawWorkersChange(controller, pop);
+        system("pause");
     }
 }
