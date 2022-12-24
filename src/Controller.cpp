@@ -138,18 +138,22 @@ int Controller::updateProduction()
     switch (choice)
     {
     case 1:
-        std::cout << "please input the coordinates" << std::endl;
-        int m, n;
-        std::cin >> m >> n;
-        if (m > this->world->getGridHeight() || n > this->world->getGridWidth() || m < 0 || n < 0)
+        while (1)
         {
-            std::cout << "invalid input: out of range" << std::endl;
-            return 0;
-        }
-        if (this->getCellDescription(m, n).buildingType != 0)
-        {
-            std::cout << "invalid input: there has been a building yet" << std::endl;
-            return 0;
+            std::cout << "please input the coordinates" << std::endl;
+            int m, n;
+            std::cin >> m >> n;
+            if (m > this->world->getGridHeight() || n > this->world->getGridWidth() || m < 0 || n < 0)
+            {
+                std::cout << "invalid input: out of range" << std::endl;
+                continue;
+            }
+            if (this->getCellDescription(m, n).buildingType != 0)
+            {
+                std::cout << "invalid input: there has been a building yet" << std::endl;
+                continue;
+            }
+            break;
         }
         this->currentProductionType = PRODUCTION_TYPE_BUILDING;
         this->currentProductionCell = 0;
