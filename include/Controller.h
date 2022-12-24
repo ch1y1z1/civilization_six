@@ -67,7 +67,7 @@ private:
 
     Grid* world;
 
-    int updateProduction();
+    int updateProduction(Display* display);
 
     void updatePop();
 
