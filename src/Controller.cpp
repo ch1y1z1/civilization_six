@@ -138,13 +138,13 @@ bool Controller::nextRound(int& newX, int& newY, float& nextThres, Display* disp
     this->currentRound++;
     this->checkBorderUpdate(newX, newY, nextThres);
     this->setPopAt(display);
-    this->updateProduction();
+    this->updateProduction(display);
     this->updateAttributes();
 
     return 0;
 }
 
-int Controller::updateProduction()
+int Controller::updateProduction(Display* display)
 {
     // todo: update the process of current prodution
     // std::cout << "Please select one production" << std::endl;
