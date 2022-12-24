@@ -129,38 +129,51 @@ int Controller::updateProduction()
 {
     // todo: update the process of current prodution
     // std::cout << "Please select one production" << std::endl;
-    out();
-    std::cout << < "Please select one production" << std::endl;
-    std::cout << "1. Building" << std::endl;
-    std::cout << "2. Activity" << std::endl;
-    int choice;
-    std::cin >> choice;
-    switch (choice)
+    if (this->currentProduction == 0)
     {
-    case 1:
-        while (1)
+        out();
+        std::cout << < "Please select one production" << std::endl;
+        std::cout << "1. Building" << std::endl;
+        std::cout << "2. Activity" << std::endl;
+        int choice;
+        std::cin >> choice;
+        switch (choice)
         {
-            std::cout << "please input the coordinates" << std::endl;
-            int m, n;
-            std::cin >> m >> n;
-            if (m > this->world->getGridHeight() || n > this->world->getGridWidth() || m < 0 || n < 0)
+        case 1:
+            while (1)
             {
-                std::cout << "invalid input: out of range" << std::endl;
-                continue;
+                std::cout << "please input the coordinates" << std::endl;
+                int m, n;
+                std::cin >> m >> n;
+                if (m > this->world->getGridHeight() || n > this->world->getGridWidth() || m < 0 || n < 0)
+                {
+                    std::cout << "invalid input: out of range" << std::endl;
+                    continue;
+                }
+                if (this->getCellDescription(m, n).buildingType != 0)
+                {
+                    std::cout << "invalid input: there has been a building yet" << std::endl;
+                    continue;
+                }
+                if (this->getAdjacentSatisfied(this->getAdjacentCells(m, n), m, n) == 0)
+                {
+                    std::cout << "invalid input: not adjacent to another building" << std::endl;
+                    continue;
+                }
+                std::cout << "please select one building" << std::endl;
+                for (int i = 0; i < 5; i++)
+                {
+                    std::cout << i << ". " << availableBuildings[i]->getName() << std::endl;
+                }
+                break;
             }
-            if (this->getCellDescription(m, n).buildingType != 0)
-            {
-                std::cout << "invalid input: there has been a building yet" << std::endl;
-                continue;
-            }
+            this->currentProductionType = PRODUCTION_TYPE_BUILDING;
+            this->currentProductionCell = 0;
+            this->currentProduction = 0;
             break;
         }
-        this->currentProductionType = PRODUCTION_TYPE_BUILDING;
-        this->currentProductionCell = 0;
-        this->currentProduction = 0;
-        break;
+        clear();
     }
-    clear();
     return 1;
 }
 
