@@ -139,7 +139,7 @@ bool Controller::nextRound(int& newX, int& newY, float& nextThres)
     this->checkBorderUpdate(newX, newY, nextThres);
     this->setPopAt();
     this->updateProduction();
-    // this->updateAttributes();
+    this->updateAttributes();
 
     return 0;
 }
@@ -192,9 +192,9 @@ int Controller::updateProduction()
                     continue;
                 }
                 // this->currentProductionType = PRODUCTION_TYPE_BUILDING;
-                // this->currentProductionCell = &this->getCellDescription(m, n);
-                // this->currentProduction = this->availableBuildings[buildingchoice];
-                // this->prod_needed_to_active = this->availableBuildings[buildingchoice]->prodSpent * this->getRound() / 100;
+                this->currentProductionCell = &this->getCellDescription(m, n);
+                this->currentProduction = this->availableBuildings[buildingchoice];
+                this->prod_needed_to_active = this->availableBuildings[buildingchoice]->prodSpent * this->getRound() / 100;
                 this->getCellDescription(m, n).buildingType = this->availableBuildings[buildingchoice];
 
                 break;
@@ -209,6 +209,7 @@ int Controller::updateProduction()
         clear();
     }
     // this->DrawMap(grid);
+    system("pause");
     return 1;
 }
 

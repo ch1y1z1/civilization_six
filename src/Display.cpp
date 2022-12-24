@@ -184,9 +184,10 @@ void Display::MainProcess(Controller *controller, Grid *grid, Building **buildin
             cout << "You win." << endl;
             return;
         }
-        DrawMap(grid);
-        int pop = DrawAttributes(controller, grid);
-        DrawProduction(controller, buildings);
-        DrawWorkersChange(controller, pop);
+        this->DrawMap(grid);
+        // int pop = DrawAttributes(controller, grid);
+        // DrawProduction(controller, buildings);
+        // DrawWorkersChange(controller, pop);
+        system("pause");
     }
 }
