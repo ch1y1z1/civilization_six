@@ -130,21 +130,21 @@ bool Controller::SetProductionActivity(int activityOrder)
     return true;
 }
 
-bool Controller::nextRound(int& newX, int& newY, float& nextThres, Display* display)
+bool Controller::nextRound(int& newX, int& newY, float& nextThres)
 { // ! main here
     if (this->checkWin())
         return 1;
 
     this->currentRound++;
     this->checkBorderUpdate(newX, newY, nextThres);
-    this->setPopAt(display);
-    this->updateProduction(display);
+    this->setPopAt();
+    this->updateProduction();
     this->updateAttributes();
 
     return 0;
 }
 
-int Controller::updateProduction(Display* display)
+int Controller::updateProduction()
 {
     // todo: update the process of current prodution
     // std::cout << "Please select one production" << std::endl;
@@ -258,7 +258,7 @@ int Controller::checkBorderUpdate(int& newX, int& newY, float& nextThres)
     return 0;
 }
 
-int Controller::setPopAt(Display* display)
+int Controller::setPopAt()
 {
     // todo: add or remove the worker at (m, n), return 0 if the action is successful
     bool flag = this->checkPop();

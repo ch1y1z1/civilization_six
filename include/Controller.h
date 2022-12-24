@@ -17,7 +17,7 @@ public:
 
     bool bindGrid(Grid* grid);
 
-    bool nextRound(int& newX, int& newY, float& nextThres, Display* display);
+    bool nextRound(int& newX, int& newY, float& nextThres);
 
     int checkPop();
 
@@ -30,7 +30,7 @@ public:
     bool SetProductionActivity(Activity* activity);
     bool SetProductionActivity(int activityOrder);
 
-    int setPopAt(Display* display);
+    int setPopAt();
 
     Attributes getAttributes();
 
@@ -67,7 +67,7 @@ private:
 
     Grid* world;
 
-    int updateProduction(Display* display);
+    int updateProduction();
 
     void updatePop();
 
