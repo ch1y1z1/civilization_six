@@ -129,59 +129,34 @@ int Controller::updateProduction()
 {
     // todo: update the process of current prodution
     // std::cout << "Please select one production" << std::endl;
-    // out();
-    // std::cout << < "Please select one production" << std::endl;
-    // std::cout << "1. Building" << std::endl;
-    // std::cout << "2. Activity" << std::endl;
-    // int choice;
-    // std::cin >> choice;
-    // if (choice == 1) {
-    //     std::cout << "Please select one building" << std::endl;
-    //     for (int i = 0; i < buildingSize; i++) {
-    //         std::cout << i + 1 << ". " << availableBuildings[i]->getName() << std::endl;
-    //     }
-    //     int buildingChoice;
-    //     std::cin >> buildingChoice;
-    //     if (buildingChoice > buildingSize || buildingChoice < 1) {
-    //         std::cout << "Invalid choice" << std::endl;
-    //         return -1;
-    //     }
-    //     std::cout << "Please select one cell" << std::endl;
-    //     int m, n;
-    //     std::cin >> m >> n;
-    //     if (m > this->world->getGridHeight() || n > this->world->getGridWidth() || m < 0 || n < 0) {
-    //         std::cout << "Invalid choice" << std::endl;
-    //         return -1;
-    //     }
-    //     if (this->getCellDescription(m, n).buildingType != 0) {
-    //         std::cout << "Invalid choice" << std::endl;
-    //         return -1;
-    //     }
-    //     if (this->getAdjacentSatisfied(this->getAdjacentCells(m, n), m, n) == 0) {
-    //         std::cout << "Invalid choice" << std::endl;
-    //         return -1;
-    //     }
-    //     this->getCellDescription(m, n).buildingType = availableBuildings[buildingChoice - 1];
-    //     this->currentProductionType = PRODUCTION_TYPE_BUILDING;
-    //     this->currentProductionCell = &this->getCellDescription(m, n);
-    //     this->currentProduction = availableBuildings[buildingChoice - 1];
-    // }
-    // else if (choice == 2) {
-    //     std::cout << "Please select one activity" << std::endl;
-    //     for (int i = 0; i < activitySize; i++) {
-    //         std::cout << i + 1 << ". " << availableActivities[i]->getName() << std::endl;
-    //     }
-    //     int activityChoice;
-    //     std::cin >> activityChoice;
-    //     if (activityChoice > activitySize || activityChoice < 1) {
-    //         std::cout << "Invalid choice" << std::endl;
-    //         return -1;
-    //     }
-    //     this->currentProductionType = PRODUCTION_TYPE_ACTIVITY;
-    //     this->currentProductionCell = 0;
-    //     this->currentProduction = availableActivities[activityChoice - 1];
-    // }
-    // clear();
+    out();
+    std::cout << < "Please select one production" << std::endl;
+    std::cout << "1. Building" << std::endl;
+    std::cout << "2. Activity" << std::endl;
+    int choice;
+    std::cin >> choice;
+    switch (choice)
+    {
+    case 1:
+        std::cout << "please input the coordinates" << std::endl;
+        int m, n;
+        std::cin >> m >> n;
+        if (m > this->world->getGridHeight() || n > this->world->getGridWidth() || m < 0 || n < 0)
+        {
+            std::cout << "invalid input: out of range" << std::endl;
+            return 0;
+        }
+        if (this->getCellDescription(m, n).buildingType != 0)
+        {
+            std::cout << "invalid input: there has been a building yet" << std::endl;
+            return 0;
+        }
+        this->currentProductionType = PRODUCTION_TYPE_BUILDING;
+        this->currentProductionCell = 0;
+        this->currentProduction = 0;
+        break;
+    }
+    clear();
     return 1;
 }
 
@@ -240,9 +215,9 @@ int Controller::setPopAt() {
             std::cout << "Please input the coordinates of the pop you want to remove" << std::endl;
             int x, y;
             std::cin >> x >> y;
-            if (this->getCellDescription(x/2-1, y-1).Pop == COLONIZED)
+            if (this->getCellDescription(x / 2 - 1, y - 1).Pop == COLONIZED)
             {
-                this->getCellDescription(x / 2 - 1, y -1).Pop = OWNED;
+                this->getCellDescription(x / 2 - 1, y - 1).Pop = OWNED;
                 this->workingPop--;
                 break;
             }
@@ -261,17 +236,17 @@ int Controller::setPopAt() {
             std::cout << "Please input the coordinates of the pop you want to add" << std::endl;
             int x, y;
             std::cin >> x >> y;
-            if (this->getCellDescription(x / 2 - 1, y -1).Pop == OWNED)
+            if (this->getCellDescription(x / 2 - 1, y - 1).Pop == OWNED)
             {
-                this->getCellDescription(x / 2 - 1, y -1).Pop = COLONIZED;
+                this->getCellDescription(x / 2 - 1, y - 1).Pop = COLONIZED;
                 this->workingPop++;
                 break;
             }
-            else if (this->getCellDescription(x / 2 - 1, y -1).Pop == COLONIZED)
+            else if (this->getCellDescription(x / 2 - 1, y - 1).Pop == COLONIZED)
             {
                 std::cout << "There has already been a pop at this cell" << std::endl;
             }
-            else if (this->getCellDescription(x/2-1, y-1).Pop == WILD)
+            else if (this->getCellDescription(x / 2 - 1, y - 1).Pop == WILD)
             {
                 std::cout << "The cell havn't been owned now" << std::endl;
             }
@@ -290,23 +265,23 @@ int Controller::setPopAt() {
         if (x == 0)
             return 0;
         std::cin >> y >> newx >> newy;
-        if (!(this->getCellDescription(x/2-1, y-1).Pop == OWNED))
+        if (!(this->getCellDescription(x / 2 - 1, y - 1).Pop == OWNED))
         {
             std::cout << "There is no pop at this cell" << std::endl;
             continue;
         }
-        if (this->getCellDescription(newx/2-1, newy-1).Pop == COLONIZED)
+        if (this->getCellDescription(newx / 2 - 1, newy - 1).Pop == COLONIZED)
         {
             std::cout << "There has already been a pop at this cell" << std::endl;
             continue;
         }
-        if (this->getCellDescription(newx/2-1, newy-1).Pop == WILD)
+        if (this->getCellDescription(newx / 2 - 1, newy - 1).Pop == WILD)
         {
             std::cout << "The cell havn't been owned now" << std::endl;
             continue;
         }
-        this->getCellDescription(x/2-1, y-1).Pop = OWNED;
-        this->getCellDescription(newx/2-1, newy-1).Pop = COLONIZED;
+        this->getCellDescription(x / 2 - 1, y - 1).Pop = OWNED;
+        this->getCellDescription(newx / 2 - 1, newy - 1).Pop = COLONIZED;
         std::cout << "Switch successfully" << std::endl;
         clear();
     }
