@@ -59,7 +59,11 @@ private:
 
     int currentRound;
 
+<<<<<<< HEAD
     Production *currentProduction = 0;
+=======
+    Production* currentProduction = 0;
+>>>>>>> adacfdb976a507e05bcd20e56839c28d99875f03
     int currentProductionType = 0;
     Cell *currentProductionCell = 0;
 
