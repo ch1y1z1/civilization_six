@@ -199,9 +199,11 @@ int Controller::updateProduction()
 
                 break;
             }
-            this->currentProductionType = PRODUCTION_TYPE_BUILDING;
+            // this->currentProductionType = PRODUCTION_TYPE_BUILDING;
             // this->currentProductionCell = 0;
             // this->currentProduction = ;
+            break;
+        case 2:
             break;
         }
         clear();
