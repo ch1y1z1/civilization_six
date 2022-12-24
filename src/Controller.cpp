@@ -3,7 +3,7 @@
 #include "Display.h"
 
 const int landformBuffs[7][2] = {
-    {1, 0}, {1, 1}, {2, 1}, {2, 2}, {0, 1}, {0, 0}, {0, 0}};
+    {1, 0}, {1, 1}, {2, 1}, {2, 2}, {0, 1}, {0, 0}, {0, 0} };
 
 Controller::Controller()
 {
@@ -41,7 +41,7 @@ bool Controller::checkWin()
     return false;
 }
 
-bool Controller::bindGrid(Grid *grid)
+bool Controller::bindGrid(Grid* grid)
 {
     this->world = grid;
     return (grid != 0);
@@ -56,7 +56,7 @@ int Controller::getPop()
     return this->pop;
 }
 
-int Controller::getWorkingPop(int &workersNumber, int *&workersCellCoords)
+int Controller::getWorkingPop(int& workersNumber, int*& workersCellCoords)
 {
     workersNumber = this->workingPop;
     if (workersCellCoords != 0)
@@ -66,8 +66,8 @@ int Controller::getWorkingPop(int &workersNumber, int *&workersCellCoords)
         workersCellCoords = 0;
         return 0;
     }
-    workersCellCoords = new int[2 * workersNumber]{0};
-    Cell **grid = this->world->getGrid();
+    workersCellCoords = new int[2 * workersNumber] {0};
+    Cell** grid = this->world->getGrid();
     int m = this->world->getGridHeight(), n = this->world->getGridWidth();
     int cur = 0;
     for (int i = 0; i < m; i++)
@@ -87,7 +87,7 @@ int Controller::getWorkingPop(int &workersNumber, int *&workersCellCoords)
     return 0;
 }
 
-Cell &Controller::getCellDescription(int m, int n)
+Cell& Controller::getCellDescription(int m, int n)
 {
     return world->getRepresent(m, n);
 }
@@ -97,7 +97,7 @@ int Controller::getRound()
     return currentRound;
 }
 
-bool Controller::SetProductionBuilding(int m, int n, Building *building)
+bool Controller::SetProductionBuilding(int m, int n, Building* building)
 {
     // todo: set the current production to building at coordinates (m, n), return true if the action is successful
     if (this->getCellDescription(m, n).buildingType != 0)
@@ -111,7 +111,7 @@ bool Controller::SetProductionBuilding(int m, int n, Building *building)
     return true;
 }
 
-bool Controller::SetProductionActivity(Activity *activity)
+bool Controller::SetProductionActivity(Activity* activity)
 {
     // todo: set the current production to activity, return true if the action is successful
     this->currentProductionType = PRODUCTION_TYPE_ACTIVITY;
@@ -130,7 +130,7 @@ bool Controller::SetProductionActivity(int activityOrder)
     return true;
 }
 
-bool Controller::nextRound(int &newX, int &newY, float &nextThres)
+bool Controller::nextRound(int& newX, int& newY, float& nextThres)
 { // ! main here
     if (this->checkWin())
         return 1;
@@ -151,7 +151,6 @@ int Controller::updateProduction()
     // char Buildingnames[20][20] = { "center", "campus", "theatre", "wonder", "industrialpark" };
     if (this->currentProduction == 0)
     {
-        clear();
         out();
         std::cout << "Please select one production" << std::endl;
         std::cout << "1. Building" << std::endl;
@@ -168,7 +167,7 @@ int Controller::updateProduction()
                 int m1, n1;
                 std::cin >> m1 >> n1;
                 int m = m1 / 2 - 1;
-                int n=n1-1;
+                int n = n1 - 1;
                 if (m > this->world->getGridHeight() || n > this->world->getGridWidth() || m < 0 || n < 0)
                 {
                     std::cout << "invalid input: out of range" << std::endl;
@@ -209,7 +208,7 @@ int Controller::updateProduction()
     return 1;
 }
 
-Production *Controller::getProduction(int &productionType, Cell *&currentProductionCell)
+Production* Controller::getProduction(int& productionType, Cell*& currentProductionCell)
 {
     productionType = this->currentProductionType;
     currentProductionCell = this->currentProductionCell;
@@ -237,7 +236,7 @@ void Controller::updatePop()
     this->pop += popDelta;
 }
 
-int Controller::checkBorderUpdate(int &newX, int &newY, float &nextThres)
+int Controller::checkBorderUpdate(int& newX, int& newY, float& nextThres)
 {
     // todo: check whether the border should update or not, and if so, return the new culture threshold and expansion coordinates (newX, newY)
     nextThres = this->BorderExpandThreshold;
@@ -258,55 +257,59 @@ int Controller::checkBorderUpdate(int &newX, int &newY, float &nextThres)
 int Controller::setPopAt()
 {
     // todo: add or remove the worker at (m, n), return 0 if the action is successful
-    int flag = this->checkPop();
-    switch (flag)
+    flag = this->checkPop();
+    while (flag != 0)
     {
-    case -1:
-        out();
-        std::cout << "You have to remove pops" << std::endl;
-        while (true)
+        switch (flag)
         {
-            std::cout << "Please input the coordinates of the pop you want to remove" << std::endl;
-            int x, y;
-            std::cin >> x >> y;
-            if (this->getCellDescription(x / 2 - 1, y - 1).Pop == COLONIZED)
+        case -1:
+            out();
+            std::cout << "You have to remove pops" << std::endl;
+            while (true)
             {
-                this->getCellDescription(x / 2 - 1, y - 1).Pop = OWNED;
-                this->workingPop--;
-                break;
+                std::cout << "Please input the coordinates of the pop you want to remove" << std::endl;
+                int x, y;
+                std::cin >> x >> y;
+                if (this->getCellDescription(x / 2 - 1, y - 1).Pop == COLONIZED)
+                {
+                    this->getCellDescription(x / 2 - 1, y - 1).Pop = OWNED;
+                    this->workingPop--;
+                    break;
+                }
+                else
+                {
+                    std::cout << "There is no pop at this cell" << std::endl;
+                }
             }
-            else
+            clear();
+            break;
+        case 1:
+            out();
+            std::cout << "you may add pop to work" << std::endl;
+            while (true)
             {
-                std::cout << "There is no pop at this cell" << std::endl;
+                std::cout << "Please input the coordinates of the pop you want to add" << std::endl;
+                int x, y;
+                std::cin >> x >> y;
+                if (this->getCellDescription(x / 2 - 1, y - 1).Pop == OWNED)
+                {
+                    this->getCellDescription(x / 2 - 1, y - 1).Pop = COLONIZED;
+                    this->workingPop++;
+                    break;
+                }
+                else if (this->getCellDescription(x / 2 - 1, y - 1).Pop == COLONIZED)
+                {
+                    std::cout << "There has already been a pop at this cell" << std::endl;
+                }
+                else if (this->getCellDescription(x / 2 - 1, y - 1).Pop == WILD)
+                {
+                    std::cout << "The cell haven't been owned now" << std::endl;
+                }
             }
+            clear();
+            break;
         }
-        clear();
-        break;
-    case 1:
-        out();
-        std::cout << "you may add pop to work" << std::endl;
-        while (true)
-        {
-            std::cout << "Please input the coordinates of the pop you want to add" << std::endl;
-            int x, y;
-            std::cin >> x >> y;
-            if (this->getCellDescription(x / 2 - 1, y - 1).Pop == OWNED)
-            {
-                this->getCellDescription(x / 2 - 1, y - 1).Pop = COLONIZED;
-                this->workingPop++;
-                break;
-            }
-            else if (this->getCellDescription(x / 2 - 1, y - 1).Pop == COLONIZED)
-            {
-                std::cout << "There has already been a pop at this cell" << std::endl;
-            }
-            else if (this->getCellDescription(x / 2 - 1, y - 1).Pop == WILD)
-            {
-                std::cout << "The cell haven't been owned now" << std::endl;
-            }
-        }
-        clear();
-        break;
+        flag = this->checkPop();
     }
 
     while (true)
@@ -363,12 +366,12 @@ void Controller::updateAttributes()
     }
 }
 
-Cell **Controller::getAdjacentCells(int m, int n)
+Cell** Controller::getAdjacentCells(int m, int n)
 {
     // todo: get the adjacent cells from cell (m, n)
     // you can use this as :Cell** adjacent=getAdjacentCells(m,n) to get the details of (m,n)'s up, left ,down and right
     // Cell adj=new Cell[1];
-    Cell **adjacent = new Cell *[4];
+    Cell** adjacent = new Cell * [4];
     if (m == 0 && n == 0)
     {
         adjacent[0] = 0;
@@ -458,7 +461,7 @@ Cell **Controller::getAdjacentCells(int m, int n)
     }
 }
 
-int Controller::getAdjacentSatisfied(Cell **adjacents, char buildingName, Landform landformType)
+int Controller::getAdjacentSatisfied(Cell** adjacents, char buildingName, Landform landformType)
 {
     // todo: check whether the adjacent cells satisfy the landformType and buildingName(s), you need to rewrite it if you use a hexagonal map
     unsigned satisfiedCellsNum = 0;
