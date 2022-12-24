@@ -97,11 +97,11 @@ int Display::DrawAttributes(Controller *controller, Grid *grid)
             }
         }
     }
-    go(50, 22);
+    go(65, 23);
     cout << "technology:" << controller->getAttributes().tech;
-    go(50, 23);
+    go(65, 24);
     cout << "culture:" << controller->getAttributes().cul;
-    go(50, 24);
+    go(65, 25);
     cout << "score:" << controller->getAttributes().prod;
     return pop;
 }
@@ -136,11 +136,11 @@ void Display::DrawProduction(Controller *controller, Building **buildings)
     // cout << "请选择是否该改变生产:";
     // string product;
 
-    go(50, 27);
+    go(65, 27);
     cout << "     provided bonus remaining      rounds ";
-    go(50, 27);
+    go(65, 27);
 
-    go(50, 28);
+    go(65, 28);
 }
 
 void Display::MainProcess(Controller *controller, Grid *grid, Building **buildings, Activity **activities)

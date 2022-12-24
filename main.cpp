@@ -58,7 +58,7 @@ void clear()
     go(0, 25);
     for (int j = 0; j < 8; j++)
     {
-        for (int i = 0; i < 50; i++)
+        for (int i = 0; i < 65; i++)
         {
             cout << " ";
         }
