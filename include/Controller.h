@@ -23,6 +23,8 @@ public:
 
     Activity** availableActivities;
     int activitySize = 0;
+    Building** availableBuildings;
+    // int buildingSize = 0;
 
     bool SetProductionBuilding(int m, int n, Building* Building);
     bool SetProductionActivity(Activity* activity);
@@ -76,6 +78,7 @@ private:
 
     int getAdjacentSatisfied(Cell** adjacents, char buildingName, Landform landformType);
 
+    float prod_needed_to_active;
 };
 
 #endif // CONTROLLER_H
