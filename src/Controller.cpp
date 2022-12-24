@@ -164,8 +164,10 @@ int Controller::updateProduction()
             while (1)
             {
                 std::cout << "please input the coordinates" << std::endl;
-                int m, n;
-                std::cin >> m >> n;
+                int m1, n1;
+                std::cin >> m1 >> n1;
+                int m = m1 / 2 - 1;
+                int n = n1 - 1;
                 if (m > this->world->getGridHeight() || n > this->world->getGridWidth() || m < 0 || n < 0)
                 {
                     std::cout << "invalid input: out of range" << std::endl;
