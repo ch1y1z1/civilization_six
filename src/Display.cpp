@@ -1,7 +1,7 @@
 #include "Display.h"
 using namespace std;
-char landformNames[8] = {'O', 'S', 'P', 'H', 'D', 'M', 'N'};
-char architecture[6] = {'C', 'A', 'T', 'W', 'I'};
+char landformNames[80] = {'O', 'S', 'P', 'H', 'D', 'M', 'N'};
+char architecture[60] = {'C', 'A', 'T', 'W', 'I'};
 // 构造
 Display::Display()
 {
@@ -39,7 +39,6 @@ void Display::DrawMap(Grid *grid)
             "9\n"
             "0\n"
             "Y\n";
-
     // enum Landform{OCEAN=0, SEA, PLAIN, HILLY, DESERT, MOUNTAIN, NOTYPE};
     for (int i = 1; i < 21; i++)
     {
@@ -162,7 +161,7 @@ void Display::MainProcess(Controller *controller, Grid *grid, Building **buildin
         Landform form = arr.landform;
         if (x % 2 != 0||form==SEA||form==OCEAN||form==MOUNTAIN)
         {
-            cout << "invalid input or this place cannot be a center";
+            cout << "invalid input or this place cannot be a center\n";
             continue;
         }
             controller->getCellDescription(x / 2 - 1, y - 1).Pop = OWNED;
@@ -184,9 +183,9 @@ void Display::MainProcess(Controller *controller, Grid *grid, Building **buildin
             cout << "You win." << endl;
             return;
         }
-        DrawMap(grid);
-        int pop = DrawAttributes(controller, grid);
-        DrawProduction(controller, buildings);
-        DrawWorkersChange(controller, pop);
+        // DrawMap(grid);
+        // int pop = DrawAttributes(controller, grid);
+        // DrawProduction(controller, buildings);
+        // DrawWorkersChange(controller, pop);
     }
 }
