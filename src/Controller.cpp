@@ -141,6 +141,7 @@ int Controller::updateProduction()
         switch (choice)
         {
         case 1:
+            int buldingchoice;
             while (1)
             {
                 std::cout << "please input the coordinates" << std::endl;
@@ -164,13 +165,26 @@ int Controller::updateProduction()
                 std::cout << "please select one building" << std::endl;
                 for (int i = 0; i < 5; i++)
                 {
-                    std::cout << i << ". " << Buildingnames[i] << std::endl;
+                    // std::cout << i << ". " << Buildingnames[i] << std::endl;
+                    std::cout << i << ". " << this->availableBuildings[i]->name << std::endl;
                 }
+                std::cin >> buldingchoice;
+                if (buldingchoice < 0 || buldingchoice > 4)
+                {
+                    std::cout << "invalid input: out of range" << std::endl;
+                    continue;
+                }
+                this->currentProductionType = PRODUCTION_TYPE_BUILDING;
+                // this->currentProductionCell = &this->getCellDescription(m, n);
+                this->currentProduction = this->availableBuildings[buldingchoice];
+                this->prod_needed_to_active = this->availableBuildings[buldingchoice]->prodSpent * this->currentRound() / 100;
+
+
                 break;
             }
             this->currentProductionType = PRODUCTION_TYPE_BUILDING;
             // this->currentProductionCell = 0;
-            this->currentProduction = 0;
+            this->currentProduction = ;
             break;
         }
         clear();

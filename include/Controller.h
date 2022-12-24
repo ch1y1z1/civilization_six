@@ -78,6 +78,7 @@ private:
 
     int getAdjacentSatisfied(Cell** adjacents, char buildingName, Landform landformType);
 
+    float prod_needed_to_active;
 };
 
 #endif // CONTROLLER_H
