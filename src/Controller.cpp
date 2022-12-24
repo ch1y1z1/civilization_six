@@ -172,7 +172,7 @@ int Controller::updateProduction()
                 this->currentProductionType = PRODUCTION_TYPE_BUILDING;
                 // this->currentProductionCell = &this->getCellDescription(m, n);
                 this->currentProduction = this->availableBuildings[buldingchoice];
-                this->prod_needed_to_active = this->availableBuildings[buldingchoice]->prodSpent * this->currentRound() / 100;
+                this->prod_needed_to_active = this->availableBuildings[buldingchoice]->prodSpent * this->currentRound / 100;
 
 
                 break;
