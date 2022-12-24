@@ -208,7 +208,7 @@ int Controller::updateProduction(Display* display)
         }
         clear();
     }
-    this->DrawMap(grid);
+    // this->DrawMap(grid);
     return 1;
 }
 
@@ -314,7 +314,7 @@ int Controller::setPopAt(Display* display)
             break;
         }
         flag = this->checkPop();
-        this->DrawMap(grid);
+        // display->DrawMap(grid);
     }
 
     while (true)
@@ -346,7 +346,7 @@ int Controller::setPopAt(Display* display)
         this->getCellDescription(newx / 2 - 1, newy - 1).Pop = COLONIZED;
         std::cout << "Switch successfully" << std::endl;
         clear();
-        this->DrawMap(grid);
+        // this->DrawMap(grid);
     }
 
     clear();
