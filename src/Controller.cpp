@@ -151,6 +151,7 @@ int Controller::updateProduction()
     // char Buildingnames[20][20] = { "center", "campus", "theatre", "wonder", "industrialpark" };
     if (this->currentProduction == 0)
     {
+        clear();
         out();
         std::cout << "Please select one production" << std::endl;
         std::cout << "1. Building" << std::endl;
@@ -167,7 +168,7 @@ int Controller::updateProduction()
                 int m1, n1;
                 std::cin >> m1 >> n1;
                 int m = m1 / 2 - 1;
-                int n = n1 - 1;
+                int n=n1-1;
                 if (m > this->world->getGridHeight() || n > this->world->getGridWidth() || m < 0 || n < 0)
                 {
                     std::cout << "invalid input: out of range" << std::endl;
