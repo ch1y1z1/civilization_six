@@ -130,7 +130,7 @@ int Controller::updateProduction()
     // todo: update the process of current prodution
     // std::cout << "Please select one production" << std::endl;
     // out();
-    // std::cout <<  "Please select one production" << std::endl;
+    // std::cout << < "Please select one production" << std::endl;
     // std::cout << "1. Building" << std::endl;
     // std::cout << "2. Activity" << std::endl;
     // int choice;
