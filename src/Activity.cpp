@@ -2,8 +2,7 @@
 
 Activity::Activity()
 {
-    // ctor
-    std::cout << "hello"; // my building test here, cmake is ok now, please ignore it
+    // ctor // my building test here, cmake is ok now, please ignore it
 }
 
 Activity::Activity(char *name, float prodSpent, Attributes basicBonus)
