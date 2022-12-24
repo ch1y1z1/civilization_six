@@ -60,7 +60,7 @@ private:
 
     int currentRound;
 
-    Production* currentProduction;
+    Production* currentProduction = 0;
     int currentProductionType = 0;
     Cell* currentProductionCell = 0;
 
