@@ -154,7 +154,7 @@ void Display::MainProcess(Controller *controller, Grid *grid, Building **buildin
     controller->reset(3);
     controller->bindGrid(grid);
     controller->availableBuildings = buildings;
-    this->DrawMap(grid);
+    this->DrawMap(grid, controller);
     out();
     cout << "Select your city center coords:" << endl;
     while (1)
@@ -165,7 +165,7 @@ void Display::MainProcess(Controller *controller, Grid *grid, Building **buildin
         Landform form = arr.landform;
         if (x % 2 != 0 || form == SEA || form == OCEAN || form == MOUNTAIN)
         {
-            cout << "invalid input or this place cannot be a center";
+            cout << "invalid input or this place cannot be a center\n";
             continue;
         }
         controller->getCellDescription(x / 2 - 1, y - 1).Pop = OWNED;
@@ -177,7 +177,7 @@ void Display::MainProcess(Controller *controller, Grid *grid, Building **buildin
         break;
         clear();
     }
-    this->DrawMap(grid);
+    this->DrawMap(grid, controller);
     while (true)
     {
         int newX, newY;
@@ -187,7 +187,7 @@ void Display::MainProcess(Controller *controller, Grid *grid, Building **buildin
             cout << "You win." << endl;
             return;
         }
-        this->DrawMap(grid);
+        this->DrawMap(grid, controller);
         int pop = DrawAttributes(controller, grid);
         DrawProduction(controller, buildings);
         DrawWorkersChange(controller, pop);
