@@ -130,7 +130,7 @@ bool Controller::SetProductionActivity(int activityOrder)
     return true;
 }
 
-bool Controller::nextRound(int& newX, int& newY, float& nextThres)
+bool Controller::nextRound(int& newX, int& newY, float& nextThres, Display* display)
 { // ! main here
     if (this->checkWin())
         return 1;
