@@ -240,9 +240,9 @@ int Controller::setPopAt() {
             std::cout << "Please input the coordinates of the pop you want to remove" << std::endl;
             int x, y;
             std::cin >> x >> y;
-            if (this->getCellDescription(x, y).Pop == COLONIZED)
+            if (this->getCellDescription(2*(x-1), y-1).Pop == COLONIZED)
             {
-                this->getCellDescription(x, y).Pop = OWNED;
+                this->getCellDescription(2 * (x - 1), y - 1).Pop = OWNED;
                 this->workingPop--;
                 break;
             }
