@@ -175,7 +175,7 @@ void Display::MainProcess(Controller* controller, Grid* grid, Building** buildin
     {
         int newX, newY;
         float nextThres;
-        if (controller->nextRound(newX, newY, nextThres, this))
+        if (controller->nextRound(newX, newY, nextThres))
         {
             cout << "You win." << endl;
             return;

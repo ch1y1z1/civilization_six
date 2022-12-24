@@ -191,10 +191,10 @@ int Controller::updateProduction()
                     std::cout << "invalid input: out of range" << std::endl;
                     continue;
                 }
-                this->currentProductionType = PRODUCTION_TYPE_BUILDING;
+                // this->currentProductionType = PRODUCTION_TYPE_BUILDING;
                 // this->currentProductionCell = &this->getCellDescription(m, n);
-                this->currentProduction = this->availableBuildings[buildingchoice];
-                this->prod_needed_to_active = this->availableBuildings[buildingchoice]->prodSpent * this->getRound() / 100;
+                // this->currentProduction = this->availableBuildings[buildingchoice];
+                // this->prod_needed_to_active = this->availableBuildings[buildingchoice]->prodSpent * this->getRound() / 100;
                 this->getCellDescription(m, n).buildingType = this->availableBuildings[buildingchoice];
 
                 break;
