@@ -2,20 +2,6 @@
 using namespace std;
 char landformNames[8] = {'O', 'S', 'P', 'H', 'D', 'M', 'N'};
 char architecture[6] = {'C', 'A', 'T', 'W', 'I'};
-// 移动光标位置至(x,y);
-// 隐藏光标;
-void Display::go(float x, float y)
-{
-    COORD coord;
-    coord.X = x;
-    coord.Y = y;
-    HANDLE a = GetStdHandle(STD_OUTPUT_HANDLE);
-    SetConsoleCursorPosition(a, coord);
-    CONSOLE_CURSOR_INFO CursorInfo;
-    GetConsoleCursorInfo(a, &CursorInfo);
-    CursorInfo.bVisible = false;
-    SetConsoleCursorInfo(a, &CursorInfo);
-}
 // 构造
 Display::Display()
 {
@@ -25,27 +11,6 @@ Display::Display()
 Display::~Display()
 {
     // dtor
-}
-// 划分输入区
-void Display::out()
-{
-    go(0, 23);
-    cout << "--------------------------------------------\n";
-    cout << "              INTERACT HERE\n";
-    go(0, 25);
-}
-// 清空输入区
-void Display::clear()
-{
-    go(0, 24);
-    for (int j = 0; j < 8; j++)
-    {
-        for (int i = 0; i < 50; i++)
-        {
-            cout << " ";
-        }
-        cout << endl;
-    }
 }
 // 画地图
 void Display::DrawMap(Grid *grid)
@@ -187,12 +152,12 @@ void Display::MainProcess(Controller *controller, Grid *grid, Building **buildin
     cout << "Select your city center coords:" << endl;
     int x, y;
     cin >> x >> y;
-    controller->getCellDescription(x, y).Pop = OWNED;
-    controller->getCellDescription(x - 1, y).Pop = OWNED;
-    controller->getCellDescription(x, y - 1).Pop = OWNED;
-    controller->getCellDescription(x + 1, y).Pop = OWNED;
-    controller->getCellDescription(x, y + 1).Pop = OWNED;
-    controller->SetProductionBuilding(x, y, buildings[0]);
+    controller->getCellDescription(x / 2 - 1, y -1).Pop = OWNED;
+    controller->getCellDescription(x /2-1- 1, y-1).Pop = OWNED;
+    controller->getCellDescription(x/2-1, y - 1-1).Pop = OWNED;
+    controller->getCellDescription(x/2-1 + 1, y-1).Pop = OWNED;
+    controller->getCellDescription(x/2-1, y + 1-1).Pop = OWNED;
+    controller->SetProductionBuilding(x/2-1, y-1, buildings[0]);
     clear();
     this->DrawMap(grid);
 

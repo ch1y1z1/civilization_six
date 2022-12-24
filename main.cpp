@@ -44,17 +44,18 @@ void go(float x, float y)
     CursorInfo.bVisible = false;
     SetConsoleCursorInfo(a, &CursorInfo);
 }
+//划分输入区
 void out()
 {
-    go(0, 22);
+    go(0, 23);
     cout << "--------------------------------------------\n";
     cout << "              INTERACT HERE\n";
-    go(0, 24);
+    go(0, 25);
 }
 // 清空输入区
 void clear()
 {
-    go(0, 24);
+    go(0, 25);
     for (int j = 0; j < 8; j++)
     {
         for (int i = 0; i < 50; i++)

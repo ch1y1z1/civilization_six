@@ -240,9 +240,9 @@ int Controller::setPopAt() {
             std::cout << "Please input the coordinates of the pop you want to remove" << std::endl;
             int x, y;
             std::cin >> x >> y;
-            if (this->getCellDescription(2*(x-1), y-1).Pop == COLONIZED)
+            if (this->getCellDescription(x/2-1, y-1).Pop == COLONIZED)
             {
-                this->getCellDescription(2 * (x - 1), y - 1).Pop = OWNED;
+                this->getCellDescription(x / 2 - 1, y -1).Pop = OWNED;
                 this->workingPop--;
                 break;
             }
@@ -261,17 +261,17 @@ int Controller::setPopAt() {
             std::cout << "Please input the coordinates of the pop you want to add" << std::endl;
             int x, y;
             std::cin >> x >> y;
-            if (this->getCellDescription(x, y).Pop == OWNED)
+            if (this->getCellDescription(x / 2 - 1, y -1).Pop == OWNED)
             {
-                this->getCellDescription(x, y).Pop = COLONIZED;
+                this->getCellDescription(x / 2 - 1, y -1).Pop = COLONIZED;
                 this->workingPop++;
                 break;
             }
-            else if (this->getCellDescription(x, y).Pop == COLONIZED)
+            else if (this->getCellDescription(x / 2 - 1, y -1).Pop == COLONIZED)
             {
                 std::cout << "There has already been a pop at this cell" << std::endl;
             }
-            else if (this->getCellDescription(x, y).Pop == WILD)
+            else if (this->getCellDescription(x/2-1, y-1).Pop == WILD)
             {
                 std::cout << "The cell havn't been owned now" << std::endl;
             }
@@ -284,29 +284,29 @@ int Controller::setPopAt() {
     {
         out();
         std::cout << "you may switch pops now" << std::endl;
-        std::cout << "Please input the coordinates of the pop you want to switch or you may input '0' to skip this step" << std::endl;
+        std::cout << "Please input the coordinates of the pop you want to switch \nor you may input '0' to skip this step" << std::endl;
         int x, y, newx, newy;
         std::cin >> x;
         if (x == 0)
             return 0;
         std::cin >> y >> newx >> newy;
-        if (!(this->getCellDescription(x, y).Pop == OWNED))
+        if (!(this->getCellDescription(x/2-1, y-1).Pop == OWNED))
         {
             std::cout << "There is no pop at this cell" << std::endl;
             continue;
         }
-        if (this->getCellDescription(newx, newy).Pop == COLONIZED)
+        if (this->getCellDescription(newx/2-1, newy-1).Pop == COLONIZED)
         {
             std::cout << "There has already been a pop at this cell" << std::endl;
             continue;
         }
-        if (this->getCellDescription(newx, newy).Pop == WILD)
+        if (this->getCellDescription(newx/2-1, newy-1).Pop == WILD)
         {
             std::cout << "The cell havn't been owned now" << std::endl;
             continue;
         }
-        this->getCellDescription(x, y).Pop = OWNED;
-        this->getCellDescription(newx, newy).Pop = COLONIZED;
+        this->getCellDescription(x/2-1, y-1).Pop = OWNED;
+        this->getCellDescription(newx/2-1, newy-1).Pop = COLONIZED;
         std::cout << "Switch successfully" << std::endl;
         clear();
     }
