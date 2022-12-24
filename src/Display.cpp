@@ -56,7 +56,9 @@ void Display::DrawMap(Grid *grid)
             }
             else if (arr.Pop == OWNED && arr.buildingType == 0)
             {
+                turn_red();
                 cout << landformNames[form_int] << " ";
+                turn_white();
             }
             else
             {
