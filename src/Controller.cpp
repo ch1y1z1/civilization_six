@@ -157,11 +157,6 @@ int Controller::updateProduction()
                     std::cout << "invalid input: there has been a building yet" << std::endl;
                     continue;
                 }
-                if (this->getAdjacentSatisfied(this->getAdjacentCells(m, n), m, n) == 0)
-                {
-                    std::cout << "invalid input: not adjacent to another building" << std::endl;
-                    continue;
-                }
                 std::cout << "please select one building" << std::endl;
                 for (int i = 0; i < 5; i++)
                 {
@@ -184,7 +179,7 @@ int Controller::updateProduction()
             }
             this->currentProductionType = PRODUCTION_TYPE_BUILDING;
             // this->currentProductionCell = 0;
-            this->currentProduction = ;
+            // this->currentProduction = ;
             break;
         }
         clear();
