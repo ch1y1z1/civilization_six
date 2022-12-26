@@ -12,6 +12,7 @@ struct Cell {
     Civilized Pop = WILD;   // whether the cell has population
     Building* buildingType = 0;
     float prodAccumulated = 0.0;
+    bool IF_BUILDING = 0;
     Cell() {}
     Cell(Landform landform) :landform(landform) {}
     ~Cell() {}
