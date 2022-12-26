@@ -215,10 +215,12 @@ int Controller::updateProduction()
             if (this->prod_needed_to_active < this->currentAttributes.prod)
             {
                 // this->currentProduction->active(this->currentProductionCell);
+                this->currentAttributes.prod -= this->prod_needed_to_active;
                 this->currentProductionCell->buildingType = this->currentProduction;
                 this->currentProduction = 0;
                 this->currentProductionCell = 0;
                 this->currentProductionType = PRODUCTION_TYPE_NONE;
+                this->prod_needed_to_active = 0;
             }
             else
             {
