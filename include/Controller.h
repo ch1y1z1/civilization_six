@@ -55,7 +55,7 @@ private:
 
     int workingPop;
 
-    float BorderExpandThreshold = 0.2;
+    float BorderExpandThreshold = 0.8;
 
     int currentRound;
 

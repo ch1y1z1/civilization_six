@@ -1,7 +1,7 @@
 #include "Display.h"
 using namespace std;
-char landformNames[80] = {'O', 'S', 'P', 'H', 'D', 'M', 'N'};
-char architecture[60] = {'C', 'A', 'T', 'W', 'I'};
+char landformNames[80] = { 'O', 'S', 'P', 'H', 'D', 'M', 'N' };
+char architecture[60] = { 'C', 'A', 'T', 'W', 'I' };
 // 构造
 Display::Display()
 {
@@ -13,31 +13,31 @@ Display::~Display()
     // dtor
 }
 // 画地图
-void Display::DrawMap(Grid *grid, Controller *controller)
+void Display::DrawMap(Grid* grid, Controller* controller)
 {
     go(0, 0);
     cout << "0 2 4 6 8 10121416182022242628303234363840X\n"
-            "1\n"
-            "2\n"
-            "3\n"
-            "4\n"
-            "5\n"
-            "6\n"
-            "7\n"
-            "8\n"
-            "9\n"
-            "0\n"
-            "1\n"
-            "2\n"
-            "3\n"
-            "4\n"
-            "5\n"
-            "6\n"
-            "7\n"
-            "8\n"
-            "9\n"
-            "0\n"
-            "Y\n";
+        "1\n"
+        "2\n"
+        "3\n"
+        "4\n"
+        "5\n"
+        "6\n"
+        "7\n"
+        "8\n"
+        "9\n"
+        "0\n"
+        "1\n"
+        "2\n"
+        "3\n"
+        "4\n"
+        "5\n"
+        "6\n"
+        "7\n"
+        "8\n"
+        "9\n"
+        "0\n"
+        "Y\n";
     go(0, 22);
     cout << "Round: " << controller->getRound();
     // enum Landform{OCEAN=0, SEA, PLAIN, HILLY, DESERT, MOUNTAIN, NOTYPE};
@@ -52,7 +52,7 @@ void Display::DrawMap(Grid *grid, Controller *controller)
             if (arr.Pop == WILD)
             {
                 cout << "N"
-                     << " ";
+                    << " ";
             }
             else if (arr.Pop == OWNED && arr.buildingType == 0)
             {
@@ -76,7 +76,7 @@ void Display::DrawMap(Grid *grid, Controller *controller)
     }
 }
 
-int Display::DrawAttributes(Controller *controller, Grid *grid)
+int Display::DrawAttributes(Controller* controller, Grid* grid)
 {
     // TODO: draw the attributes, population, and the distribution of workers, return the population绘制属性、人口和工人的分布，返回人口
     int pop = controller->getPop();
@@ -112,7 +112,7 @@ int Display::DrawAttributes(Controller *controller, Grid *grid)
     return pop;
 }
 
-void Display::DrawWorkersChange(Controller *controller, int pop)
+void Display::DrawWorkersChange(Controller* controller, int pop)
 {
     // TODO: draw the change of workers, and receive the input for changing the distribution of workers绘制工人的变化，并接收改变工人分布的输入
     // go(0, 22);
@@ -133,7 +133,7 @@ void Display::DrawWorkersChange(Controller *controller, int pop)
     // }
 }
 
-void Display::DrawProduction(Controller *controller, Building **buildings)
+void Display::DrawProduction(Controller* controller, Building** buildings)
 {
     // TODO: draw the current production, and receive the input for changing the current production绘制当前产量，并接收改变当前产量的输入
     // go(50, 25);
@@ -149,9 +149,9 @@ void Display::DrawProduction(Controller *controller, Building **buildings)
     go(65, 28);
 }
 
-void Display::MainProcess(Controller *controller, Grid *grid, Building **buildings, Activity **activities)
+void Display::MainProcess(Controller* controller, Grid* grid, Building** buildings, Activity** activities)
 {
-    controller->reset(3);
+    controller->reset(2);
     controller->bindGrid(grid);
     controller->availableBuildings = buildings;
     this->DrawMap(grid, controller);
