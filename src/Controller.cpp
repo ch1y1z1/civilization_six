@@ -146,7 +146,7 @@ bool Controller::nextRound(int& newX, int& newY, float& nextThres)
 
 int Controller::updateProduction()
 {
-    // todo: update the process of current prodution
+    // todo: update the process of current production
     // std::cout << "Please select one production" << std::endl;
     // char Buildingnames[20][20] = { "center", "campus", "theatre", "wonder", "industrialpark" };
     if (this->currentProduction == 0)
@@ -231,7 +231,7 @@ int Controller::updateProduction()
         }
     }
     // this->DrawMap(grid);
-    return 1;
+    return this->getRound();
 }
 
 Production* Controller::getProduction(int& productionType, Cell*& currentProductionCell)

@@ -1,4 +1,5 @@
 #include "Display.h"
+#include<controller.h>
 using namespace std;
 char landformNames[80] = {'O', 'S', 'P', 'H', 'D', 'M', 'N'};
 char architecture[60] = {'C', 'A', 'T', 'W', 'I'};
@@ -138,17 +139,12 @@ void Display::DrawWorkersChange(Controller *controller, int pop)
 void Display::DrawProduction(Controller *controller)
 {
     // TODO: draw the current production, and receive the input for changing the current production绘制当前产量，并接收改变当前产量的输入
-    // go(50, 25);
-    // cout << "当前正在生产      ，已生产    %";
-    // go(50, 26);
-    // cout << "请选择是否该改变生产:";
-    // string product;
-
     go(65, 27);
-    cout << "     provided bonus remaining      rounds ";
-    go(65, 27);
-
+    cout << " provided bonus remaining "<<     " rounds        ";
     go(65, 28);
+    cout << "now " << controller->currentProduction->name<<  " is in production             \n";
+    int round = controller->getRound();
+    cout << "you have done "  ;
 }
 
 void Display::MainProcess(Controller *controller, Grid *grid, Building **buildings, Activity **activities)

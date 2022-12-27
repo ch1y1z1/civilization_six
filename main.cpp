@@ -44,7 +44,7 @@ void go(float x, float y)
     CursorInfo.bVisible = false;
     SetConsoleCursorInfo(a, &CursorInfo);
 }
-//划分输入区
+// 划分输入区
 void out()
 {
     go(0, 23);
@@ -65,12 +65,26 @@ void clear()
         cout << endl;
     }
 }
-//交互整合
-void DISPLAY(Display*dis,Grid*grid,Controller*con)
+// 交互整合
+void DISPLAY(Display *dis, Grid *grid, Controller *con)
 {
     out();
     dis->DrawMap(grid, con);
     dis->DrawAttributes(con, grid);
     dis->DrawProduction(con);
     clear();
+}
+// 判断人口输入是否合法
+void judge(int x, int y,Grid*grid)
+{
+    while (1)
+    {
+        Cell arr = grid->getRepresent(x / 2 - 1, y - 1);
+        Landform form = arr.landform;
+        if (x % 2 != 0 || form == SEA || form == OCEAN || form == MOUNTAIN)
+        {
+            cout << "invalid input\n";
+            continue;
+        }
+    }
 }
