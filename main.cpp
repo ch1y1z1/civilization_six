@@ -65,3 +65,12 @@ void clear()
         cout << endl;
     }
 }
+//交互整合
+void DISPLAY(Display*dis,Grid*grid,Controller*con)
+{
+    out();
+    dis->DrawMap(grid, con);
+    dis->DrawAttributes(con, grid);
+    dis->DrawProduction(con);
+    clear();
+}

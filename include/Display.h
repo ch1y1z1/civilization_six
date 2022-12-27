@@ -6,6 +6,7 @@
 void go(float x, float y);
 void out();
 void clear();
+void DISPLAY(Display *dis, Grid *grid, Controller *con);
 class Display
 {
 public:
@@ -13,13 +14,13 @@ public:
 
     ~Display();
 
-    void DrawMap(Grid *grid,Controller *controller);
+    void DrawMap(Grid *grid, Controller *controller);
 
     int DrawAttributes(Controller *controller, Grid *grid);
 
     void DrawWorkersChange(Controller *controller, int workersNum = 0);
 
-    void DrawProduction(Controller *controller, Building **buildings);
+    void DrawProduction(Controller *controller);
 
     void MainProcess(Controller *controller, Grid *grid, Building **buildings, Activity **activities);
     void turn_red()
