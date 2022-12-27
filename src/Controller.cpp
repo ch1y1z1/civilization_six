@@ -196,6 +196,7 @@ int Controller::updateProduction()
                 this->currentProduction = this->availableBuildings[buildingchoice];
                 this->prod_needed_to_active = this->availableBuildings[buildingchoice]->prodSpent * this->getRound() / 100;
                 this->getCellDescription(m, n).buildingType = this->availableBuildings[buildingchoice];
+                this->getCellDescription(m, n).IF_BUILDING = 1;
 
                 break;
             }
@@ -207,6 +208,27 @@ int Controller::updateProduction()
             break;
         }
         clear();
+    }
+    else
+    {
+        if (this->currentProductionType == PRODUCTION_TYPE_BUILDING)
+        {
+            if (this->prod_needed_to_active < this->currentAttributes.prod)
+            {
+                // this->currentProduction->active(this->currentProductionCell);
+                this->currentProductionCell->IF_BUILDING = 0;
+                this->currentAttributes.prod -= this->prod_needed_to_active;
+                // this->currentProductionCell->buildingType = this->currentProduction;
+                this->currentProduction = 0;
+                this->currentProductionCell = 0;
+                this->currentProductionType = 0;
+                this->prod_needed_to_active = 0;
+            }
+            else
+            {
+                ;
+            }
+        }
     }
     // this->DrawMap(grid);
     return 1;
@@ -251,7 +273,7 @@ int Controller::checkBorderUpdate(int& newX, int& newY, float& nextThres)
         std::cout << "Border is now Expandable" << std::endl;
         std::cout << "Please input the coordinates of the new border" << std::endl;
         std::cin >> newX >> newY;
-        this->getCellDescription(newX/2-1, newY-1).Pop = OWNED;
+        this->getCellDescription(newX / 2 - 1, newY - 1).Pop = OWNED;
         clear();
         return 1;
     }
