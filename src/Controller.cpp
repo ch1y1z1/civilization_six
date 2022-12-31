@@ -284,6 +284,7 @@ int Controller::checkBorderUpdate(int& newX, int& newY, float& nextThres)
 
 int Controller::setPopAt()
 {
+    updatePop();
     // todo: add or remove the worker at (m, n), return 0 if the action is successful
     bool flag = this->checkPop();
     while (flag != 0)
