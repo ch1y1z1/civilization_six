@@ -439,7 +439,7 @@ int Controller::setPopAt()
     while (true)
     {
         out();
-        std::cout << "you may switch pops now" << std::endl;
+        std::cout << "You may switch pops now" << std::endl;
         std::cout << "Please input the coordinates of the pop you want to switch \nor you may input '0' to skip this step" << std::endl;
         int x, y, newx, newy;
         std::cin >> x;
