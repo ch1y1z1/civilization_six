@@ -7,7 +7,7 @@ const int landformBuffs[7][2] = {
 
 Controller::Controller()
 {
-    this->currentRound = 0;
+    this->currentRound = 1;
     this->world = 0;
     this->pop = 2;
     this->workingPop = 0;
@@ -41,7 +41,7 @@ bool Controller::checkWin()
     return false;
 }
 
-// fhdjskaf
+
 
 bool Controller::bindGrid(Grid *grid)
 {
@@ -148,6 +148,8 @@ bool Controller::nextRound(int &newX, int &newY, float &nextThres)
 
 int Controller::updateProduction()
 {
+    Display *dis;
+    DISPLAY(dis, world, this);
     // todo: update the process of current production
     // std::cout << "Please select one production" << std::endl;
     // char Buildingnames[20][20] = { "center", "campus", "theatre", "wonder", "industrialpark" };

@@ -3,6 +3,7 @@
 #include "Controller.h"
 #include <windows.h>
 #include <iostream>
+void DISPLAY(Display *dis, Grid *grid, Controller *con);
 void go(float x, float y);
 void out();
 void clear();

@@ -11,6 +11,7 @@
 class Controller
 {
     friend class Display;
+
 public:
     Controller();
 

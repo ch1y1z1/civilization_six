@@ -2,7 +2,6 @@
 #include "Display.h"
 #include <cstring>
 using namespace std;
-void DISPLAY(Display *dis, Grid *grid, Controller *con);
 int main()
 {
     Controller *controller = new Controller();
