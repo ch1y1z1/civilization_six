@@ -152,8 +152,9 @@ void Display::DrawProduction(Controller *controller)
     int round = controller->getRound();
     go(65, 29);
     int zi = controller->get_round_needed_to_active();
-    int mu=controller->
-    cout << "you have done "  ;
+    int mu = controller->get_totle_round_needed();
+    float percent = (float)zi / mu;
+    cout << "you have done "<<percent*100<<" %" ;
 }
 
 void Display::MainProcess(Controller *controller, Grid *grid, Building **buildings, Activity **activities)
