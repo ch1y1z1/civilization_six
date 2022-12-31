@@ -41,6 +41,8 @@ bool Controller::checkWin()
     return false;
 }
 
+// fhdjskaf
+
 bool Controller::bindGrid(Grid* grid)
 {
     this->world = grid;
