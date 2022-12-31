@@ -87,7 +87,7 @@ int Display::DrawAttributes(Controller* controller, Grid* grid)
 {
     // TODO: draw the attributes, population, and the distribution of workers, return the population绘制属性、人口和工人的分布，返回人口
     int pop = controller->getPop();
-    int max_pop = controller->getAttributes().food;
+    int max_pop = controller->getAttributes().food/2;
     go(50, 0);
     cout << "population now:" << pop;
     go(50, 1);
