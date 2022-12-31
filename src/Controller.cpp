@@ -19,6 +19,16 @@ Controller::~Controller()
     // dtor
 }
 
+int Controller::get_round_needed_to_active()
+{
+    return this->currentRound;
+}
+
+int Controller::get_totle_round_needed()
+{
+    return this->currentRound;
+}
+
 void Controller::reset(int pop, float firstBorderThreshold)
 {
     this->currentRound = 1;
@@ -379,15 +389,15 @@ int Controller::setPopAt()
                 std::cout << "Please input the coordinates of the pop you want to add" << std::endl;
                 int x, y;
                 std::cin >> x >> y;
-                if (this->getCellDescription(x / 2 - 1, y - 1).Pop == OWNED&&this->getCellDescription(x / 2 - 1, y - 1).landform!=MOUNTAIN&&this->getCellDescription(x / 2 - 1, y - 1).landform!=OCEAN)
+                if (this->getCellDescription(x / 2 - 1, y - 1).Pop == OWNED && this->getCellDescription(x / 2 - 1, y - 1).landform != MOUNTAIN && this->getCellDescription(x / 2 - 1, y - 1).landform != OCEAN)
                 {
                     this->getCellDescription(x / 2 - 1, y - 1).Pop = COLONIZED;
                     this->workingPop++;
                     break;
                 }
-                else if(this->getCellDescription(x / 2 - 1, y - 1).Pop == OWNED&&(this->getCellDescription(x / 2 - 1, y - 1).landform!=SEA||this->getCellDescription(x / 2 - 1, y - 1).landform==PLAIN||this->getCellDescription(x / 2 - 1, y - 1).landform==DESERT||this->getCellDescription(x / 2 - 1, y - 1).landform==HILLY))
+                else if (this->getCellDescription(x / 2 - 1, y - 1).Pop == OWNED && (this->getCellDescription(x / 2 - 1, y - 1).landform != SEA || this->getCellDescription(x / 2 - 1, y - 1).landform == PLAIN || this->getCellDescription(x / 2 - 1, y - 1).landform == DESERT || this->getCellDescription(x / 2 - 1, y - 1).landform == HILLY))
                 {
-                    std::cout <<"You cannot add pop to this landform"<<std::endl;
+                    std::cout << "You cannot add pop to this landform" << std::endl;
                 }
                 else if (this->getCellDescription(x / 2 - 1, y - 1).Pop == COLONIZED)
                 {
