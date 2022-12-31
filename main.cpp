@@ -64,7 +64,7 @@ void clear()
     }
 }
 // 交互整合
-void DISPLAY(Display *dis, Grid *grid, Controller *con)
+void DISPLAY_(Display *dis, Grid *grid, Controller *con)
 {
     out();
     dis->DrawMap(grid, con);
