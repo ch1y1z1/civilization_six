@@ -45,8 +45,9 @@ void Display::DrawMap(Grid *grid, Controller *controller)
     go(85, 0);
     cout << "RED means owned";
     go(85, 1);
-    cout << "GREEN means people"
-         << "BLUE means building";
+    cout << "GREEN means people";
+    go(85, 2);
+    cout<< "BLUE means building";
     for (int i = 1; i < 21; i++)
     {
         for (int j = 1; j < 21; j++)
@@ -91,9 +92,9 @@ int Display::DrawAttributes(Controller *controller, Grid *grid)
     cout << "population now:" << pop;
     go(50, 1);
     cout << "max population:" << max_pop;
-    go(50, 2);
-    cout << "expected that the population will change to    in Round  ";
     go(50, 3);
+    cout << "expected that the population will change to    in Round  ";
+    go(50, 4);
     cout << "distribution:";
     int pop_num = 0;
     for (int i = 1; i < 21; i++)
@@ -104,7 +105,7 @@ int Display::DrawAttributes(Controller *controller, Grid *grid)
             if (arr.Pop == COLONIZED)
             {
                 pop_num++;
-                go(50, 3 + pop_num);
+                go(50, 4 + pop_num);
                 cout << "( " << 2 * i << " , " << j << " )";
             }
         }
