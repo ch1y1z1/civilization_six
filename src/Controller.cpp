@@ -251,7 +251,7 @@ int Controller::updateProduction()
                     {
                         for (int n = 1; n <= 20; ++n)
                         {
-                            if (this->getCellDescription(m, n).buildingType->num == 1)
+                            if (this->getCellDescription(m / 2 - 1, n - 1).buildingType->num == 1)
                             {
                                 !flag;
                                 break;
@@ -266,7 +266,7 @@ int Controller::updateProduction()
                     {
                         for (int n = 1; n <= 20; ++n)
                         {
-                            if (this->getCellDescription(m, n).buildingType->num == 2)
+                            if (this->getCellDescription(m / 2 - 1, n - 1).buildingType->num == 2)
                             {
                                 !flag;
                                 break;
@@ -281,7 +281,7 @@ int Controller::updateProduction()
                     {
                         for (int n = 1; n <= 20; ++n)
                         {
-                            if (this->getCellDescription(m, n).buildingType->num == 4)
+                            if (this->getCellDescription(m / 2 - 1, n - 1).buildingType->num == 4)
                             {
                                 !flag;
                                 break;
