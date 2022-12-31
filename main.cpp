@@ -2,7 +2,7 @@
 #include "Display.h"
 #include <cstring>
 using namespace std;
-
+void DISPLAY(Display *dis, Grid *grid, Controller *con);
 int main()
 {
     Controller *controller = new Controller();
@@ -27,7 +27,6 @@ int main()
 
     Display d;
     d.MainProcess(controller, grid, buildings, activities);
-
     return 0;
 }
 // 移动光标位置至(x,y);

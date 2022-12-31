@@ -6,7 +6,6 @@
 void go(float x, float y);
 void out();
 void clear();
-void DISPLAY(Display *dis, Grid *grid, Controller *con);
 void judge(int x, int y, Grid *grid);
 class Display
 {

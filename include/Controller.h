@@ -11,7 +11,6 @@
 class Controller
 {
     friend class Display;
-    friend void Display::DrawProduction(Controller*);
 public:
     Controller();
 

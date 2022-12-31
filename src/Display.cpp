@@ -1,5 +1,5 @@
 #include "Display.h"
-#include<controller.h>
+#include<Controller.h>
 using namespace std;
 char landformNames[80] = {'O', 'S', 'P', 'H', 'D', 'M', 'N'};
 char architecture[60] = {'C', 'A', 'T', 'W', 'I'};
