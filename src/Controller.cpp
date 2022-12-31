@@ -219,6 +219,25 @@ int Controller::updateProduction()
             // this->currentProduction = ;
             break;
         case 2:
+            int activitychoice;
+            while (1)
+            {
+                std::cout << "please select one activity" << std::endl;
+                for (int i = 0; i < this->activitySize; i++)
+                {
+                    std::cout << i << ". " << this->availableActivities[i]->name << std::endl;
+                }
+                std::cin >> activitychoice;
+                if (activitychoice < 0 || activitychoice > this->activitySize - 1)
+                {
+                    std::cout << "invalid input: out of range" << std::endl;
+                    continue;
+                }
+                this->currentProductionType = PRODUCTION_TYPE_ACTIVITY;
+                this->currentProductionCell = 0;
+                this->currentProduction = this->availableActivities[activitychoice];
+                break;
+            }
             break;
         }
         clear();
@@ -317,7 +336,7 @@ int Controller::checkBorderUpdate(int& newX, int& newY, float& nextThres)
 
 int Controller::setPopAt()
 {
-    updatePop();
+    // updatePop();
     // todo: add or remove the worker at (m, n), return 0 if the action is successful
     bool flag = this->checkPop();
     while (flag != 0)
@@ -353,15 +372,11 @@ int Controller::setPopAt()
                 std::cout << "Please input the coordinates of the pop you want to add" << std::endl;
                 int x, y;
                 std::cin >> x >> y;
-                if (this->getCellDescription(x / 2 - 1, y - 1).Pop == OWNED&&this->getCellDescription(x / 2 - 1, y - 1).landform!=MOUNTAIN&&this->getCellDescription(x / 2 - 1, y - 1).landform!=OCEAN&&this->getCellDescription(x / 2 - 1, y - 1).landform!=MOUNTAIN )
+                if (this->getCellDescription(x / 2 - 1, y - 1).Pop == OWNED)
                 {
                     this->getCellDescription(x / 2 - 1, y - 1).Pop = COLONIZED;
                     this->workingPop++;
                     break;
-                }
-                else if(this->getCellDescription(x / 2 - 1, y - 1).Pop == OWNED&&(this->getCellDescription(x / 2 - 1, y - 1).landform!=SEA||this->getCellDescription(x / 2 - 1, y - 1).landform==PLAIN||this->getCellDescription(x / 2 - 1, y - 1).landform==DESERT||this->getCellDescription(x / 2 - 1, y - 1).landform==HILLY))
-                {
-                    std::cout <<"You cannot add pop to this landform"<<std::endl;
                 }
                 else if (this->getCellDescription(x / 2 - 1, y - 1).Pop == COLONIZED)
                 {
