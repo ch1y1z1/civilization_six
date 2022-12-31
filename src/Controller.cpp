@@ -35,7 +35,7 @@ void Controller::reset(int pop, float firstBorderThreshold)
     this->world = 0;
     this->pop = pop;
     this->workingPop = 0;
-    this->currentAttributes = Attributes(0, 0, 0, 1);
+    this->currentAttributes = Attributes(0, 0, 0, 0.5);
 }
 
 bool Controller::checkWin()
@@ -186,14 +186,14 @@ int Controller::updateProduction()
                     std::cout << "Invalid input: Out of range" << std::endl;
                     continue;
                 }
-                else if(this->getCellDescription(m, n).Pop==WILD)
+                else if (this->getCellDescription(m, n).Pop == WILD)
                 {
-                    std::cout <<"Invalid input: The cell haven't been owned now"<<std::endl;
+                    std::cout << "Invalid input: The cell haven't been owned now" << std::endl;
                     continue;
                 }
-                else if (this->getCellDescription(m, n).landform==OCEAN||this->getCellDescription(m, n).landform==SEA&&this->getCellDescription(m, n).landform==MOUNTAIN)
+                else if (this->getCellDescription(m, n).landform == OCEAN || this->getCellDescription(m, n).landform == SEA && this->getCellDescription(m, n).landform == MOUNTAIN)
                 {
-                    std::cout <<"Invalid input: You cannot set a building in this landform "<<std::endl;
+                    std::cout << "Invalid input: You cannot set a building in this landform " << std::endl;
                     continue;
                 }
                 else if (this->getCellDescription(m, n).buildingType != 0)
@@ -354,13 +354,13 @@ int Controller::checkBorderUpdate(int& newX, int& newY, float& nextThres)
                 break;
             cin >> newX >> newY;
         }
-        while(true)
+        while (true)
         {
-            if ( this->getCellDescription(newX / 2 - 1, newY - 1).Pop == OWNED|| this->getCellDescription(newX / 2 - 1, newY - 1).Pop == COLONIZED)
+            if (this->getCellDescription(newX / 2 - 1, newY - 1).Pop == OWNED || this->getCellDescription(newX / 2 - 1, newY - 1).Pop == COLONIZED)
             {
-                std::cout << "Invalid input: This cell have been expanded"<<std::endl;
+                std::cout << "Invalid input: This cell have been expanded" << std::endl;
             }
-            else 
+            else
                 break;
             cin >> newX >> newY;
         }
@@ -439,7 +439,7 @@ int Controller::setPopAt()
     while (true)
     {
         out();
-        std::cout << "you may switch pops now" << std::endl;
+        std::cout << "You may switch pops now" << std::endl;
         std::cout << "Please input the coordinates of the pop you want to switch \nor you may input '0' to skip this step" << std::endl;
         int x, y, newx, newy;
         std::cin >> x;
