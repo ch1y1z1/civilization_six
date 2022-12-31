@@ -41,6 +41,8 @@ bool Controller::checkWin()
     return false;
 }
 
+// fhdjskaf
+
 bool Controller::bindGrid(Grid* grid)
 {
     this->world = grid;
@@ -191,7 +193,7 @@ int Controller::updateProduction()
                     std::cout << "invalid input: out of range" << std::endl;
                     continue;
                 }
-                // this->currentProductionType = PRODUCTION_TYPE_BUILDING;
+                this->currentProductionType = PRODUCTION_TYPE_BUILDING;
                 this->currentProductionCell = &this->getCellDescription(m, n);
                 this->currentProduction = this->availableBuildings[buildingchoice];
                 this->prod_needed_to_active = this->availableBuildings[buildingchoice]->prodSpent * this->getRound() / 100;
@@ -282,6 +284,7 @@ int Controller::checkBorderUpdate(int& newX, int& newY, float& nextThres)
 
 int Controller::setPopAt()
 {
+    updatePop();
     // todo: add or remove the worker at (m, n), return 0 if the action is successful
     bool flag = this->checkPop();
     while (flag != 0)
