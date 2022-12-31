@@ -448,7 +448,7 @@ int Controller::setPopAt()
         }
         if (this->getCellDescription(newx / 2 - 1, newy - 1).Pop == WILD)
         {
-            std::cout << "Invalid input: The cell havn't been owned now" << std::endl;
+            std::cout << "Invalid input: The cell haven't been owned now" << std::endl;
             continue;
         }
         this->getCellDescription(x / 2 - 1, y - 1).Pop = OWNED;
