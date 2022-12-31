@@ -206,8 +206,8 @@ int Controller::updateProduction()
                 this->currentProductionType = PRODUCTION_TYPE_BUILDING;
                 this->currentProductionCell = &this->getCellDescription(m, n);
                 this->currentProduction = this->availableBuildings[buildingchoice];
-                this->prod_needed_to_active = this->availableBuildings[buildingchoice]->prodSpent * this->getRound() / 100 + 1;
-                this->round_needed_to_active = this->prod_needed_to_active / this->currentAttributes.prod;
+                this->prod_needed_to_active = this->availableBuildings[buildingchoice]->prodSpent * this->getRound() / 100;
+                this->round_needed_to_active = this->prod_needed_to_active / this->currentAttributes.prod + 1;
                 this->totle_round_needed = this->round_needed_to_active;
                 this->getCellDescription(m, n).buildingType = this->availableBuildings[buildingchoice];
                 this->getCellDescription(m, n).IF_BUILDING = 1;
