@@ -317,7 +317,7 @@ int Controller::checkPop()
 void Controller::updatePop()
 {
     int maxpop = this->currentAttributes.food / 2;
-    float popDelta = (maxpop - pop) * 0.02;
+    float popDelta = (maxpop - pop) * 0.1;
     if (popDelta > 1)
         popDelta = 1;
     else if (popDelta < -1)
@@ -471,11 +471,11 @@ void Controller::updateAttributes()
             if (this->getCellDescription(i, j).Pop == OWNED && this->getCellDescription(i, j).buildingType == 0)
             {
                 this->currentAttributes.food += 0.5 * landformBuffs[this->getCellDescription(i, j).landform][0];
-                this->currentAttributes.prod += 0.5 * landformBuffs[this->getCellDescription(i, j).landform][1];
+                this->currentAttributes.prod += 0.25 * landformBuffs[this->getCellDescription(i, j).landform][1];
             }
             if (this->getCellDescription(i, j).buildingType != 0)
             {
-                this->currentAttributes +=  this->getCellDescription(i, j).buildingType->basicBonus * 0.5 ;
+                this->currentAttributes += this->getCellDescription(i, j).buildingType->basicBonus * 0.5;
             }
         }
     }
