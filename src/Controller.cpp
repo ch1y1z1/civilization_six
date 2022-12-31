@@ -460,12 +460,12 @@ void Controller::updateAttributes()
         {
             if (this->getCellDescription(i, j).Pop == OWNED && this->getCellDescription(i, j).buildingType == 0)
             {
-                this->currentAttributes.food += landformBuffs[this->getCellDescription(i, j).landform][0];
-                this->currentAttributes.prod += landformBuffs[this->getCellDescription(i, j).landform][1];
+                this->currentAttributes.food += 0.5 * landformBuffs[this->getCellDescription(i, j).landform][0];
+                this->currentAttributes.prod += 0.5 * landformBuffs[this->getCellDescription(i, j).landform][1];
             }
             if (this->getCellDescription(i, j).buildingType != 0)
             {
-                this->currentAttributes += this->getCellDescription(i, j).buildingType->basicBonus;
+                this->currentAttributes += 0.5 * this->getCellDescription(i, j).buildingType->basicBonus;
             }
         }
     }
