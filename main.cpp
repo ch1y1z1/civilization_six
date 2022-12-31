@@ -28,7 +28,7 @@ int main()
     Building* campus = new Building((char*)"cam", 100.0, Attributes(1.0), Attributes(0.2), Attributes(1.0), (char*)"a", MOUNTAIN, symposium, 1);
     Building* theatre = new Building((char*)"the", 100.0, Attributes(0, 1.0), Attributes(0, 0.2), Attributes(1.0), (char*)"aw", NOTYPE, exhibition, 2);
     Building* wonder = new Building((char*)"won", 250.0, Attributes(0, 20.0), Attributes(0), Attributes(5.0), (char*)"w", NOTYPE, 0, 3);
-    Building* industrialPark = new Building((char*)"ind", 100.0, Attributes(0, 0, 0, 2.0 / 2), Attributes(0, 0, 0, 2.0 / 2), Attributes(1.0), (char*)"a", NOTYPE, distribution, 4);
+    Building* industrialPark = new Building((char*)"ind", 100.0, Attributes(0, 0, 0, 2.0 / 4), Attributes(0, 0, 0, 2.0 / 4), Attributes(1.0), (char*)"a", NOTYPE, distribution, 4);
 
     Building** buildings = new Building * [5]
     { center, campus, theatre, wonder, industrialPark };
