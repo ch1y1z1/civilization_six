@@ -17,6 +17,8 @@ public:
 
     virtual ~Controller();
 
+    int get_round_needed_to_active();
+
     bool bindGrid(Grid* grid);
 
     bool nextRound(int& newX, int& newY, float& nextThres);
