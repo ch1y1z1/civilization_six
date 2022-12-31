@@ -2,16 +2,14 @@
 #include "Display.h"
 #include <cstring>
 using namespace std;
+//全屏游戏
 void full_screen()
 {
     HWND hwnd = GetForegroundWindow();
-    int cx = GetSystemMetrics(SM_CXSCREEN); /* 屏幕宽度 像素 */
-    int cy = GetSystemMetrics(SM_CYSCREEN); /* 屏幕高度 像素 */
-
-    LONG l_WinStyle = GetWindowLong(hwnd, GWL_STYLE); /* 获取窗口信息 */
-    /* 设置窗口信息 最大化 取消标题栏及边框 */
+    int cx = GetSystemMetrics(SM_CXSCREEN); 
+    int cy = GetSystemMetrics(SM_CYSCREEN); 
+    LONG l_WinStyle = GetWindowLong(hwnd, GWL_STYLE); 
     SetWindowLong(hwnd, GWL_STYLE, (l_WinStyle | WS_POPUP | WS_MAXIMIZE) & ~WS_CAPTION & ~WS_THICKFRAME & ~WS_BORDER);
-
     SetWindowPos(hwnd, HWND_TOP, 0, 0, cx, cy, 0);
 }
 int main()
@@ -54,6 +52,8 @@ void go(float x, float y)
     GetConsoleCursorInfo(a, &CursorInfo);
     CursorInfo.bVisible = false;
     SetConsoleCursorInfo(a, &CursorInfo);
+
+
 }
 // 划分输入区
 void out()
