@@ -287,7 +287,7 @@ int Controller::checkBorderUpdate(int &newX, int &newY, float &nextThres)
         std::cout << "Border is now Expandable" << std::endl;
         std::cout << "Please input the coordinates of the new border" << std::endl;
         std::cin >> newX >> newY;
-        // 判断是否越界
+        // 判断是否越界或坐标错误
         while (true)
         {
             if (newX > 40 || newY > 20 || newX < 2 || newY < 1)
