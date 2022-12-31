@@ -7,7 +7,7 @@ void trim(string& s);
 // this enumerate type represents if the cell is a wild area or owned by a city, or covered with population
 enum Civilized { WILD = 0, OWNED, COLONIZED };
 
-struct Cell {
+struct Cell {//the struct containing the information of the cell
     Landform landform = NOTYPE;
     Civilized Pop = WILD;   // whether the cell has population
     Building* buildingType = 0;
