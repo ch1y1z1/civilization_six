@@ -385,6 +385,10 @@ int Controller::setPopAt()
                     this->workingPop++;
                     break;
                 }
+                else if(this->getCellDescription(x / 2 - 1, y - 1).Pop == OWNED&&(this->getCellDescription(x / 2 - 1, y - 1).landform!=SEA||this->getCellDescription(x / 2 - 1, y - 1).landform==PLAIN||this->getCellDescription(x / 2 - 1, y - 1).landform==DESERT||this->getCellDescription(x / 2 - 1, y - 1).landform==HILLY))
+                {
+                    std::cout <<"You cannot add pop to this landform"<<std::endl;
+                }
                 else if (this->getCellDescription(x / 2 - 1, y - 1).Pop == COLONIZED)
                 {
                     std::cout << "There has already been a pop at this cell" << std::endl;
