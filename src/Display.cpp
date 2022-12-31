@@ -180,13 +180,13 @@ void Display::DrawProduction(Controller* controller)
 
 void Display::MainProcess(Controller* controller, Grid* grid, Building** buildings, Activity** activities)
 {
-    DrawAttributes(controller, grid);
-    DrawProduction(controller);
+ 
     controller->currentAttributes.prod = 1;
     controller->reset(2);
     controller->bindGrid(grid);
     controller->availableBuildings = buildings;
     this->DrawMap(grid, controller);
+    DrawAttributes(controller, grid);
     out();
     cout << "Select your city center coords:" << endl;
     while (1)
