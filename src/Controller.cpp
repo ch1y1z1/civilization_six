@@ -279,7 +279,15 @@ int Controller::checkBorderUpdate(int &newX, int &newY, float &nextThres)
         while (true)
         {
             if (newX > 40 || newY > 20 || newX < 2 || newY < 1)
-                std::cout << "the expended coordinates are out of the map, please input again." << std::endl;
+                std::cout << "the expended coordinate is out of the map, please input again." << std::endl;
+            else
+                break;
+        }
+        // 判断是否与现有边界相连
+        while (true)
+        {
+            if (getCellDescription(newX / 2 - 1, newY).Pop == WILD && getCellDescription(newX / 2 + 1, newY).Pop == WILD && getCellDescription(newX / 2, newY + 1).Pop == WILD && getCellDescription(newX / 2, newY - 1).Pop == WILD)
+                std::cout << "the expended coordinate is out of your eara,please input again" << std::endl;
             else
                 break;
         }
