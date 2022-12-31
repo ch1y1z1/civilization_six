@@ -151,6 +151,8 @@ void Display::DrawProduction(Controller *controller)
     cout << "now " << controller->currentProduction->name<<  " is in production             \n";
     int round = controller->getRound();
     go(65, 29);
+    int zi = controller->get_round_needed_to_active();
+    int mu=controller->
     cout << "you have done "  ;
 }
 
