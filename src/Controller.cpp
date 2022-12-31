@@ -19,6 +19,11 @@ Controller::~Controller()
     // dtor
 }
 
+int Controller::get_round_needed_to_active()
+{
+    return this->round_needed_to_active;
+}
+
 void Controller::reset(int pop, float firstBorderThreshold)
 {
     this->currentRound = 1;
