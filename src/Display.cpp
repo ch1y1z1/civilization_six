@@ -175,7 +175,7 @@ void Display::DrawProduction(Controller *controller)
     float percent = (float)zi / mu;
     cout << "                                               ";
     go(65, 30);
-    cout << "you have done " << zi << " " << mu << " " << percent * 100 << " %";
+    cout << "you have done " << zi << " " << mu << " " <<(1- percent) * 100 << " %";
 }
 
 void Display::MainProcess(Controller *controller, Grid *grid, Building **buildings, Activity **activities)

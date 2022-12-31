@@ -21,12 +21,12 @@ Controller::~Controller()
 
 int Controller::get_round_needed_to_active()
 {
-    return this->currentRound;
+    return this->round_needed_to_active;
 }
 
 int Controller::get_totle_round_needed()
 {
-    return this->currentRound;
+    return this->totle_round_needed;
 }
 
 void Controller::reset(int pop, float firstBorderThreshold)
