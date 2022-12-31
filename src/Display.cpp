@@ -144,6 +144,7 @@ void Display::DrawProduction(Controller *controller)
     go(65, 28);
     cout << "now " << controller->currentProduction->name<<  " is in production             \n";
     int round = controller->getRound();
+    go(65, 29);
     cout << "you have done "  ;
 }
 
