@@ -35,7 +35,7 @@ void Controller::reset(int pop, float firstBorderThreshold)
     this->world = 0;
     this->pop = pop;
     this->workingPop = 0;
-    this->currentAttributes = Attributes(0);
+    this->currentAttributes = Attributes(0, 0, 0, 1);
 }
 
 bool Controller::checkWin()
@@ -338,7 +338,7 @@ int Controller::checkBorderUpdate(int& newX, int& newY, float& nextThres)
         // 判断是否与现有边界相连
         while (true)
         {
-            if (getCellDescription(newX / 2 - 1, newY).Pop == WILD && getCellDescription(newX / 2 , newY-1).Pop == WILD && getCellDescription(newX / 2-2, newY -1).Pop == WILD && getCellDescription(newX / 2-1, newY - 2).Pop == WILD)
+            if (getCellDescription(newX / 2 - 1, newY).Pop == WILD && getCellDescription(newX / 2, newY - 1).Pop == WILD && getCellDescription(newX / 2 - 2, newY - 1).Pop == WILD && getCellDescription(newX / 2 - 1, newY - 2).Pop == WILD)
                 std::cout << "the expended coordinate is out of your area, please input again" << std::endl;
             else
                 break;
