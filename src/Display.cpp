@@ -1,8 +1,8 @@
 #include "Display.h"
 #include <Controller.h>
 using namespace std;
-char landformNames[80] = {'O', 'S', 'P', 'H', 'D', 'M', 'N'};
-char architecture[60] = {'C', 'A', 'T', 'W', 'I'};
+char landformNames[80] = { 'O', 'S', 'P', 'H', 'D', 'M', 'N' };
+char architecture[60] = { 'C', 'A', 'T', 'W', 'I' };
 // 构造
 Display::Display()
 {
@@ -14,31 +14,31 @@ Display::~Display()
     // dtor
 }
 // 画地图
-void Display::DrawMap(Grid *grid, Controller *controller)
+void Display::DrawMap(Grid* grid, Controller* controller)
 {
     go(0, 0);
     cout << "0 2 4 6 8 10121416182022242628303234363840X\n"
-            "1\n"
-            "2\n"
-            "3\n"
-            "4\n"
-            "5\n"
-            "6\n"
-            "7\n"
-            "8\n"
-            "9\n"
-            "0\n"
-            "1\n"
-            "2\n"
-            "3\n"
-            "4\n"
-            "5\n"
-            "6\n"
-            "7\n"
-            "8\n"
-            "9\n"
-            "0\n"
-            "Y\n";
+        "1\n"
+        "2\n"
+        "3\n"
+        "4\n"
+        "5\n"
+        "6\n"
+        "7\n"
+        "8\n"
+        "9\n"
+        "0\n"
+        "1\n"
+        "2\n"
+        "3\n"
+        "4\n"
+        "5\n"
+        "6\n"
+        "7\n"
+        "8\n"
+        "9\n"
+        "0\n"
+        "Y\n";
     go(0, 22);
     cout << "Round: " << controller->getRound();
     // enum Landform{OCEAN=0, SEA, PLAIN, HILLY, DESERT, MOUNTAIN, NOTYPE};
@@ -59,7 +59,7 @@ void Display::DrawMap(Grid *grid, Controller *controller)
             if (arr.Pop == WILD)
             {
                 cout << "N"
-                     << " ";
+                    << " ";
             }
             else if (arr.Pop == OWNED && arr.buildingType == 0)
             {
@@ -83,7 +83,7 @@ void Display::DrawMap(Grid *grid, Controller *controller)
     }
 }
 
-int Display::DrawAttributes(Controller *controller, Grid *grid)
+int Display::DrawAttributes(Controller* controller, Grid* grid)
 {
     // TODO: draw the attributes, population, and the distribution of workers, return the population绘制属性、人口和工人的分布，返回人口
     int pop = controller->getPop();
@@ -123,7 +123,7 @@ int Display::DrawAttributes(Controller *controller, Grid *grid)
     return pop;
 }
 
-void Display::DrawWorkersChange(Controller *controller, int pop)
+void Display::DrawWorkersChange(Controller* controller, int pop)
 {
     // TODO: draw the change of workers, and receive the input for changing the distribution of workers绘制工人的变化，并接收改变工人分布的输入
     // go(0, 22);
@@ -144,12 +144,12 @@ void Display::DrawWorkersChange(Controller *controller, int pop)
     // }
 }
 
-void Display::DrawProduction(Controller *controller)
+void Display::DrawProduction(Controller* controller)
 {
     // TODO: draw the current production, and receive the input for changing the current production绘制当前产量，并接收改变当前产量的输入
     go(65, 28);
     cout << " provided bonus remaining "
-         << " rounds        ";
+        << " rounds        ";
     go(65, 29);
     char a[4] = "cen";
     char b[4] = "cam";
@@ -168,18 +168,19 @@ void Display::DrawProduction(Controller *controller)
 
     else if (strcmp(controller->currentProduction->name, e) == 0)
         cout
-            << "now industry is in production \n";
+        << "now industry is in production \n";
     go(65, 30);
     int zi = controller->get_round_needed_to_active();
     int mu = controller->get_totle_round_needed();
     float percent = (float)zi / mu;
     cout << "                                               ";
     go(65, 30);
-    cout << "you have done " << zi << " " << mu << " " <<(1- percent) * 100 << " %";
+    cout << "you have done " << zi << " " << mu << " " << (1 - percent) * 100 << " %";
 }
 
-void Display::MainProcess(Controller *controller, Grid *grid, Building **buildings, Activity **activities)
+void Display::MainProcess(Controller* controller, Grid* grid, Building** buildings, Activity** activities)
 {
+    controller->currentAttributes.prod = 1;
     controller->reset(2);
     controller->bindGrid(grid);
     controller->availableBuildings = buildings;
@@ -192,7 +193,7 @@ void Display::MainProcess(Controller *controller, Grid *grid, Building **buildin
         cin >> x >> y;
         Cell arr = grid->getRepresent(x / 2 - 1, y - 1);
         Landform form = arr.landform;
-        if (x % 2 != 0 || form == SEA || form == OCEAN || form == MOUNTAIN||x > 40 || y > 20 || x < 2 || y < 1)
+        if (x % 2 != 0 || form == SEA || form == OCEAN || form == MOUNTAIN || x > 40 || y > 20 || x < 2 || y < 1)
         {
             cout << "invalid input or this place cannot be a center\n";
             continue;
