@@ -41,8 +41,6 @@ bool Controller::checkWin()
     return false;
 }
 
-
-
 bool Controller::bindGrid(Grid *grid)
 {
     this->world = grid;
@@ -148,8 +146,8 @@ bool Controller::nextRound(int &newX, int &newY, float &nextThres)
 
 int Controller::updateProduction()
 {
-    Display *dis;
-    DISPLAY_(dis, world, this);
+    // Display *dis;
+    // DISPLAY_(dis, world, this);
     // todo: update the process of current production
     // std::cout << "Please select one production" << std::endl;
     // char Buildingnames[20][20] = { "center", "campus", "theatre", "wonder", "industrialpark" };
@@ -284,6 +282,7 @@ int Controller::checkBorderUpdate(int &newX, int &newY, float &nextThres)
                 std::cout << "the expended coordinate is out of the map, please input again." << std::endl;
             else
                 break;
+            cin >> newX >> newY;
         }
         // 判断是否与现有边界相连
         while (true)
@@ -292,6 +291,7 @@ int Controller::checkBorderUpdate(int &newX, int &newY, float &nextThres)
                 std::cout << "the expended coordinate is out of your eara,please input again" << std::endl;
             else
                 break;
+            cin >> newX >> newY;
         }
 
         this->getCellDescription(newX / 2 - 1, newY - 1).Pop = OWNED;
@@ -417,10 +417,10 @@ void Controller::updateAttributes()
 }
 
 Cell **Controller::getAdjacentCells(int m, int n)
-{    // todo: get the adjacent cells from cell (m, n)
+{ // todo: get the adjacent cells from cell (m, n)
     // you can use this as :Cell** adjacent=getAdjacentCells(m,n) to get the details of (m,n)'s up, left ,down and right
     // Cell adj=new Cell[1];
-   
+
     if (m == 0 && n == 0)
     {
         adjacent[0] = 0;
