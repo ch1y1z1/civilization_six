@@ -35,7 +35,7 @@ void Controller::reset(int pop, float firstBorderThreshold)
     this->world = 0;
     this->pop = pop;
     this->workingPop = 0;
-    this->currentAttributes = Attributes(0, 0, 0, 1);
+    this->currentAttributes = Attributes(0, 0, 0, 0.5);
 }
 
 bool Controller::checkWin()
@@ -183,15 +183,25 @@ int Controller::updateProduction()
                 int n = n1 - 1;
                 if (m > this->world->getGridHeight() || n > this->world->getGridWidth() || m < 0 || n < 0)
                 {
-                    std::cout << "invalid input: out of range" << std::endl;
+                    std::cout << "Invalid input: Out of range" << std::endl;
                     continue;
                 }
-                if (this->getCellDescription(m, n).buildingType != 0)
+                else if (this->getCellDescription(m, n).Pop == WILD)
                 {
-                    std::cout << "invalid input: there has been a building yet" << std::endl;
+                    std::cout << "Invalid input: The cell haven't been owned now" << std::endl;
                     continue;
                 }
-                std::cout << "please select one building" << std::endl;
+                else if (this->getCellDescription(m, n).landform == OCEAN || this->getCellDescription(m, n).landform == SEA && this->getCellDescription(m, n).landform == MOUNTAIN)
+                {
+                    std::cout << "Invalid input: You cannot set a building in this landform " << std::endl;
+                    continue;
+                }
+                else if (this->getCellDescription(m, n).buildingType != 0)
+                {
+                    std::cout << "Invalid input: There has been a building yet" << std::endl;
+                    continue;
+                }
+                std::cout << "Please select one building" << std::endl;
                 for (int i = 0; i < 5; i++)
                 {
                     // std::cout << i << ". " << Buildingnames[i] << std::endl;
@@ -200,7 +210,7 @@ int Controller::updateProduction()
                 std::cin >> buildingchoice;
                 if (buildingchoice < 0 || buildingchoice > 4)
                 {
-                    std::cout << "invalid input: out of range" << std::endl;
+                    std::cout << "Invalid input: Out of range" << std::endl;
                     continue;
                 }
                 this->currentProductionType = PRODUCTION_TYPE_BUILDING;
@@ -231,7 +241,7 @@ int Controller::updateProduction()
                 std::cin >> activitychoice;
                 if (activitychoice < 0 || activitychoice > this->activitySize - 1)
                 {
-                    std::cout << "invalid input: out of range" << std::endl;
+                    std::cout << "Invalid input: Out of range" << std::endl;
                     continue;
                 }
                 switch (activitychoice)
@@ -384,7 +394,7 @@ int Controller::checkBorderUpdate(int &newX, int &newY, float &nextThres)
         while (true)
         {
             if (newX > 40 || newY > 20 || newX < 2 || newY < 1)
-                std::cout << "the expended coordinate is out of the map, please input again." << std::endl;
+                std::cout << "Invalid input: The expended coordinate is out of the map" << std::endl;
             else
                 break;
             cin >> newX >> newY;
@@ -393,7 +403,17 @@ int Controller::checkBorderUpdate(int &newX, int &newY, float &nextThres)
         while (true)
         {
             if (getCellDescription(newX / 2 - 1, newY).Pop == WILD && getCellDescription(newX / 2, newY - 1).Pop == WILD && getCellDescription(newX / 2 - 2, newY - 1).Pop == WILD && getCellDescription(newX / 2 - 1, newY - 2).Pop == WILD)
-                std::cout << "the expended coordinate is out of your area, please input again" << std::endl;
+                std::cout << "Invalid input: The expended coordinate is out of your area" << std::endl;
+            else
+                break;
+            cin >> newX >> newY;
+        }
+        while (true)
+        {
+            if (this->getCellDescription(newX / 2 - 1, newY - 1).Pop == OWNED || this->getCellDescription(newX / 2 - 1, newY - 1).Pop == COLONIZED)
+            {
+                std::cout << "Invalid input: This cell have been expanded" << std::endl;
+            }
             else
                 break;
             cin >> newX >> newY;
@@ -431,14 +451,14 @@ int Controller::setPopAt()
                 }
                 else
                 {
-                    std::cout << "There is no pop at this cell" << std::endl;
+                    std::cout << "Invalid input: There is no pop at this cell" << std::endl;
                 }
             }
             clear();
             break;
         case 1:
             out();
-            std::cout << "you may add pop to work" << std::endl;
+            std::cout << "You may add pop to work" << std::endl;
             while (true)
             {
                 std::cout << "Please input the coordinates of the pop you want to add" << std::endl;
@@ -452,15 +472,15 @@ int Controller::setPopAt()
                 }
                 else if (this->getCellDescription(x / 2 - 1, y - 1).Pop == OWNED && (this->getCellDescription(x / 2 - 1, y - 1).landform != SEA || this->getCellDescription(x / 2 - 1, y - 1).landform == PLAIN || this->getCellDescription(x / 2 - 1, y - 1).landform == DESERT || this->getCellDescription(x / 2 - 1, y - 1).landform == HILLY))
                 {
-                    std::cout << "You cannot add pop to this landform" << std::endl;
+                    std::cout << "Invalid input: You cannot add pop to this landform" << std::endl;
                 }
                 else if (this->getCellDescription(x / 2 - 1, y - 1).Pop == COLONIZED)
                 {
-                    std::cout << "There has already been a pop at this cell" << std::endl;
+                    std::cout << "Invalid input: There has already been a pop at this cell" << std::endl;
                 }
                 else if (this->getCellDescription(x / 2 - 1, y - 1).Pop == WILD)
                 {
-                    std::cout << "The cell haven't been owned now" << std::endl;
+                    std::cout << "Invalid input: This cell haven't been owned now" << std::endl;
                 }
             }
             clear();
@@ -473,26 +493,27 @@ int Controller::setPopAt()
     while (true)
     {
         out();
-        std::cout << "you may switch pops now" << std::endl;
+        std::cout << "You may switch pops now" << std::endl;
         std::cout << "Please input the coordinates of the pop you want to switch \nor you may input '0' to skip this step" << std::endl;
         int x, y, newx, newy;
         std::cin >> x;
         if (x == 0)
             return 0;
         std::cin >> y >> newx >> newy;
-        if (!(this->getCellDescription(x / 2 - 1, y - 1).Pop == OWNED))
+        if (!(this->getCellDescription(x / 2 - 1, y - 1).Pop == COLONIZED))
         {
-            std::cout << "There is no pop at this cell" << std::endl;
+            cout << "                                           ";
+            std::cout << "Invalid input: There is no pop at this cell" << std::endl;
             continue;
         }
         if (this->getCellDescription(newx / 2 - 1, newy - 1).Pop == COLONIZED)
         {
-            std::cout << "There has already been a pop at this cell" << std::endl;
+            std::cout << "Invalid input: There has already been a pop at this cell" << std::endl;
             continue;
         }
         if (this->getCellDescription(newx / 2 - 1, newy - 1).Pop == WILD)
         {
-            std::cout << "The cell havn't been owned now" << std::endl;
+            std::cout << "Invalid input: The cell haven't been owned now" << std::endl;
             continue;
         }
         this->getCellDescription(x / 2 - 1, y - 1).Pop = OWNED;

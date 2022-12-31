@@ -93,7 +93,16 @@ int Display::DrawAttributes(Controller* controller, Grid* grid)
     go(50, 1);
     cout << "max population:" << max_pop;
     go(50, 3);
-    cout << "expected that the population will change to    in Round  ";
+    float popDelta = (max_pop - pop) * 0.1;
+    if (popDelta > 1){
+        popDelta = 1;
+        pop++;
+    }
+    else if (popDelta < -1){
+        popDelta = -1;
+        pop--;
+    }
+    cout << "expected that the population will change to " << pop << " in Round " << controller->getRound()+1;
     go(50, 4);
     cout << "distribution:";
     int pop_num = 0;
@@ -117,9 +126,9 @@ int Display::DrawAttributes(Controller* controller, Grid* grid)
     go(65, 25);
     cout << "culture:" << controller->getAttributes().cul;
     go(65, 26);
-    cout << "production:" << controller->getAttributes().prod;
+    cout << "production:" << controller->getAttributes().prod-0.5;
     go(65, 27);
-    cout << "score:" << controller->getAttributes().prod + 10 * pop + controller->getAttributes().cul / 2.0 + controller->getAttributes().tech / 2.0;
+    cout << "score:" << (controller->getAttributes().prod-1) + 10 * pop + controller->getAttributes().cul / 2.0 + controller->getAttributes().tech / 2.0;
     return pop;
 }
 
