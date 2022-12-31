@@ -148,13 +148,12 @@ void Display::DrawProduction(Controller *controller)
     go(65, 27);
     cout << " provided bonus remaining "<<     " rounds        ";
     go(65, 28);
-    cout << "now " << controller->currentProduction->name<<  " is in production             \n";
-    int round = controller->getRound();
+    cout << "now " << controller->currentProduction->name<<  " is in production \n";
     go(65, 29);
     int zi = controller->get_round_needed_to_active();
     int mu = controller->get_totle_round_needed();
     float percent = (float)zi / mu;
-    cout << "you have done "<<percent*100<<" %" ;
+    cout << "you have done "<<zi<<" "<<mu<<" "<<percent*100<<" %" ;
 }
 
 void Display::MainProcess(Controller *controller, Grid *grid, Building **buildings, Activity **activities)
