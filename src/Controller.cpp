@@ -253,7 +253,7 @@ int Controller::updateProduction()
             {
                 // this->currentProduction->active(this->currentProductionCell);
                 this->currentProductionCell->IF_BUILDING = 0;
-                this->currentAttributes.prod -= this->prod_needed_to_active;
+                // this->currentAttributes.prod -= this->prod_needed_to_active;
                 // this->currentProductionCell->buildingType = this->currentProduction;
                 // this->currentProduction = 0;
                 // this->currentProductionCell = 0;
