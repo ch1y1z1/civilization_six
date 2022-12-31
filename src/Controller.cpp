@@ -218,13 +218,13 @@ int Controller::updateProduction()
             if (this->prod_needed_to_active < this->currentAttributes.prod)
             {
                 // this->currentProduction->active(this->currentProductionCell);
-                this->currentProductionCell->IF_BUILDING = 0;
-                this->currentAttributes.prod -= this->prod_needed_to_active;
+                // this->currentProductionCell->IF_BUILDING = 0;
+                // this->currentAttributes.prod -= this->prod_needed_to_active;
                 // this->currentProductionCell->buildingType = this->currentProduction;
                 this->currentProduction = 0;
-                this->currentProductionCell = 0;
-                this->currentProductionType = 0;
-                this->prod_needed_to_active = 0;
+                // this->currentProductionCell = 0;
+                // this->currentProductionType = 0;
+                // this->prod_needed_to_active = 0;
             }
             else
             {
@@ -284,7 +284,7 @@ int Controller::checkBorderUpdate(int& newX, int& newY, float& nextThres)
 
 int Controller::setPopAt()
 {
-    updatePop();
+    // updatePop();
     // todo: add or remove the worker at (m, n), return 0 if the action is successful
     bool flag = this->checkPop();
     while (flag != 0)
