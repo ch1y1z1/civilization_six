@@ -333,14 +333,14 @@ int Controller::checkBorderUpdate(int& newX, int& newY, float& nextThres)
     {
         this->BorderExpandThreshold *= 2;
         out();
-        std::cout << "Invalid input: Border is now Expandable" << std::endl;
-        std::cout << "Invalid input: Please input the coordinates of the new border" << std::endl;
+        std::cout << "Border is now Expandable" << std::endl;
+        std::cout << "Please input the coordinates of the new border" << std::endl;
         std::cin >> newX >> newY;
         // 判断是否越界
         while (true)
         {
             if (newX > 40 || newY > 20 || newX < 2 || newY < 1)
-                std::cout << "Invalid input: The expended coordinate is out of the map, please input again." << std::endl;
+                std::cout << "Invalid input: The expended coordinate is out of the map" << std::endl;
             else
                 break;
             cin >> newX >> newY;
@@ -349,7 +349,7 @@ int Controller::checkBorderUpdate(int& newX, int& newY, float& nextThres)
         while (true)
         {
             if (getCellDescription(newX / 2 - 1, newY).Pop == WILD && getCellDescription(newX / 2, newY - 1).Pop == WILD && getCellDescription(newX / 2 - 2, newY - 1).Pop == WILD && getCellDescription(newX / 2 - 1, newY - 2).Pop == WILD)
-                std::cout << "Invalid input: The expended coordinate is out of your area, please input again" << std::endl;
+                std::cout << "Invalid input: The expended coordinate is out of your area" << std::endl;
             else
                 break;
             cin >> newX >> newY;
