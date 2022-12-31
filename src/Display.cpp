@@ -192,7 +192,7 @@ void Display::MainProcess(Controller *controller, Grid *grid, Building **buildin
         cin >> x >> y;
         Cell arr = grid->getRepresent(x / 2 - 1, y - 1);
         Landform form = arr.landform;
-        if (x % 2 != 0 || form == SEA || form == OCEAN || form == MOUNTAIN)
+        if (x % 2 != 0 || form == SEA || form == OCEAN || form == MOUNTAIN||x > 40 || y > 20 || x < 2 || y < 1)
         {
             cout << "invalid input or this place cannot be a center\n";
             continue;

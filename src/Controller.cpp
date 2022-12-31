@@ -207,7 +207,7 @@ int Controller::updateProduction()
                 this->currentProductionCell = &this->getCellDescription(m, n);
                 this->currentProduction = this->availableBuildings[buildingchoice];
                 this->prod_needed_to_active = this->availableBuildings[buildingchoice]->prodSpent * this->getRound() / 100;
-                this->round_needed_to_active = this->prod_needed_to_active / this->currentAttributes.prod;
+                this->round_needed_to_active = this->prod_needed_to_active / this->currentAttributes.prod + 1;
                 this->totle_round_needed = this->round_needed_to_active;
                 this->getCellDescription(m, n).buildingType = this->availableBuildings[buildingchoice];
                 this->getCellDescription(m, n).IF_BUILDING = 1;
@@ -219,6 +219,29 @@ int Controller::updateProduction()
             // this->currentProduction = ;
             break;
         case 2:
+            int activitychoice;
+            while (1)
+            {
+                std::cout << "please select one activity" << std::endl;
+                for (int i = 0; i < this->activitySize; i++)
+                {
+                    std::cout << i << ". " << this->availableActivities[i]->name << std::endl;
+                }
+                std::cin >> activitychoice;
+                if (activitychoice < 0 || activitychoice > this->activitySize - 1)
+                {
+                    std::cout << "invalid input: out of range" << std::endl;
+                    continue;
+                }
+                this->currentProductionType = PRODUCTION_TYPE_ACTIVITY;
+                this->currentProductionCell = 0;
+                this->currentProduction = this->availableActivities[activitychoice];
+                this->prod_needed_to_active = this->availableActivities[activitychoice]->prodSpent * this->getRound() / 100;
+                this->round_needed_to_active = this->prod_needed_to_active / this->currentAttributes.prod + 1;
+                this->totle_round_needed = this->round_needed_to_active;
+
+                break;
+            }
             break;
         }
         clear();
@@ -233,6 +256,22 @@ int Controller::updateProduction()
                 this->currentProductionCell->IF_BUILDING = 0;
                 this->currentAttributes.prod -= this->prod_needed_to_active;
                 // this->currentProductionCell->buildingType = this->currentProduction;
+                // this->currentProduction = 0;
+                // this->currentProductionCell = 0;
+                this->currentProductionType = 0;
+                this->prod_needed_to_active = 0;
+            }
+            else
+            {
+                this->round_needed_to_active--;
+            }
+        }
+        if (this->currentProductionType == PRODUCTION_TYPE_ACTIVITY)
+        {
+            if (this->round_needed_to_active <= 0)
+            {
+                // this->currentProduction->active(this->currentProductionCell);
+                // this->currentAttributes.prod -= this->prod_needed_to_active;
                 // this->currentProduction = 0;
                 // this->currentProductionCell = 0;
                 this->currentProductionType = 0;
@@ -287,11 +326,13 @@ int Controller::checkBorderUpdate(int& newX, int& newY, float& nextThres)
         std::cout << "Border is now Expandable" << std::endl;
         std::cout << "Please input the coordinates of the new border" << std::endl;
         std::cin >> newX >> newY;
-        // 判断是否越界
+        // 判断是否越界或坐标错误
         while (true)
         {
             if (newX > 40 || newY > 20 || newX < 2 || newY < 1)
                 std::cout << "the expended coordinate is out of the map, please input again." << std::endl;
+            else if (newX % 2 == 1)
+                std::cout << "the expended coordinate is wrong, please input again." << std::endl;
             else
                 break;
             cin >> newX >> newY;
