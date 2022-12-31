@@ -1,5 +1,5 @@
 #include "Display.h"
-#include<Controller.h>
+#include <Controller.h>
 using namespace std;
 char landformNames[80] = {'O', 'S', 'P', 'H', 'D', 'M', 'N'};
 char architecture[60] = {'C', 'A', 'T', 'W', 'I'};
@@ -47,7 +47,7 @@ void Display::DrawMap(Grid *grid, Controller *controller)
     go(85, 1);
     cout << "GREEN means people";
     go(85, 2);
-    cout<< "BLUE means building";
+    cout << "BLUE means building";
     for (int i = 1; i < 21; i++)
     {
         for (int j = 1; j < 21; j++)
@@ -111,13 +111,15 @@ int Display::DrawAttributes(Controller *controller, Grid *grid)
         }
     }
     go(65, 23);
-    cout << "technology:" << controller->getAttributes().tech;
+    cout << "food:" << controller->getAttributes().food;
     go(65, 24);
-    cout << "culture:" << controller->getAttributes().cul;
+    cout << "technology:" << controller->getAttributes().tech;
     go(65, 25);
-    cout << "production:" << controller->getAttributes().prod;
+    cout << "culture:" << controller->getAttributes().cul;
     go(65, 26);
-    cout << "score:" << controller->getAttributes().prod + 10 * pop + controller->getAttributes().cul / 2.0 + controller->getAttributes().tech/2.0;
+    cout << "production:" << controller->getAttributes().prod;
+    go(65, 27);
+    cout << "score:" << controller->getAttributes().prod + 10 * pop + controller->getAttributes().cul / 2.0 + controller->getAttributes().tech / 2.0;
     return pop;
 }
 
@@ -145,15 +147,35 @@ void Display::DrawWorkersChange(Controller *controller, int pop)
 void Display::DrawProduction(Controller *controller)
 {
     // TODO: draw the current production, and receive the input for changing the current production绘制当前产量，并接收改变当前产量的输入
-    go(65, 27);
-    cout << " provided bonus remaining "<<     " rounds        ";
     go(65, 28);
-    cout << "now " << controller->currentProduction->name<<  " is in production \n";
+    cout << " provided bonus remaining "
+         << " rounds        ";
     go(65, 29);
+    char a[4] = "cen";
+    char b[4] = "cam";
+    char c[4] = "the";
+    char d[4] = "won";
+    char e[4] = "ind";
+    if (strcmp(controller->currentProduction->name, a) == 0)
+        cout << "now center is in production \n";
+    else if (strcmp(controller->currentProduction->name, b) == 0)
+        cout << "now campus is in production \n";
+
+    else if (strcmp(controller->currentProduction->name, c) == 0)
+        cout << "now theater is in production \n";
+    else if (strcmp(controller->currentProduction->name, d) == 0)
+        cout << "now wonder is in production \n";
+
+    else if (strcmp(controller->currentProduction->name, e) == 0)
+        cout
+            << "now industry is in production \n";
+    go(65, 30);
     int zi = controller->get_round_needed_to_active();
     int mu = controller->get_totle_round_needed();
     float percent = (float)zi / mu;
-    cout << "you have done "<<zi<<" "<<mu<<" "<<percent*100<<" %" ;
+    cout << "                                               ";
+    go(65, 30);
+    cout << "you have done " << zi << " " << mu << " " << percent * 100 << " %";
 }
 
 void Display::MainProcess(Controller *controller, Grid *grid, Building **buildings, Activity **activities)
