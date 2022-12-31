@@ -180,8 +180,8 @@ void Display::MainProcess(Controller *controller, Grid *grid, Building **buildin
         controller->getCellDescription(x / 2 - 1, y + 1 - 1).Pop = OWNED;
         controller->SetProductionBuilding(x / 2 - 1, y - 1, buildings[0]);
         break;
-        clear();
     }
+    clear();
     this->DrawMap(grid, controller);
     while (true)
     {
