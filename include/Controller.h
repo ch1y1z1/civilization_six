@@ -17,6 +17,10 @@ public:
 
     virtual ~Controller();
 
+    int get_round_needed_to_active();
+
+    int get_totle_round_needed();
+
     bool bindGrid(Grid* grid);
 
     bool nextRound(int& newX, int& newY, float& nextThres);
@@ -85,6 +89,8 @@ private:
     float prod_needed_to_active;
 
     int round_needed_to_active = 0;
+
+    int totle_round_needed = 0;
 };
 
 #endif // CONTROLLER_H

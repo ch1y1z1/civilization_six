@@ -19,6 +19,16 @@ Controller::~Controller()
     // dtor
 }
 
+int Controller::get_round_needed_to_active()
+{
+    return this->round_needed_to_active;
+}
+
+int Controller::get_totle_round_needed()
+{
+    return this->totle_round_needed;
+}
+
 void Controller::reset(int pop, float firstBorderThreshold)
 {
     this->currentRound = 1;
@@ -197,7 +207,8 @@ int Controller::updateProduction()
                 this->currentProductionCell = &this->getCellDescription(m, n);
                 this->currentProduction = this->availableBuildings[buildingchoice];
                 this->prod_needed_to_active = this->availableBuildings[buildingchoice]->prodSpent * this->getRound() / 100;
-                this->round_needed_to_active = this->prod_needed_to_active / this->currentAttributes.prod;
+                this->round_needed_to_active = this->prod_needed_to_active / this->currentAttributes.prod + 1;
+                this->totle_round_needed = this->round_needed_to_active;
                 this->getCellDescription(m, n).buildingType = this->availableBuildings[buildingchoice];
                 this->getCellDescription(m, n).IF_BUILDING = 1;
 
@@ -214,9 +225,9 @@ int Controller::updateProduction()
     }
     else
     {
-        if (this->round_needed_to_active <= 0)
+        if (this->currentProductionType == PRODUCTION_TYPE_BUILDING)
         {
-            if (this->prod_needed_to_active < this->currentAttributes.prod)
+            if (this->round_needed_to_active <= 0)
             {
                 // this->currentProduction->active(this->currentProductionCell);
                 this->currentProductionCell->IF_BUILDING = 0;
@@ -276,11 +287,13 @@ int Controller::checkBorderUpdate(int& newX, int& newY, float& nextThres)
         std::cout << "Border is now Expandable" << std::endl;
         std::cout << "Please input the coordinates of the new border" << std::endl;
         std::cin >> newX >> newY;
-        // 判断是否越界
+        // 判断是否越界或坐标错误
         while (true)
         {
             if (newX > 40 || newY > 20 || newX < 2 || newY < 1)
                 std::cout << "the expended coordinate is out of the map, please input again." << std::endl;
+            else if (newX % 2 == 1)
+                std::cout << "the expended coordinate is wrong, please input again." << std::endl;
             else
                 break;
             cin >> newX >> newY;
