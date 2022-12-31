@@ -208,6 +208,29 @@ int Controller::updateProduction()
             // this->currentProduction = ;
             break;
         case 2:
+            int activitychoice;
+            while (1)
+            {
+                std::cout << "please select one activity" << std::endl;
+                for (int i = 0; i < this->activitySize; i++)
+                {
+                    std::cout << i << ". " << this->availableActivities[i]->name << std::endl;
+                }
+                std::cin >> activitychoice;
+                if (activitychoice < 0 || activitychoice > this->activitySize - 1)
+                {
+                    std::cout << "invalid input: out of range" << std::endl;
+                    continue;
+                }
+                this->currentProductionType = PRODUCTION_TYPE_ACTIVITY;
+                this->currentProductionCell = 0;
+                this->currentProduction = this->availableActivities[activitychoice];
+                this->prod_needed_to_active = this->availableActivities[activitychoice]->prodSpent * this->getRound() / 100;
+                this->round_needed_to_active = this->prod_needed_to_active / this->currentAttributes.prod + 1;
+                this->totle_round_needed = this->round_needed_to_active;
+
+                break;
+            }
             break;
         }
         clear();
@@ -345,10 +368,6 @@ int Controller::setPopAt()
                     this->getCellDescription(x / 2 - 1, y - 1).Pop = COLONIZED;
                     this->workingPop++;
                     break;
-                }
-                else if(this->getCellDescription(x / 2 - 1, y - 1).Pop == OWNED&&(this->getCellDescription(x / 2 - 1, y - 1).landform!=SEA||this->getCellDescription(x / 2 - 1, y - 1).landform==PLAIN||this->getCellDescription(x / 2 - 1, y - 1).landform==DESERT||this->getCellDescription(x / 2 - 1, y - 1).landform==HILLY))
-                {
-                    std::cout <<"You cannot add pop to this landform"<<std::endl;
                 }
                 else if (this->getCellDescription(x / 2 - 1, y - 1).Pop == COLONIZED)
                 {
