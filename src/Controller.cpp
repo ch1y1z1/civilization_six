@@ -338,7 +338,7 @@ int Controller::checkBorderUpdate(int& newX, int& newY, float& nextThres)
         while (true)
         {
             if (getCellDescription(newX / 2 - 1, newY).Pop == WILD && getCellDescription(newX / 2 + 1, newY).Pop == WILD && getCellDescription(newX / 2, newY + 1).Pop == WILD && getCellDescription(newX / 2, newY - 1).Pop == WILD)
-                std::cout << "the expended coordinate is out of your eara,please input again" << std::endl;
+                std::cout << "the expended coordinate is out of your area, please input again" << std::endl;
             else
                 break;
             cin >> newX >> newY;
