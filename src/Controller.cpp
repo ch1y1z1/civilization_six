@@ -225,9 +225,9 @@ int Controller::updateProduction()
     }
     else
     {
-        if (this->round_needed_to_active <= 0)
+        if (this->currentProductionType == PRODUCTION_TYPE_BUILDING)
         {
-            if (this->prod_needed_to_active < this->currentAttributes.prod)
+            if (this->round_needed_to_active <= 0)
             {
                 // this->currentProduction->active(this->currentProductionCell);
                 this->currentProductionCell->IF_BUILDING = 0;
