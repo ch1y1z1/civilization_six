@@ -126,7 +126,7 @@ int Display::DrawAttributes(Controller* controller, Grid* grid)
     go(65, 25);
     cout << "culture:" << controller->getAttributes().cul;
     go(65, 26);
-    cout << "production:" << controller->getAttributes().prod-1;
+    cout << "production:" << controller->getAttributes().prod-0.5;
     go(65, 27);
     cout << "score:" << (controller->getAttributes().prod-1) + 10 * pop + controller->getAttributes().cul / 2.0 + controller->getAttributes().tech / 2.0;
     return pop;
