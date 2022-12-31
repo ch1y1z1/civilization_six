@@ -21,7 +21,7 @@ Controller::~Controller()
 
 void Controller::reset(int pop, float firstBorderThreshold)
 {
-    this->currentRound = 0;
+    this->currentRound = 1;
     this->world = 0;
     this->pop = pop;
     this->workingPop = 0;

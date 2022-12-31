@@ -42,6 +42,12 @@ void Display::DrawMap(Grid *grid, Controller *controller)
     go(0, 22);
     cout << "Round: " << controller->getRound();
     // enum Landform{OCEAN=0, SEA, PLAIN, HILLY, DESERT, MOUNTAIN, NOTYPE};
+    go(85, 0);
+    cout << "RED means owned";
+    go(85, 1);
+    cout << "GREEN means people";
+    go(85, 2);
+    cout << "BLUE means building";
     for (int i = 1; i < 21; i++)
     {
         for (int j = 1; j < 21; j++)
