@@ -255,6 +255,22 @@ int Controller::updateProduction()
                 this->round_needed_to_active--;
             }
         }
+        if (this->currentProductionType == PRODUCTION_TYPE_ACTIVITY)
+        {
+            if (this->round_needed_to_active <= 0)
+            {
+                // this->currentProduction->active(this->currentProductionCell);
+                // this->currentAttributes.prod -= this->prod_needed_to_active;
+                // this->currentProduction = 0;
+                // this->currentProductionCell = 0;
+                this->currentProductionType = 0;
+                this->prod_needed_to_active = 0;
+            }
+            else
+            {
+                this->round_needed_to_active--;
+            }
+        }
     }
     // this->DrawMap(grid);
     return this->getRound();
