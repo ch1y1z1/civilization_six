@@ -465,7 +465,7 @@ void Controller::updateAttributes()
             }
             if (this->getCellDescription(i, j).buildingType != 0)
             {
-                this->currentAttributes += 0.5 * this->getCellDescription(i, j).buildingType->basicBonus;
+                this->currentAttributes +=  this->getCellDescription(i, j).buildingType->basicBonus * 0.5 ;
             }
         }
     }
