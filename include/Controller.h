@@ -66,6 +66,7 @@ private:
     int currentProductionType = 0;
 
     Cell *currentProductionCell = 0;
+     Cell **adjacent = new Cell *[4];
 
     Grid *world;
 

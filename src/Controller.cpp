@@ -281,7 +281,15 @@ int Controller::checkBorderUpdate(int &newX, int &newY, float &nextThres)
         while (true)
         {
             if (newX > 40 || newY > 20 || newX < 2 || newY < 1)
-                std::cout << "the expended coordinates are out of the map, please input again." << std::endl;
+                std::cout << "the expended coordinate is out of the map, please input again." << std::endl;
+            else
+                break;
+        }
+        // 判断是否与现有边界相连
+        while (true)
+        {
+            if (getCellDescription(newX / 2 - 1, newY).Pop == WILD && getCellDescription(newX / 2 + 1, newY).Pop == WILD && getCellDescription(newX / 2, newY + 1).Pop == WILD && getCellDescription(newX / 2, newY - 1).Pop == WILD)
+                std::cout << "the expended coordinate is out of your eara,please input again" << std::endl;
             else
                 break;
         }
@@ -409,11 +417,10 @@ void Controller::updateAttributes()
 }
 
 Cell **Controller::getAdjacentCells(int m, int n)
-{
-    // todo: get the adjacent cells from cell (m, n)
+{    // todo: get the adjacent cells from cell (m, n)
     // you can use this as :Cell** adjacent=getAdjacentCells(m,n) to get the details of (m,n)'s up, left ,down and right
     // Cell adj=new Cell[1];
-    Cell **adjacent = new Cell *[4];
+   
     if (m == 0 && n == 0)
     {
         adjacent[0] = 0;
@@ -501,6 +508,7 @@ Cell **Controller::getAdjacentCells(int m, int n)
         *adjacent[2] = getCellDescription(m + 1, n);
         *adjacent[3] = getCellDescription(m, n + 1);
     }
+    return adjacent;
 }
 
 int Controller::getAdjacentSatisfied(Cell **adjacents, char buildingName, Landform landformType)
