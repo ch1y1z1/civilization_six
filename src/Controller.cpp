@@ -210,7 +210,7 @@ int Controller::updateProduction()
                 std::cin >> buildingchoice;
                 if (buildingchoice < 0 || buildingchoice > 4)
                 {
-                    std::cout << "invalid input: out of range" << std::endl;
+                    std::cout << "Invalid input: Out of range" << std::endl;
                     continue;
                 }
                 this->currentProductionType = PRODUCTION_TYPE_BUILDING;
@@ -349,7 +349,7 @@ int Controller::checkBorderUpdate(int& newX, int& newY, float& nextThres)
         while (true)
         {
             if (getCellDescription(newX / 2 - 1, newY).Pop == WILD && getCellDescription(newX / 2, newY - 1).Pop == WILD && getCellDescription(newX / 2 - 2, newY - 1).Pop == WILD && getCellDescription(newX / 2 - 1, newY - 2).Pop == WILD)
-                std::cout << "the expended coordinate is out of your area, please input again" << std::endl;
+                std::cout << "Invalid input: The expended coordinate is out of your area, please input again" << std::endl;
             else
                 break;
             cin >> newX >> newY;
