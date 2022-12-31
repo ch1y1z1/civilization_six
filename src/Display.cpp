@@ -180,6 +180,8 @@ void Display::DrawProduction(Controller* controller)
 
 void Display::MainProcess(Controller* controller, Grid* grid, Building** buildings, Activity** activities)
 {
+    DrawAttributes(controller, grid);
+    DrawProduction(controller);
     controller->currentAttributes.prod = 1;
     controller->reset(2);
     controller->bindGrid(grid);
