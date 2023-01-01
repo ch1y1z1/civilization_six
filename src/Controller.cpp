@@ -154,6 +154,15 @@ bool Controller::nextRound(int& newX, int& newY, float& nextThres)
     return 0;
 }
 
+
+/**
+ *@brief update the attributes of the controller
+ * first check if the current production is finished
+ * if finished, then cin players choice
+ * if not finished, then update the production
+ *
+ * @return int if the production is finished
+ */
 int Controller::updateProduction()
 {
     // Display *dis;
