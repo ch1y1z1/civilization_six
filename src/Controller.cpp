@@ -52,10 +52,19 @@ void Controller::reset(int pop, float firstBorderThreshold)
 bool Controller::checkWin()
 {
     // todo: check whether the player has won the game
+    static int won = 0;
+    for (int i = 0; i < 20; i++)
+    {
+        for (int j = 0; j < 20; j++)
+        {
+            if(this->getCellDescription(i,j).buildingType->num==3)
+                won++;
+        }
+    }
     if (this->currentAttributes.tech >= 500)
         return true;
-    if (this->currentAttributes.cul >= 350)
-        return true; // TODO: add 5 wonder
+    if (this->currentAttributes.cul >= 350&&won==5)
+            return true; 
     int score = 0.5 * this->currentAttributes.tech + 0.5 * this->currentAttributes.cul + 10 * this->pop + this->currentAttributes.prod;
     if (score >= 500)
         return true;
@@ -115,6 +124,7 @@ int Controller::getWorkingPop(int& workersNumber, int*& workersCellCoords)
  * @param n y
  * @return Cell& reference to the cell
  */
+
 Cell& Controller::getCellDescription(int m, int n)
 {
     return world->getRepresent(m, n);
@@ -592,7 +602,7 @@ int Controller::setPopAt()
             std::cout << "Invalid input: There is no pop at this cell" << std::endl;
             continue;
         }
-        if (this->getCellDescription(newx / 2 - 1, newy - 1).Pop == COLONIZED && !this->getCellDescription(newx / 2 - 1, newy - 1).buildingType->num == 0)
+        if (this->getCellDescription(newx / 2 - 1, newy - 1).Pop == COLONIZED )
         {
             std::cout << "Invalid input: There has already been a pop at this cell" << std::endl;
             continue;
@@ -607,7 +617,6 @@ int Controller::setPopAt()
         std::cout << "Switch successfully" << std::endl;
         break;
         clear();
-        // this->DrawMap(grid);
     }
 
     clear();
