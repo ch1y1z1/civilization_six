@@ -162,24 +162,25 @@ void Display::DrawProduction(Controller *controller)
     char c[4] = "the";
     char d[4] = "won";
     char e[4] = "ind";
-    if (strcmp(controller->currentProduction->name, a) == 0)
-        cout << "now center is in production \n";
-    else if (strcmp(controller->currentProduction->name, b) == 0)
-        cout << "now campus is in production \n";
-    else if (strcmp(controller->currentProduction->name, c) == 0)
-        cout << "now theater is in production \n";
-    else if (strcmp(controller->currentProduction->name, d) == 0)
-        cout << "now wonder is in production \n";
-    else if (strcmp(controller->currentProduction->name, e) == 0)
-        cout
-            << "now industry is in production \n";
-    go(65, 30);
     int zi = controller->get_round_needed_to_active();
     int mu = controller->get_totle_round_needed();
     if (mu == -1)
+    {
         cout << "no production";
+    }
     else
     {
+        if (strcmp(controller->currentProduction->name, a) == 0)
+            cout << "now center is in production \n";
+        else if (strcmp(controller->currentProduction->name, b) == 0)
+            cout << "now campus is in production \n";
+        else if (strcmp(controller->currentProduction->name, c) == 0)
+            cout << "now theater is in production \n";
+        else if (strcmp(controller->currentProduction->name, d) == 0)
+            cout << "now wonder is in production \n";
+        else if (strcmp(controller->currentProduction->name, e) == 0)
+            cout << "now industry is in production \n";
+        go(65, 30);
         float percent = (float)zi / mu;
         cout << "you have done " << (1 - percent) * 100 << " % "
              << " TOTAL: " << mu;
