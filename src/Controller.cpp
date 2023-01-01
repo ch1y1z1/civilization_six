@@ -3,7 +3,7 @@
 #include "Display.h"
 
 const int landformBuffs[7][2] = {
-    {1, 0}, {1, 1}, {2, 1}, {2, 2}, {0, 1}, {0, 0}, {0, 0}};
+    {1, 0}, {1, 1}, {2, 1}, {2, 2}, {0, 1}, {0, 0}, {0, 0} };
 
 Controller::Controller()
 {
@@ -73,7 +73,7 @@ bool Controller::checkWin()
     return false;
 }
 
-bool Controller::bindGrid(Grid *grid)
+bool Controller::bindGrid(Grid* grid)
 {
     this->world = grid;
     return (grid != 0);
@@ -88,7 +88,7 @@ int Controller::getPop()
     return this->pop;
 }
 
-int Controller::getWorkingPop(int &workersNumber, int *&workersCellCoords)
+int Controller::getWorkingPop(int& workersNumber, int*& workersCellCoords)
 {
     workersNumber = this->workingPop;
     if (workersCellCoords != 0)
@@ -98,8 +98,8 @@ int Controller::getWorkingPop(int &workersNumber, int *&workersCellCoords)
         workersCellCoords = 0;
         return 0;
     }
-    workersCellCoords = new int[2 * workersNumber]{0};
-    Cell **grid = this->world->getGrid();
+    workersCellCoords = new int[2 * workersNumber] {0};
+    Cell** grid = this->world->getGrid();
     int m = this->world->getGridHeight(), n = this->world->getGridWidth();
     int cur = 0;
     for (int i = 0; i < m; i++)
@@ -127,7 +127,7 @@ int Controller::getWorkingPop(int &workersNumber, int *&workersCellCoords)
  * @return Cell& reference to the cell
  */
 
-Cell &Controller::getCellDescription(int m, int n)
+Cell& Controller::getCellDescription(int m, int n)
 {
     return world->getRepresent(m, n);
 }
@@ -137,7 +137,7 @@ int Controller::getRound()
     return currentRound;
 }
 
-bool Controller::SetProductionBuilding(int m, int n, Building *building)
+bool Controller::SetProductionBuilding(int m, int n, Building* building)
 {
     // todo: set the current production to building at coordinates (m, n), return true if the action is successful
     if (this->getCellDescription(m, n).buildingType != 0)
@@ -151,7 +151,7 @@ bool Controller::SetProductionBuilding(int m, int n, Building *building)
     return true;
 }
 
-bool Controller::SetProductionActivity(Activity *activity)
+bool Controller::SetProductionActivity(Activity* activity)
 {
     // todo: set the current production to activity, return true if the action is successful
     this->currentProductionType = PRODUCTION_TYPE_ACTIVITY;
@@ -184,7 +184,7 @@ bool Controller::SetProductionActivity(int activityOrder)
  * @return true
  * @return false
  */
-bool Controller::nextRound(int &newX, int &newY, float &nextThres)
+bool Controller::nextRound(int& newX, int& newY, float& nextThres)
 { // ! main here
     if (this->checkWin())
         return 1;
@@ -324,7 +324,7 @@ int Controller::updateProduction()
                 bool flag = false;
                 this->activitySize = 0;
                 std::cout << "please select one activity" << std::endl;
-                bool if_activity[20] = {0};
+                bool if_activity[20] = { 0 };
                 for (int i = 0; i < 20; i++)
                 {
                     for (int j = 0; j < 20; j++)
@@ -412,7 +412,7 @@ int Controller::updateProduction()
     return this->getRound();
 }
 
-Production *Controller::getProduction(int &productionType, Cell *&currentProductionCell)
+Production* Controller::getProduction(int& productionType, Cell*& currentProductionCell)
 {
     productionType = this->currentProductionType;
     currentProductionCell = this->currentProductionCell;
@@ -443,7 +443,7 @@ int Controller::checkPop()
  */
 void Controller::updatePop()
 {
-    int maxpop = this->currentAttributes.food / 2;
+    int maxpop = sqrt(this->currentAttributes.food);
     float popDelta = (maxpop - pop) * 0.1;
     if (popDelta > 1)
         popDelta = 1;
@@ -463,7 +463,7 @@ void Controller::updatePop()
  * @param nextThres culture threshold of the new border
  * @return int
  */
-int Controller::checkBorderUpdate(int &newX, int &newY, float &nextThres)
+int Controller::checkBorderUpdate(int& newX, int& newY, float& nextThres)
 {
     // todo: check whether the border should update or not, and if so, return the new culture threshold and expansion coordinates (newX, newY)
     nextThres = this->BorderExpandThreshold;
@@ -595,7 +595,7 @@ int Controller::setPopAt()
         std::cin >> y >> newx >> newy;
         Cell arr = this->getCellDescription(newx / 2 - 1, newy - 1);
         Landform form = arr.landform;
-        if (newx % 2 != 0 ||newy<2||newx > 40 || newy > 20 || newx < 2 || newy < 1|| form == SEA || form == OCEAN || form == MOUNTAIN)
+        if (newx % 2 != 0 || newy < 2 || newx > 40 || newy > 20 || newx < 2 || newy < 1 || form == SEA || form == OCEAN || form == MOUNTAIN)
         {
             cout << "invalid input\n";
             continue;
@@ -645,7 +645,7 @@ void Controller::updateAttributes()
     }
 }
 
-Cell **Controller::getAdjacentCells(int m, int n)
+Cell** Controller::getAdjacentCells(int m, int n)
 { // todo: get the adjacent cells from cell (m, n)
     // you can use this as :Cell** adjacent=getAdjacentCells(m,n) to get the details of (m,n)'s up, left ,down and right
     // Cell adj=new Cell[1];
@@ -740,7 +740,7 @@ Cell **Controller::getAdjacentCells(int m, int n)
     return adjacent;
 }
 
-int Controller::getAdjacentSatisfied(Cell **adjacents, char buildingName, Landform landformType)
+int Controller::getAdjacentSatisfied(Cell** adjacents, char buildingName, Landform landformType)
 {
     // todo: check whether the adjacent cells satisfy the landformType and buildingName(s), you need to rewrite it if you use a hexagonal map
     unsigned satisfiedCellsNum = 0;
