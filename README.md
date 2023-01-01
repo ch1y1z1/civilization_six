@@ -28,6 +28,7 @@ civilization_six
     ├── Controller.cpp
     ├── Display.cpp
     └── Grid.cpp
+```
 
 请使用cmake编译，
 可执行文件位于/build/main.exe
