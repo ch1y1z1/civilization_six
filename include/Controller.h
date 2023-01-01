@@ -28,6 +28,7 @@ public:
     int checkPop();
 
     Activity** availableActivities;
+    Activity** new_availableActivities;
     int activitySize = 3;
     Building** availableBuildings;
     // int buildingSize = 0;
