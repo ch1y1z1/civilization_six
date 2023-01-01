@@ -96,6 +96,8 @@ private:
     int buffround = -1;
 
     int buffkind = 0;
+
+    Activity* buffactivity = 0;
 };
 
 #endif // CONTROLLER_H
