@@ -664,7 +664,7 @@ void Controller::updateAttributes()
             }
             else if (this->getCellDescription(i, j).buildingType != 0 && this->getCellDescription(i, j).Pop == OWNED)
             {
-                this->currentAttributes += this->getCellDescription(i, j).buildingType->basicBonus * 0.6;
+                this->currentAttributes += this->getCellDescription(i, j).buildingType->basicBonus * 0.4;
             }
         }
     }
