@@ -19,6 +19,11 @@ Controller::~Controller()
     // dtor
 }
 
+/**
+ *@brief
+ *
+ * @return int round needed to active
+ */
 int Controller::get_round_needed_to_active()
 {
     return this->round_needed_to_active;
