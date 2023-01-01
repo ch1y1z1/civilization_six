@@ -205,7 +205,8 @@ int Controller::updateProduction()
         std::cout << "you are not able to product anything." << std::endl;
         std::cout << "press any key to continue" << std::endl;
         std::cin.get();
-        return 0;
+        clear();
+        return this->getRound();
     }
     if (this->currentProductionType == 0)
     {
@@ -303,7 +304,7 @@ int Controller::updateProduction()
                         {
                             if (this->getCellDescription(m / 2 - 1, n - 1).buildingType->num == 1)
                             {
-                                !flag;
+                                flag = !flag;
                                 break;
                             }
                         }
@@ -318,7 +319,7 @@ int Controller::updateProduction()
                         {
                             if (this->getCellDescription(m / 2 - 1, n - 1).buildingType->num == 2)
                             {
-                                !flag;
+                                flag = !flag;
                                 break;
                             }
                         }
@@ -333,7 +334,7 @@ int Controller::updateProduction()
                         {
                             if (this->getCellDescription(m / 2 - 1, n - 1).buildingType->num == 4)
                             {
-                                !flag;
+                                flag = !flag;
                                 break;
                             }
                         }
@@ -366,12 +367,7 @@ int Controller::updateProduction()
         {
             if (this->round_needed_to_active <= 0)
             {
-                // this->currentProduction->active(this->currentProductionCell);
                 this->currentProductionCell->IF_BUILDING = 0;
-                // this->currentAttributes.prod -= this->prod_needed_to_active;
-                // this->currentProductionCell->buildingType = this->currentProduction;
-                // this->currentProduction = 0;
-                // this->currentProductionCell = 0;
                 this->currentProductionType = 0;
                 this->prod_needed_to_active = 0;
             }
@@ -384,10 +380,6 @@ int Controller::updateProduction()
         {
             if (this->round_needed_to_active <= 0)
             {
-                // this->currentProduction->active(this->currentProductionCell);
-                // this->currentAttributes.prod -= this->prod_needed_to_active;
-                // this->currentProduction = 0;
-                // this->currentProductionCell = 0;
                 this->currentProductionType = 0;
                 this->prod_needed_to_active = 0;
             }
@@ -397,7 +389,6 @@ int Controller::updateProduction()
             }
         }
     }
-    // this->DrawMap(grid);
     return this->getRound();
 }
 
@@ -408,6 +399,14 @@ Production* Controller::getProduction(int& productionType, Cell*& currentProduct
     return this->currentProduction;
 }
 
+/**
+ *@brief check whether the population should update or not,
+ *
+ * @return int
+ * 0: no need to update
+ * 1: need to add pops
+ * -1: need to remove pops
+ */
 int Controller::checkPop()
 {
     if (int(this->workingPop) > this->pop)
@@ -418,6 +417,10 @@ int Controller::checkPop()
         return 0; // you may switch pops
 }
 
+/**
+ *@brief update the population according to the current food
+ *
+ */
 void Controller::updatePop()
 {
     int maxpop = this->currentAttributes.food / 2;

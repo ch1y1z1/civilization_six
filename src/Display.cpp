@@ -174,7 +174,7 @@ void Display::DrawProduction(Controller* controller)
     float percent = (float)zi / mu;
     cout << "                                               ";
     go(65, 30);
-    cout << "you have done " << (1 - percent) * 100 << " % "<<" TOTAL: "<<mu;
+    cout << "you have done " << (1 - percent) * 100 << " % " << " TOTAL: " << mu;
 }
 
 void Display::MainProcess(Controller* controller, Grid* grid, Building** buildings, Activity** activities)
@@ -182,6 +182,7 @@ void Display::MainProcess(Controller* controller, Grid* grid, Building** buildin
     controller->availableActivities = activities;
     controller->currentAttributes.prod = 0;
     controller->reset(2);
+    controller->currentAttributes.prod = 0;
     controller->bindGrid(grid);
     controller->availableBuildings = buildings;
     this->DrawMap(grid, controller);
