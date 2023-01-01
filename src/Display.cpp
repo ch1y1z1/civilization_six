@@ -101,13 +101,13 @@ void Display::DrawMap(Grid* grid, Controller* controller)
 int Display::DrawAttributes(Controller* controller, Grid* grid)
 {
     int pop = controller->getPop();
-    int max_pop =0.15* sqrt(controller->getAttributes().food);
+    int max_pop =sqrt(controller->getAttributes().food);
     go(50, 0);
     cout << "population now:" << pop;
     go(50, 1);
     cout << "max population:" << max_pop;
     go(50, 3);
-    float popDelta = (max_pop - pop) * 0.1;
+    float popDelta = (max_pop - pop) * 0.15;
     if (popDelta > 1)
     {
         popDelta = 1;
