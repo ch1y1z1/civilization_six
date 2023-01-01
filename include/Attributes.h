@@ -31,6 +31,20 @@ struct Attributes
         tmp.prod = prod * n;
         return tmp;
     }
+    Attributes operator-(const Attributes& a) {
+        Attributes tmp(a);
+        tmp.tech -= this->tech;
+        tmp.cul -= this->cul;
+        tmp.food -= this->food;
+        tmp.prod -= this->prod;
+        return tmp;
+    }
+}
+Attributes operator-=(const Attributes& a) {
+    Attributes tmp(a);
+    *this = *this - tmp;
+    return *this;
+}
 };
 
 #endif // ATTRIBUTES_H
