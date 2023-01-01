@@ -547,10 +547,9 @@ int Controller::setPopAt()
         flag = this->checkPop();
         // display->DrawMap(grid);
     }
-
+    out();
     while (true)
     {
-        out();
         std::cout << "You may switch pops now" << std::endl;
         std::cout << "Please input the coordinates of the pop you want to switch \nor you may input '0' to skip this step" << std::endl;
         int x, y, newx, newy;
@@ -558,7 +557,13 @@ int Controller::setPopAt()
         if (x == 0)
             return 0;
         std::cin >> y >> newx >> newy;
-        judge(newx, newy, this->world);
+        Cell arr = this->getCellDescription(newx / 2 - 1, newy - 1);
+        Landform form = arr.landform;
+        if (newx % 2 != 0 || form == SEA || form == OCEAN || form == MOUNTAIN)
+        {
+            cout << "invalid input\n";
+            continue;
+        }
         if (!(this->getCellDescription(x / 2 - 1, y - 1).Pop == COLONIZED))
         {
             std::cout << "Invalid input: There is no pop at this cell" << std::endl;
@@ -577,6 +582,7 @@ int Controller::setPopAt()
         this->getCellDescription(x / 2 - 1, y - 1).Pop = OWNED;
         this->getCellDescription(newx / 2 - 1, newy - 1).Pop = COLONIZED;
         std::cout << "Switch successfully" << std::endl;
+        break;
         clear();
         // this->DrawMap(grid);
     }
