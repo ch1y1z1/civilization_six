@@ -298,6 +298,14 @@ int Controller::updateProduction()
             // this->currentProduction = ;
             break;
         case 2:
+            if (this->buffround >= 0)
+            {
+                std::cout << "Invalid input:\n You are in another activity's buff now" << std::endl;
+                std::cout << "press any key to continue" << std::endl;
+                std::cin.get();
+                std::cin.get();
+                goto label;
+            }
             int activitychoice;
             while (1)
             {
