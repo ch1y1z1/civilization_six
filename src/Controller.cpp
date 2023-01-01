@@ -487,6 +487,7 @@ int Controller::checkBorderUpdate(int& newX, int& newY, float& nextThres)
         clear();
         return 1;
     }
+    clear();
     return 0;
 }
 
