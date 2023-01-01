@@ -283,7 +283,27 @@ int Controller::updateProduction()
             while (1)
             {
                 bool flag = false;
+                this->activitySize = 0;
                 std::cout << "please select one activity" << std::endl;
+                bool if_activity[20] = { 0 };
+                for (int i = 0; i < 20; i++)
+                {
+                    for (int j = 0; j < 20; j++)
+                    {
+                        if (this->getCellDescription(i, j).buildingType != 0)
+                        {
+                            if_activity[this->getCellDescription(i, j).buildingType->num] = 1;
+                        }
+                    }
+                }
+                for (int i = 0; i < 20; i++)
+                {
+                    if (if_activity[i] == 1)
+                    {
+                        this->new_availableActivities[this->activitySize] = this->availableActivities[i];
+                        this->activitySize++;
+                    }
+                }
                 for (int i = 0; i < this->activitySize; i++)
                 {
                     std::cout << i + 1 << ". " << this->availableActivities[i]->name << std::endl;
@@ -294,54 +314,54 @@ int Controller::updateProduction()
                     std::cout << "Invalid input: Out of range" << std::endl;
                     continue;
                 }
-                switch (activitychoice)
-                {
-                case 1:
-                    for (int m = 2; m <= 40; m += 2)
-                    {
-                        for (int n = 1; n <= 20; ++n)
-                        {
-                            if (this->getCellDescription(m / 2 - 1, n - 1).buildingType->num == 1)
-                            {
-                                flag = !flag;
-                                break;
-                            }
-                        }
-                        if (flag)
-                            break;
-                    }
-                    break;
-                case 2:
-                    for (int m = 2; m <= 40; m += 2)
-                    {
-                        for (int n = 1; n <= 20; ++n)
-                        {
-                            if (this->getCellDescription(m / 2 - 1, n - 1).buildingType->num == 2)
-                            {
-                                flag = !flag;
-                                break;
-                            }
-                        }
-                        if (flag)
-                            break;
-                    }
-                    break;
-                case 3:
-                    for (int m = 2; m <= 40; m += 2)
-                    {
-                        for (int n = 1; n <= 20; ++n)
-                        {
-                            if (this->getCellDescription(m / 2 - 1, n - 1).buildingType->num == 4)
-                            {
-                                flag = !flag;
-                                break;
-                            }
-                        }
-                        if (flag)
-                            break;
-                    }
-                    break;
-                }
+                // switch (activitychoice)
+                // {
+                // case 1:
+                //     for (int m = 2; m <= 40; m += 2)
+                //     {
+                //         for (int n = 1; n <= 20; ++n)
+                //         {
+                //             if (this->getCellDescription(m / 2 - 1, n - 1).buildingType->num == 1)
+                //             {
+                //                 flag = !flag;
+                //                 break;
+                //             }
+                //         }
+                //         if (flag)
+                //             break;
+                //     }
+                //     break;
+                // case 2:
+                //     for (int m = 2; m <= 40; m += 2)
+                //     {
+                //         for (int n = 1; n <= 20; ++n)
+                //         {
+                //             if (this->getCellDescription(m / 2 - 1, n - 1).buildingType->num == 2)
+                //             {
+                //                 flag = !flag;
+                //                 break;
+                //             }
+                //         }
+                //         if (flag)
+                //             break;
+                //     }
+                //     break;
+                // case 3:
+                //     for (int m = 2; m <= 40; m += 2)
+                //     {
+                //         for (int n = 1; n <= 20; ++n)
+                //         {
+                //             if (this->getCellDescription(m / 2 - 1, n - 1).buildingType->num == 4)
+                //             {
+                //                 flag = !flag;
+                //                 break;
+                //             }
+                //         }
+                //         if (flag)
+                //             break;
+                //     }
+                //     break;
+                // }
                 if (!flag)
                 {
                     std::cout << "the activity doesn't match to your current buildings" << std::endl;
