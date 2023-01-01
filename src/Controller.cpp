@@ -385,13 +385,14 @@ int Controller::updateProduction()
                 {
                     goto label;
                 }
+                activitychoice--;
                 this->currentProductionType = PRODUCTION_TYPE_ACTIVITY;
-                this->currentProduction = this->availableActivities[activitychoice];
-                this->prod_needed_to_active = this->availableActivities[activitychoice]->prodSpent * this->getRound() / 100;
+                this->currentProduction = this->new_availableActivities[activitychoice];
+                this->prod_needed_to_active = this->new_availableActivities[activitychoice]->prodSpent * this->getRound() / 100;
                 this->round_needed_to_active = this->prod_needed_to_active / this->currentAttributes.prod + 1;
                 this->totle_round_needed = this->round_needed_to_active;
-                this->buffactivity = this->availableActivities[activitychoice];
-                this->buffattr = this->availableActivities[activitychoice]->basicBonus * this->pop;
+                this->buffactivity = this->new_availableActivities[activitychoice];
+                this->buffattr = this->new_availableActivities[activitychoice]->basicBonus * this->pop;
 
                 break;
             }
