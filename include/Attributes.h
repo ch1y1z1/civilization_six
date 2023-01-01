@@ -31,7 +31,7 @@ struct Attributes
         tmp.prod = prod * n;
         return tmp;
     }
-    Attributes operator-(const Attributes& a) {
+    Attributes operator-(const Attributes& a) const {
         Attributes tmp(a);
         tmp.tech -= this->tech;
         tmp.cul -= this->cul;

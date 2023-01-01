@@ -639,6 +639,10 @@ void Controller::updateAttributes()
             }
             if (this->getCellDescription(i, j).buildingType != 0 && this->getCellDescription(i, j).IF_BUILDING == 0 && this->getCellDescription(i, j).Pop == COLONIZED)
             {
+                this->currentAttributes += this->getCellDescription(i, j).buildingType->popBonus * 1;
+            }
+            else if (this->getCellDescription(i, j).buildingType != 0 && this->getCellDescription(i, j).Pop == OWNED)
+            {
                 this->currentAttributes += this->getCellDescription(i, j).buildingType->basicBonus * 1;
             }
         }
