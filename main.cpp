@@ -67,7 +67,7 @@ void out()
 void clear()
 {
     go(0, 25);
-    for (int j = 0; j < 25; j++)
+    for (int j = 0; j < 100; j++)
     {
         for (int i = 0; i < 65; i++)
         {
