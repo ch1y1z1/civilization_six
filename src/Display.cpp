@@ -181,7 +181,6 @@ void Display::DrawProduction(Controller *controller)
     else
     {
         float percent = (float)zi / mu;
-        go(65, 30);
         cout << "you have done " << (1 - percent) * 100 << " % "
              << " TOTAL: " << mu;
     }
