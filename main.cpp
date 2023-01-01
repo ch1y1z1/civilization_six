@@ -58,6 +58,7 @@ void out()
     go(0, 23);
     cout << "--------------------------------------------\n";
     cout << "              INTERACT HERE\n";
+    go(0, 0);
     go(0, 25);
 }
 /**
@@ -67,7 +68,7 @@ void out()
 void clear()
 {
     go(0, 25);
-    for (int j = 0; j < 100; j++)
+    for (int j = 0; j <30; j++)
     {
         for (int i = 0; i < 65; i++)
         {
