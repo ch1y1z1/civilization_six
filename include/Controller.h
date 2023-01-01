@@ -93,7 +93,7 @@ private:
 
     int totle_round_needed = -1;
 
-    int buffround = 0;
+    int buffround = -1;
 };
 
 #endif // CONTROLLER_H
