@@ -161,11 +161,13 @@ int Display::DrawAttributes(Controller* controller, Grid* grid)
 void Display::DrawProduction(Controller* controller)
 {
     go(65, 28);
-    cout << "                                     ";
+    cout << "                                                         ";
     go(65, 28);
     if (controller->get_buff_activity()!=0)
-        cout << controller->get_buff_activity()->name << " provided bonus remaining "
-             << " rounds " << controller->get_buff_round();
+        if (controller->get_buff_round()==-1)
+            cout << "no bonus";
+           else cout << controller->get_buff_activity()->name << " provided bonus remaining "
+                 << " rounds " << controller->get_buff_round();
     go(65, 29);
     cout << "                                     ";
     go(65, 29);
