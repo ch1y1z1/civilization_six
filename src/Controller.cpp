@@ -412,6 +412,8 @@ void Controller::updatePop()
         popDelta = 1;
     else if (popDelta < -1)
         popDelta = -1;
+    else
+        popDelta = 0;
     this->pop += popDelta;
 }
 
