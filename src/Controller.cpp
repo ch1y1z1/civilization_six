@@ -34,7 +34,7 @@ int Controller::get_buff_round()
  *
  * @return int
  */
-int Controller::get_buff_activity()
+Activity* Controller::get_buff_activity()
 {
     return this->buffactivity;
 }
