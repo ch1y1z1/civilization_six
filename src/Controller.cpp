@@ -538,7 +538,7 @@ void Controller::updateAttributes()
                 this->currentAttributes.food += 0.5 * landformBuffs[this->getCellDescription(i, j).landform][0];
                 this->currentAttributes.prod += 0.25 * landformBuffs[this->getCellDescription(i, j).landform][1];
             }
-            if (this->getCellDescription(i, j).buildingType != 0)
+            if (this->getCellDescription(i, j).buildingType != 0 && this->getCellDescription(i, j).IF_BUILDING == false)
             {
                 this->currentAttributes += this->getCellDescription(i, j).buildingType->basicBonus * 0.5;
             }
