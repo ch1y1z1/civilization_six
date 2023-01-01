@@ -56,16 +56,17 @@ bool Controller::checkWin()
     for (int i = 0; i < 20; i++)
     {
         for (int j = 0; j < 20; j++)
-        {if(this->getCellDescription(i,j).buildingType==0)
+        {
+            if (this->getCellDescription(i, j).buildingType == 0)
                 continue;
-            else if(this->getCellDescription(i,j).buildingType->num==3)
+            else if (this->getCellDescription(i, j).buildingType->num == 3)
                 won++;
         }
     }
     if (this->currentAttributes.tech >= 500)
         return true;
-    if (this->currentAttributes.cul >= 350&&won==5)
-            return true; 
+    if (this->currentAttributes.cul >= 350 && won == 5)
+        return true;
     int score = 0.5 * this->currentAttributes.tech + 0.5 * this->currentAttributes.cul + 10 * this->pop + this->currentAttributes.prod;
     if (score >= 500)
         return true;
@@ -370,6 +371,7 @@ int Controller::updateProduction()
                 this->round_needed_to_active = this->prod_needed_to_active / this->currentAttributes.prod + 1;
                 this->totle_round_needed = this->round_needed_to_active;
                 this->buffactivity = this->availableActivities[activitychoice];
+                this->buffattr = this->availableActivities[activitychoice]->basicBonus * this->pop;
 
                 break;
             }
@@ -603,7 +605,7 @@ int Controller::setPopAt()
             std::cout << "Invalid input: There is no pop at this cell" << std::endl;
             continue;
         }
-        if (this->getCellDescription(newx / 2 - 1, newy - 1).Pop == COLONIZED )
+        if (this->getCellDescription(newx / 2 - 1, newy - 1).Pop == COLONIZED)
         {
             std::cout << "Invalid input: There has already been a pop at this cell" << std::endl;
             continue;

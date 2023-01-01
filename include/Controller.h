@@ -98,6 +98,8 @@ private:
     int buffkind = 0;
 
     Activity* buffactivity = 0;
+
+    Attributes buffattr;
 };
 
 #endif // CONTROLLER_H
