@@ -39,3 +39,6 @@ civilization_six
 ----
 
 ## **敲，根本看不懂咋写！**
+
+请使用cmake编译，
+可执行文件位于/build/main.exe
