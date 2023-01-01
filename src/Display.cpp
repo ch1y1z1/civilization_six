@@ -163,11 +163,11 @@ void Display::DrawProduction(Controller* controller)
     go(65, 28);
     cout << "                                                         ";
     go(65, 28);
-    if (controller->get_buff_activity()!=0)
-        if (controller->get_buff_round()==-1)
+    if (controller->get_buff_activity() != 0)
+        if (controller->get_buff_round() == -1)
             cout << "no bonus";
-           else cout << controller->get_buff_activity()->name << " provided bonus remaining "
-                 << " rounds " << controller->get_buff_round();
+        else cout << controller->get_buff_activity()->name << " provided bonus remaining "
+            << " rounds " << controller->get_buff_round();
     go(65, 29);
     cout << "                                     ";
     go(65, 29);
@@ -241,21 +241,25 @@ void Display::MainProcess(Controller* controller, Grid* grid, Building** buildin
     {
         int newX, newY;
         float nextThres;
-        if (controller->getRound()==100)
+        if (controller->getRound() == 100)
         {
             if (controller->checkWin())
             {
-                cout <<"YOU WIN!!!"<<endl;
+                cout << "YOU WIN!!!" << endl;
+                std::cin.get();
+                std::cin.get();
                 return;
             }
             else {
-                 cout <<"YOU LOSE!!!"<<endl;
-                 return;
-            }            
+                cout << "YOU LOSE!!!" << endl;
+                std::cin.get();
+                std::cin.get();
+                return;
+            }
         }
         else if (controller->nextRound(newX, newY, nextThres))
         {
-            cout <<"YOU WIN!!!"<<endl;
+            cout << "YOU WIN!!!" << endl;
             return;
         }
         this->DrawMap(grid, controller);
