@@ -398,6 +398,9 @@ Production* Controller::getProduction(int& productionType, Cell*& currentProduct
  *@brief check whether the population should update or not,
  *
  * @return int
+ * 0: no need to update
+ * 1: need to add pops
+ * -1: need to remove pops
  */
 int Controller::checkPop()
 {
