@@ -333,7 +333,6 @@ int Controller::updateProduction()
                     goto label;
                 }
                 this->currentProductionType = PRODUCTION_TYPE_ACTIVITY;
-                this->currentProductionCell = 0;
                 this->currentProduction = this->availableActivities[activitychoice];
                 this->prod_needed_to_active = this->availableActivities[activitychoice]->prodSpent * this->getRound() / 100;
                 this->round_needed_to_active = this->prod_needed_to_active / this->currentAttributes.prod + 1;
