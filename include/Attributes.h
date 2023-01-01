@@ -41,7 +41,7 @@ struct Attributes
     }
     Attributes operator-=(const Attributes& a) {
         Attributes tmp(a);
-        *this = *this - tmp;
+        *this = tmp-*this;
         return *this;
     }
 };
