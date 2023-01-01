@@ -85,7 +85,7 @@ bool Controller::checkWin()
     }
     if (this->currentAttributes.tech >= 500)
         return true;
-    if (this->currentAttributes.cul >= 350 && won == 5)
+    if (this->currentAttributes.cul >= 350 && won >= 5)
         return true;
     int score = 0.5 * this->currentAttributes.tech + 0.5 * this->currentAttributes.cul + 10 * this->pop + this->currentAttributes.prod;
     if (score >= 500)
@@ -465,7 +465,7 @@ int Controller::checkPop()
 void Controller::updatePop()
 {
     int maxpop = sqrt(this->currentAttributes.food);
-    float popDelta = (maxpop - pop) * 0.1;
+    float popDelta = (maxpop - pop) * 0.15;
     if (popDelta > 1)
         popDelta = 1;
     else if (popDelta < -1)

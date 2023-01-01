@@ -8,7 +8,7 @@ int main()
 
     Activity* symposium = new Activity((char*)"symposium", 50, Attributes(30.0));
     Activity* exhibition = new Activity((char*)"exhibition", 50, Attributes(0, 30.0));
-    Activity* distribution = new Activity((char*)"distribution", 50, Attributes(0, 0, 0, 30.0));
+    Activity* distribution = new Activity((char*)"distribution", 50, Attributes(0, 0, 0, 30.0 / 2));
 
     Activity** activities = new Activity * [3]
     { symposium, exhibition, distribution };

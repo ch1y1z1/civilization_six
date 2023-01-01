@@ -244,7 +244,7 @@ void Display::MainProcess(Controller* controller, Grid* grid, Building** buildin
         out();
         int newX, newY;
         float nextThres;
-        if (controller->getRound() == 100)
+        if (controller->getRound() >= 100)
         {
             if (controller->checkWin())
             {
