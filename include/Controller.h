@@ -7,6 +7,7 @@
 #define PRODUCTION_TYPE_ACTIVITY (2)
 
 #include "Grid.h"
+#include <cmath>
 
 class Controller
 {
