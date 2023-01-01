@@ -38,6 +38,12 @@ void Controller::reset(int pop, float firstBorderThreshold)
     this->currentAttributes = Attributes(0, 0, 0, 0.5);
 }
 
+/**
+ *@brief check whether the player has won the game
+ *
+ * @return true
+ * @return false
+ */
 bool Controller::checkWin()
 {
     // todo: check whether the player has won the game
@@ -97,6 +103,13 @@ int Controller::getWorkingPop(int& workersNumber, int*& workersCellCoords)
     return 0;
 }
 
+/**
+ *@brief Get a reference to a cell (m, n) for modification
+ *
+ * @param m x
+ * @param n y
+ * @return Cell& reference to the cell
+ */
 Cell& Controller::getCellDescription(int m, int n)
 {
     return world->getRepresent(m, n);
@@ -140,6 +153,20 @@ bool Controller::SetProductionActivity(int activityOrder)
     return true;
 }
 
+/**
+ *@brief main process of the controller here
+ * first check if the player has won the game
+ * if not, then update the current round
+ * then check if the border should be updated
+ * then change the distribution of population
+ * then update the production
+ * then update the attributes
+ * @param newX
+ * @param newY
+ * @param nextThres
+ * @return true
+ * @return false
+ */
 bool Controller::nextRound(int& newX, int& newY, float& nextThres)
 { // ! main here
     if (this->checkWin())
