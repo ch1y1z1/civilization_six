@@ -26,6 +26,8 @@ int main()
 
     Display d;
     d.MainProcess(controller, grid, buildings, activities);
+    int o;
+    cin>>o;
     return 0;
 }
 /**
