@@ -126,9 +126,9 @@ int Display::DrawAttributes(Controller* controller, Grid* grid)
     go(65, 25);
     cout << "culture:" << controller->getAttributes().cul;
     go(65, 26);
-    cout << "production:" << controller->getAttributes().prod - 0.5;
+    cout << "production:" << controller->getAttributes().prod;
     go(65, 27);
-    cout << "score:" << (controller->getAttributes().prod - 0.5) + 10 * pop + controller->getAttributes().cul / 2.0 + controller->getAttributes().tech / 2.0;
+    cout << "score:" << (controller->getAttributes().prod) + 10 * pop + controller->getAttributes().cul / 2.0 + controller->getAttributes().tech / 2.0;
     return pop;
 }
 
@@ -148,12 +148,10 @@ void Display::DrawProduction(Controller* controller)
         cout << "now center is in production \n";
     else if (strcmp(controller->currentProduction->name, b) == 0)
         cout << "now campus is in production \n";
-
     else if (strcmp(controller->currentProduction->name, c) == 0)
         cout << "now theater is in production \n";
     else if (strcmp(controller->currentProduction->name, d) == 0)
         cout << "now wonder is in production \n";
-
     else if (strcmp(controller->currentProduction->name, e) == 0)
         cout
         << "now industry is in production \n";
@@ -163,13 +161,13 @@ void Display::DrawProduction(Controller* controller)
     float percent = (float)zi / mu;
     cout << "                                               ";
     go(65, 30);
-    cout << "you have done " << (1 - percent) * 100 << " %";
+    cout << "you have done " << (1 - percent) * 100 << " % "<<" TOTAL: "<<mu;
 }
 
 void Display::MainProcess(Controller* controller, Grid* grid, Building** buildings, Activity** activities)
 {
     controller->availableActivities = activities;
-    controller->currentAttributes.prod = 1;
+    controller->currentAttributes.prod = 0;
     controller->reset(2);
     controller->bindGrid(grid);
     controller->availableBuildings = buildings;
@@ -185,7 +183,7 @@ void Display::MainProcess(Controller* controller, Grid* grid, Building** buildin
         Landform form = arr.landform;
         if (x % 2 != 0 || form == SEA || form == OCEAN || form == MOUNTAIN || x > 40 || y > 20 || x < 2 || y < 1)
         {
-            cout << "invalid input or this place cannot be a center\n";
+            cout << "Invalid input or this place cannot be a center\n";
             continue;
         }
         controller->getCellDescription(x / 2 - 1, y - 1).Pop = OWNED;

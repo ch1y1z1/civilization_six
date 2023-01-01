@@ -58,6 +58,7 @@ void go(float x, float y)
 // 划分输入区
 void out()
 {
+    clear();
     go(0, 23);
     cout << "--------------------------------------------\n";
     cout << "              INTERACT HERE\n";
@@ -67,7 +68,7 @@ void out()
 void clear()
 {
     go(0, 25);
-    for (int j = 0; j < 20; j++)
+    for (int j = 0; j < 25; j++)
     {
         for (int i = 0; i < 65; i++)
         {
