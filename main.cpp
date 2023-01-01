@@ -78,23 +78,3 @@ void clear()
     }
 }
 
-/**
- * @brief  judge whether your input about pop is right
- *
- * @param x
- * @param y
- * @param grid
- */
-void judge(int x, int y, Grid* grid)
-{
-    while (1)
-    {
-        Cell arr = grid->getRepresent(x / 2 - 1, y - 1);
-        Landform form = arr.landform;
-        if (x % 2 != 0 || form == SEA || form == OCEAN || form == MOUNTAIN)
-        {
-            cout << "invalid input\n";
-            continue;
-        }
-    }
-}
