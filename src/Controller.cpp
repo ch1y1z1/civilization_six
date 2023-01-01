@@ -206,7 +206,7 @@ int Controller::updateProduction()
     }
     else if (this->buffround == 0)
     {
-
+        this->currentAttributes.prod -= this->buffactivity->basicBonus;
         this->buffround = -1;
     }
     else
@@ -584,7 +584,7 @@ int Controller::setPopAt()
             std::cout << "Invalid input: There is no pop at this cell" << std::endl;
             continue;
         }
-        if (this->getCellDescription(newx / 2 - 1, newy - 1).Pop == COLONIZED &&! this->getCellDescription(newx / 2 - 1, newy - 1).buildingType->num == 0)
+        if (this->getCellDescription(newx / 2 - 1, newy - 1).Pop == COLONIZED && !this->getCellDescription(newx / 2 - 1, newy - 1).buildingType->num == 0)
         {
             std::cout << "Invalid input: There has already been a pop at this cell" << std::endl;
             continue;
