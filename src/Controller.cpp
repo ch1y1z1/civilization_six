@@ -392,7 +392,7 @@ int Controller::updateProduction()
                 this->round_needed_to_active = this->prod_needed_to_active / this->currentAttributes.prod + 1;
                 this->totle_round_needed = this->round_needed_to_active;
                 this->buffactivity = this->new_availableActivities[activitychoice];
-                this->buffattr = this->new_availableActivities[activitychoice]->basicBonus * this->pop;
+                this->buffattr = this->new_availableActivities[activitychoice]->basicBonus * this->pop * 0.3;
 
                 break;
             }
