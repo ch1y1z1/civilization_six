@@ -236,10 +236,10 @@ int Controller::updateProduction()
                 std::cout << "please select one activity" << std::endl;
                 for (int i = 0; i < this->activitySize; i++)
                 {
-                    std::cout << i << ". " << this->availableActivities[i]->name << std::endl;
+                    std::cout << i + 1 << ". " << this->availableActivities[i]->name << std::endl;
                 }
                 std::cin >> activitychoice;
-                if (activitychoice < 0 || activitychoice > this->activitySize - 1)
+                if (activitychoice < 1 || activitychoice > this->activitySize)
                 {
                     std::cout << "Invalid input: Out of range" << std::endl;
                     continue;
