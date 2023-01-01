@@ -595,7 +595,7 @@ int Controller::setPopAt()
         std::cin >> y >> newx >> newy;
         Cell arr = this->getCellDescription(newx / 2 - 1, newy - 1);
         Landform form = arr.landform;
-        if (newx % 2 != 0 || form == SEA || form == OCEAN || form == MOUNTAIN)
+        if (newx % 2 != 0 ||newy<2||newx > 40 || newy > 20 || newx < 2 || newy < 1|| form == SEA || form == OCEAN || form == MOUNTAIN)
         {
             cout << "invalid input\n";
             continue;
