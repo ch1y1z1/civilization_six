@@ -502,6 +502,7 @@ int Controller::setPopAt()
     updatePop();
     // todo: add or remove the worker at (m, n), return 0 if the action is successful
     bool flag = this->checkPop();
+    out();
     while (flag != 0)
     {
         switch (flag)
