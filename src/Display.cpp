@@ -235,9 +235,21 @@ void Display::MainProcess(Controller* controller, Grid* grid, Building** buildin
     {
         int newX, newY;
         float nextThres;
-        if (controller->nextRound(newX, newY, nextThres))
+        if (controller->getRound()==100)
         {
-            cout << "You win." << endl;
+            if (controller->checkWin())
+            {
+                cout <<"YOU WIN!!!"<<endl;
+                return;
+            }
+            else {
+                 cout <<"YOU LOSE!!!"<<endl;
+                 return;
+            }            
+        }
+        else if (controller->nextRound(newX, newY, nextThres))
+        {
+            cout <<"YOU WIN!!!"<<endl;
             return;
         }
         this->DrawMap(grid, controller);
