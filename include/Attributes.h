@@ -39,12 +39,11 @@ struct Attributes
         tmp.prod -= this->prod;
         return tmp;
     }
-}
-Attributes operator-=(const Attributes& a) {
-    Attributes tmp(a);
-    *this = *this - tmp;
-    return *this;
-}
+    Attributes operator-=(const Attributes& a) {
+        Attributes tmp(a);
+        *this = *this - tmp;
+        return *this;
+    }
 };
 
 #endif // ATTRIBUTES_H
