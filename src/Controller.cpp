@@ -217,7 +217,7 @@ int Controller::updateProduction()
     }
     else if (this->buffround == 0)
     {
-        this->currentAttributes -= this->buffactivity->basicBonus;
+        this->currentAttributes -= this->buffattr;
         this->buffround = -1;
     }
     else
@@ -371,6 +371,7 @@ int Controller::updateProduction()
                 this->round_needed_to_active = this->prod_needed_to_active / this->currentAttributes.prod + 1;
                 this->totle_round_needed = this->round_needed_to_active;
                 this->buffactivity = this->availableActivities[activitychoice];
+                this->buffattr = this->availableActivities[activitychoice]->basicBonus * this->pop;
 
                 break;
             }
@@ -400,7 +401,7 @@ int Controller::updateProduction()
                 this->currentProductionType = 0;
                 this->prod_needed_to_active = 0;
                 this->buffround = 5;
-                this->currentAttributes += this->buffactivity->basicBonus * 1;
+                this->currentAttributes += this->buffattr;
             }
             else
             {
@@ -443,7 +444,7 @@ int Controller::checkPop()
 void Controller::updatePop()
 {
     int maxpop = this->currentAttributes.food / 2;
-    float popDelta = (maxpop - pop) * 0.1;
+    float popDelta = (maxpop - pop) * 0.2;
     if (popDelta > 1)
         popDelta = 1;
     else if (popDelta < -1)
