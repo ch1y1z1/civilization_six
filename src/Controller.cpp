@@ -388,6 +388,15 @@ void Controller::updatePop()
     this->pop += popDelta;
 }
 
+/**
+ *@brief check whether the border should update or not,
+ * and if so, cin player's choice of the new border and return the new culture threshold
+ *
+ * @param newX x coordinate of the new border
+ * @param newY y coordinate of the new border
+ * @param nextThres culture threshold of the new border
+ * @return int
+ */
 int Controller::checkBorderUpdate(int& newX, int& newY, float& nextThres)
 {
     // todo: check whether the border should update or not, and if so, return the new culture threshold and expansion coordinates (newX, newY)
@@ -435,6 +444,13 @@ int Controller::checkBorderUpdate(int& newX, int& newY, float& nextThres)
     return 0;
 }
 
+/**
+ *@brief check whether the pop should be added or removed, and if so, cin player's choice
+ * and make the changes
+ * cin player's choice of switch pops
+ *
+ * @return int
+ */
 int Controller::setPopAt()
 {
     updatePop();
