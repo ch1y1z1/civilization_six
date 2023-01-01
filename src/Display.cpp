@@ -87,22 +87,22 @@ int Display::DrawAttributes(Controller* controller, Grid* grid)
 {
     // TODO: draw the attributes, population, and the distribution of workers, return the population绘制属性、人口和工人的分布，返回人口
     int pop = controller->getPop();
-    int max_pop = controller->getAttributes().food/2;
+    int max_pop = controller->getAttributes().food / 2;
     go(50, 0);
     cout << "population now:" << pop;
     go(50, 1);
     cout << "max population:" << max_pop;
     go(50, 3);
     float popDelta = (max_pop - pop) * 0.1;
-    if (popDelta > 1){
+    if (popDelta > 1) {
         popDelta = 1;
         pop++;
     }
-    else if (popDelta < -1){
+    else if (popDelta < -1) {
         popDelta = -1;
         pop--;
     }
-    cout << "expected that the population will change to " << pop << " in Round " << controller->getRound()+1;
+    cout << "expected that the population will change to " << pop << " in Round " << controller->getRound() + 1;
     go(50, 4);
     cout << "distribution:";
     int pop_num = 0;
@@ -126,9 +126,9 @@ int Display::DrawAttributes(Controller* controller, Grid* grid)
     go(65, 25);
     cout << "culture:" << controller->getAttributes().cul;
     go(65, 26);
-    cout << "production:" << controller->getAttributes().prod-0.5;
+    cout << "production:" << controller->getAttributes().prod - 0.5;
     go(65, 27);
-    cout << "score:" << (controller->getAttributes().prod-1) + 10 * pop + controller->getAttributes().cul / 2.0 + controller->getAttributes().tech / 2.0;
+    cout << "score:" << (controller->getAttributes().prod - 1) + 10 * pop + controller->getAttributes().cul / 2.0 + controller->getAttributes().tech / 2.0;
     return pop;
 }
 
@@ -184,12 +184,12 @@ void Display::DrawProduction(Controller* controller)
     float percent = (float)zi / mu;
     cout << "                                               ";
     go(65, 30);
-    cout << "you have done " <<  (1 - percent) * 100 << " %";
+    cout << "you have done " << (1 - percent) * 100 << " %";
 }
 
 void Display::MainProcess(Controller* controller, Grid* grid, Building** buildings, Activity** activities)
 {
- 
+    controller->availableActivities = activities;
     controller->currentAttributes.prod = 1;
     controller->reset(2);
     controller->bindGrid(grid);
