@@ -192,8 +192,6 @@ bool Controller::nextRound(int& newX, int& newY, float& nextThres)
  */
 int Controller::updateProduction()
 {
-    // Display *dis;
-    // DISPLAY_(dis, world, this);
     // todo: update the process of current production
     // std::cout << "Please select one production" << std::endl;
     // char Buildingnames[20][20] = { "center", "campus", "theatre", "wonder", "industrialpark" };
@@ -203,9 +201,9 @@ int Controller::updateProduction()
         out();
         std::cout << "you have no production now." << std::endl;
         std::cout << "you are not able to product anything." << std::endl;
-        std::cout << "cin 0 to continue" << std::endl;
-        int choice;
-        std::cin >> choice;
+        std::cout << "press any key to continue" << std::endl;
+        std::cin.get();
+        std::cin.get();
         clear();
         return this->getRound();
     }
