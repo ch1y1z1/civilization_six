@@ -4,7 +4,6 @@
 using namespace std;
 int main()
 {
-    full_screen();
     Controller* controller = new Controller();
 
     Activity* symposium = new Activity((char*)"symposium", 50, Attributes(30.0));
