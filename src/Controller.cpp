@@ -218,7 +218,7 @@ int Controller::updateProduction()
     }
     else if (this->buffround == 0)
     {
-        this->currentAttributes -= this->buffactivity->basicBonus;
+        this->currentAttributes -= this->buffattr;
         this->buffround = -1;
     }
     else
@@ -401,7 +401,7 @@ int Controller::updateProduction()
                 this->currentProductionType = 0;
                 this->prod_needed_to_active = 0;
                 this->buffround = 5;
-                this->currentAttributes += this->buffactivity->basicBonus * 1;
+                this->currentAttributes += this->buffattr;
             }
             else
             {
