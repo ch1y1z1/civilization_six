@@ -200,6 +200,19 @@ int Controller::updateProduction()
     // todo: update the process of current production
     // std::cout << "Please select one production" << std::endl;
     // char Buildingnames[20][20] = { "center", "campus", "theatre", "wonder", "industrialpark" };
+    if (this->buffround == -1)
+    {
+        ;
+    }
+    else if (this->buffround == 0)
+    {
+
+        this->buffround = -1;
+    }
+    else
+    {
+        this->buffround--;
+    }
     if (this->currentAttributes.prod == 0)
     {
         clear();
@@ -367,6 +380,7 @@ int Controller::updateProduction()
                 this->currentProductionType = 0;
                 this->prod_needed_to_active = 0;
                 this->buffround = 5;
+                this->currentAttributes += this->buffactivity->basicBonus * 1;
             }
             else
             {
