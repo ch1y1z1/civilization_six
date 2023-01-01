@@ -124,6 +124,7 @@ int Controller::getWorkingPop(int& workersNumber, int*& workersCellCoords)
  * @param n y
  * @return Cell& reference to the cell
  */
+
 Cell& Controller::getCellDescription(int m, int n)
 {
     return world->getRepresent(m, n);
