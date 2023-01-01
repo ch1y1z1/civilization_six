@@ -205,6 +205,7 @@ int Controller::updateProduction()
         std::cout << "you are not able to product anything." << std::endl;
         std::cout << "press any key to continue" << std::endl;
         std::cin.get();
+        std::cin.get();
         clear();
         return this->getRound();
     }
@@ -255,7 +256,7 @@ int Controller::updateProduction()
                     std::cout << i << ". " << this->availableBuildings[i]->name << std::endl;
                 }
                 std::cin >> buildingchoice;
-                if(buildingchoice==0){
+                if (buildingchoice == 0) {
                     std::cout << "Invalid input: only one center is permitted" << std::endl;
                     continue;
                 }
@@ -501,6 +502,7 @@ int Controller::setPopAt()
     updatePop();
     // todo: add or remove the worker at (m, n), return 0 if the action is successful
     bool flag = this->checkPop();
+    out();
     while (flag != 0)
     {
         switch (flag)
