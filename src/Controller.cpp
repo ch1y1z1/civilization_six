@@ -412,6 +412,10 @@ int Controller::checkPop()
         return 0; // you may switch pops
 }
 
+/**
+ *@brief update the population according to the current food
+ *
+ */
 void Controller::updatePop()
 {
     int maxpop = this->currentAttributes.food / 2;
