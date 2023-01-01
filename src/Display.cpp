@@ -1,8 +1,8 @@
 #include "Display.h"
 #include <Controller.h>
 using namespace std;
-char landformNames[80] = { 'O', 'S', 'P', 'H', 'D', 'M', 'N' };
-char architecture[60] = { 'C', 'A', 'T', 'W', 'I' };
+char landformNames[80] = {'O', 'S', 'P', 'H', 'D', 'M', 'N'};
+char architecture[60] = {'C', 'A', 'T', 'W', 'I'};
 // 构造
 Display::Display()
 {
@@ -15,35 +15,35 @@ Display::~Display()
 }
 /**
  * @brief draw the map and make it colorful
- * 
- * @param grid 
- * @param controller 
+ *
+ * @param grid
+ * @param controller
  */
-void Display::DrawMap(Grid* grid, Controller* controller)
+void Display::DrawMap(Grid *grid, Controller *controller)
 {
     go(0, 0);
     cout << "0 2 4 6 8 10121416182022242628303234363840X\n"
-        "1\n"
-        "2\n"
-        "3\n"
-        "4\n"
-        "5\n"
-        "6\n"
-        "7\n"
-        "8\n"
-        "9\n"
-        "0\n"
-        "1\n"
-        "2\n"
-        "3\n"
-        "4\n"
-        "5\n"
-        "6\n"
-        "7\n"
-        "8\n"
-        "9\n"
-        "0\n"
-        "Y\n";
+            "1\n"
+            "2\n"
+            "3\n"
+            "4\n"
+            "5\n"
+            "6\n"
+            "7\n"
+            "8\n"
+            "9\n"
+            "0\n"
+            "1\n"
+            "2\n"
+            "3\n"
+            "4\n"
+            "5\n"
+            "6\n"
+            "7\n"
+            "8\n"
+            "9\n"
+            "0\n"
+            "Y\n";
     go(0, 22);
     cout << "Round: " << controller->getRound();
     // enum Landform{OCEAN=0, SEA, PLAIN, HILLY, DESERT, MOUNTAIN, NOTYPE};
@@ -64,7 +64,7 @@ void Display::DrawMap(Grid* grid, Controller* controller)
             if (arr.Pop == WILD)
             {
                 cout << "N"
-                    << " ";
+                     << " ";
             }
             else if (arr.Pop == OWNED && arr.buildingType == 0)
             {
@@ -80,9 +80,9 @@ void Display::DrawMap(Grid* grid, Controller* controller)
             }
             else
             {
-                if (controller->getCellDescription(i-1,j-1).IF_BUILDING==0)
+                if (controller->getCellDescription(i - 1, j - 1).IF_BUILDING == 0)
                     turn_blue();
-                    else
+                else
                     turn_white();
                 cout << architecture[arr.buildingType->num];
                 turn_white();
@@ -97,7 +97,7 @@ void Display::DrawMap(Grid* grid, Controller* controller)
  * @param grid
  * @return int pop
  */
-int Display::DrawAttributes(Controller* controller, Grid* grid)
+int Display::DrawAttributes(Controller *controller, Grid *grid)
 {
     int pop = controller->getPop();
     int max_pop = controller->getAttributes().food / 2;
@@ -107,11 +107,13 @@ int Display::DrawAttributes(Controller* controller, Grid* grid)
     cout << "max population:" << max_pop;
     go(50, 3);
     float popDelta = (max_pop - pop) * 0.1;
-    if (popDelta > 1) {
+    if (popDelta > 1)
+    {
         popDelta = 1;
         pop++;
     }
-    else if (popDelta < -1) {
+    else if (popDelta < -1)
+    {
         popDelta = -1;
         pop--;
     }
@@ -149,11 +151,11 @@ int Display::DrawAttributes(Controller* controller, Grid* grid)
  *
  * @param controller
  */
-void Display::DrawProduction(Controller* controller)
+void Display::DrawProduction(Controller *controller)
 {
     go(65, 28);
     cout << " provided bonus remaining "
-        << " rounds        ";
+         << " rounds        ";
     go(65, 29);
     char a[4] = "cen";
     char b[4] = "cam";
@@ -170,17 +172,22 @@ void Display::DrawProduction(Controller* controller)
         cout << "now wonder is in production \n";
     else if (strcmp(controller->currentProduction->name, e) == 0)
         cout
-        << "now industry is in production \n";
+            << "now industry is in production \n";
     go(65, 30);
     int zi = controller->get_round_needed_to_active();
     int mu = controller->get_totle_round_needed();
-    float percent = (float)zi / mu;
-    cout << "                                               ";
-    go(65, 30);
-    cout << "you have done " << (1 - percent) * 100 << " % " << " TOTAL: " << mu;
+    if (mu == -1)
+        cout << "no production";
+    else
+    {
+        float percent = (float)zi / mu;
+        go(65, 30);
+        cout << "you have done " << (1 - percent) * 100 << " % "
+             << " TOTAL: " << mu;
+    }
 }
 
-void Display::MainProcess(Controller* controller, Grid* grid, Building** buildings, Activity** activities)
+void Display::MainProcess(Controller *controller, Grid *grid, Building **buildings, Activity **activities)
 {
     controller->availableActivities = activities;
     controller->currentAttributes.prod = 0;
