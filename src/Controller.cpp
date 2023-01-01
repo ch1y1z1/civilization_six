@@ -22,6 +22,26 @@ Controller::~Controller()
 /**
  *@brief
  *
+ * @return int
+ */
+int Controller::get_buff_round()
+{
+    return this->buff_round;
+}
+
+/**
+ *@brief
+ *
+ * @return int
+ */
+int Controller::get_buff_activity()
+{
+    return this->buff_activity;
+}
+
+/**
+ *@brief
+ *
  * @return int round needed to active
  */
 int Controller::get_round_needed_to_active()

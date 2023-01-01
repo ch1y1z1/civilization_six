@@ -18,6 +18,10 @@ public:
 
     virtual ~Controller();
 
+    int get_buff_round();
+
+    Activity* get_buff_activity();
+
     int get_round_needed_to_active();
 
     int get_totle_round_needed();
