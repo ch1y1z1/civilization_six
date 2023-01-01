@@ -444,7 +444,7 @@ int Controller::checkPop()
 void Controller::updatePop()
 {
     int maxpop = this->currentAttributes.food / 2;
-    float popDelta = (maxpop - pop) * 0.2;
+    float popDelta = (maxpop - pop) * 0.1;
     if (popDelta > 1)
         popDelta = 1;
     else if (popDelta < -1)
