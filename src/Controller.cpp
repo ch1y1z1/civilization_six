@@ -205,7 +205,8 @@ int Controller::updateProduction()
         std::cout << "you are not able to product anything." << std::endl;
         std::cout << "press any key to continue" << std::endl;
         std::cin.get();
-        return 0;
+        clear();
+        return this->getRound();
     }
     if (this->currentProductionType == 0)
     {
