@@ -148,6 +148,8 @@ int Display::DrawAttributes(Controller* controller, Grid* grid)
     go(65, 26);
     cout << "production:" << controller->getAttributes().prod;
     go(65, 27);
+    cout << "                                   ";
+    go(65, 27);
     cout << "score:" << (controller->getAttributes().prod) + 10 * pop + controller->getAttributes().cul / 2.0 + controller->getAttributes().tech / 2.0;
     return pop;
 }
