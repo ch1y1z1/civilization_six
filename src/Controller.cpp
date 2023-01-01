@@ -302,17 +302,24 @@ int Controller::updateProduction()
                         }
                     }
                 }
-                for (int i = 0; i < 20; i++)
+                if (if_activity[1] == 1)
                 {
-                    if (if_activity[i] == 1)
-                    {
-                        this->new_availableActivities[this->activitySize] = this->availableActivities[i];
-                        this->activitySize++;
-                    }
+                    this->new_availableActivities[this->activitySize] = this->availableActivities[0];
+                    this->activitySize++;
+                }
+                if (if_activity[2] == 1)
+                {
+                    this->new_availableActivities[this->activitySize] = this->availableActivities[1];
+                    this->activitySize++;
+                }
+                if (if_activity[4] == 1)
+                {
+                    this->new_availableActivities[this->activitySize] = this->availableActivities[2];
+                    this->activitySize++;
                 }
                 for (int i = 0; i < this->activitySize; i++)
                 {
-                    std::cout << i + 1 << ". " << this->availableActivities[i]->name << std::endl;
+                    std::cout << i + 1 << ". " << this->new_availableActivities[i]->name << std::endl;
                 }
                 std::cout << "input 0 to go back" << std::endl;
                 std::cin >> activitychoice;
@@ -325,61 +332,7 @@ int Controller::updateProduction()
                 {
                     goto label;
                 }
-                // switch (activitychoice)
-                // {
-                // case 1:
-                //     for (int m = 2; m <= 40; m += 2)
-                //     {
-                //         for (int n = 1; n <= 20; ++n)
-                //         {
-                //             if (this->getCellDescription(m / 2 - 1, n - 1).buildingType->num == 1)
-                //             {
-                //                 flag = !flag;
-                //                 break;
-                //             }
-                //         }
-                //         if (flag)
-                //             break;
-                //     }
-                //     break;
-                // case 2:
-                //     for (int m = 2; m <= 40; m += 2)
-                //     {
-                //         for (int n = 1; n <= 20; ++n)
-                //         {
-                //             if (this->getCellDescription(m / 2 - 1, n - 1).buildingType->num == 2)
-                //             {
-                //                 flag = !flag;
-                //                 break;
-                //             }
-                //         }
-                //         if (flag)
-                //             break;
-                //     }
-                //     break;
-                // case 3:
-                //     for (int m = 2; m <= 40; m += 2)
-                //     {
-                //         for (int n = 1; n <= 20; ++n)
-                //         {
-                //             if (this->getCellDescription(m / 2 - 1, n - 1).buildingType->num == 4)
-                //             {
-                //                 flag = !flag;
-                //                 break;
-                //             }
-                //         }
-                //         if (flag)
-                //             break;
-                //     }
-                //     break;
-                // }
-                if (!flag)
-                {
-                    std::cout << "the activity doesn't match to your current buildings" << std::endl;
-                    continue;
-                }
                 this->currentProductionType = PRODUCTION_TYPE_ACTIVITY;
-                this->currentProductionCell = 0;
                 this->currentProduction = this->availableActivities[activitychoice];
                 this->prod_needed_to_active = this->availableActivities[activitychoice]->prodSpent * this->getRound() / 100;
                 this->round_needed_to_active = this->prod_needed_to_active / this->currentAttributes.prod + 1;

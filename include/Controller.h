@@ -92,6 +92,10 @@ private:
     int round_needed_to_active = -1;
 
     int totle_round_needed = -1;
+
+    int buffround = -1;
+
+    int buffkind = 0;
 };
 
 #endif // CONTROLLER_H
