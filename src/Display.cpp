@@ -80,7 +80,10 @@ void Display::DrawMap(Grid* grid, Controller* controller)
             }
             else
             {
-                turn_blue();
+                if (controller->getCellDescription(i-1,j-1).IF_BUILDING==0)
+                    turn_blue();
+                    else
+                    turn_white();
                 cout << architecture[arr.buildingType->num];
                 turn_white();
             }

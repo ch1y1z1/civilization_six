@@ -4,7 +4,6 @@
 #include <windows.h>
 #include <iostream>
 class Display;
-void DISPLAY_(Display *dis, Grid *grid, Controller *con);
 void go(float x, float y);
 void out();
 void clear();
@@ -25,6 +24,7 @@ public:
     void DrawProduction(Controller *controller);
 
     void MainProcess(Controller *controller, Grid *grid, Building **buildings, Activity **activities);
+    
     void turn_red()
     {
         SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_INTENSITY | FOREGROUND_RED);
