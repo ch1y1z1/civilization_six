@@ -33,4 +33,4 @@ civilization_six
 请使用cmake编译，
 可执行文件位于/build/main.exe
 
-**请全屏游戏**
+# **请全屏游戏**
