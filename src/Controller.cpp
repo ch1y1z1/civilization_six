@@ -52,12 +52,13 @@ void Controller::reset(int pop, float firstBorderThreshold)
 bool Controller::checkWin()
 {
     // todo: check whether the player has won the game
-    static int won = 0;
+    int won = 0;
     for (int i = 0; i < 20; i++)
     {
         for (int j = 0; j < 20; j++)
-        {
-            if(this->getCellDescription(i,j).buildingType->num==3)
+        {if(this->getCellDescription(i,j).buildingType==0)
+                continue;
+            else if(this->getCellDescription(i,j).buildingType->num==3)
                 won++;
         }
     }
