@@ -261,6 +261,8 @@ void Display::MainProcess(Controller* controller, Grid* grid, Building** buildin
         else if (controller->nextRound(newX, newY, nextThres))
         {
             cout << "YOU WIN!!!" << endl;
+            int o;
+            std::cin >> o;
             return;
         }
         this->DrawMap(grid, controller);
