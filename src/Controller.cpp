@@ -570,7 +570,7 @@ int Controller::setPopAt()
             std::cout << "Invalid input: There is no pop at this cell" << std::endl;
             continue;
         }
-        if (this->getCellDescription(newx / 2 - 1, newy - 1).Pop == COLONIZED)
+        if (this->getCellDescription(newx / 2 - 1, newy - 1).Pop == COLONIZED && this->getCellDescription(newx / 2 - 1, newy - 1).buildingType->num == 0)
         {
             std::cout << "Invalid input: There has already been a pop at this cell" << std::endl;
             continue;
