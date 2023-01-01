@@ -167,7 +167,7 @@ void Display::DrawProduction(Controller* controller)
         cout << "no bonus";
     else if (controller->get_buff_round() == -1)
         cout << "no bonus";
-    else cout << controller->get_buff_activity()->name << " provided bonus remaining "
+    else cout << controller->get_buff_activity()->name << " provided bonus remaining"
         << " rounds " << controller->get_buff_round();
     go(65, 29);
     cout << "                                     ";
