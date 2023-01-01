@@ -412,6 +412,8 @@ void Controller::updatePop()
         popDelta = 1;
     else if (popDelta < -1)
         popDelta = -1;
+    else
+        popDelta = 0;
     this->pop += popDelta;
 }
 
@@ -487,6 +489,7 @@ int Controller::setPopAt()
         switch (flag)
         {
         case -1:
+            clear();
             out();
             std::cout << "You have to remove pops" << std::endl;
             while (true)
@@ -508,6 +511,7 @@ int Controller::setPopAt()
             clear();
             break;
         case 1:
+            clear();
             out();
             std::cout << "You may add pop to work" << std::endl;
             while (true)
