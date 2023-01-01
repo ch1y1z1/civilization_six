@@ -30,9 +30,9 @@ int main()
 }
 /**
  * @brief move your cursor to (x,y) and hide it
- * 
- * @param x 
- * @param y 
+ *
+ * @param x
+ * @param y
  */
 void go(float x, float y)
 {
@@ -50,7 +50,7 @@ void go(float x, float y)
 }
 /**
  * @brief guide your input
- * 
+ *
  */
 void out()
 {
@@ -63,12 +63,12 @@ void out()
 }
 /**
  * @brief clear your input
- * 
+ *
  */
 void clear()
 {
     go(0, 25);
-    for (int j = 0; j <30; j++)
+    for (int j = 0; j < 30; j++)
     {
         for (int i = 0; i < 65; i++)
         {
@@ -79,11 +79,11 @@ void clear()
 }
 
 /**
- * @brief  judge whether your input about pop is right 
- * 
- * @param x 
- * @param y 
- * @param grid 
+ * @brief  judge whether your input about pop is right
+ *
+ * @param x
+ * @param y
+ * @param grid
  */
 void judge(int x, int y, Grid* grid)
 {
