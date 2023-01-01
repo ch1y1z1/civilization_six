@@ -26,7 +26,7 @@ Controller::~Controller()
  */
 int Controller::get_buff_round()
 {
-    return this->buff_round;
+    return this->buffround;
 }
 
 /**
@@ -36,7 +36,7 @@ int Controller::get_buff_round()
  */
 int Controller::get_buff_activity()
 {
-    return this->buff_activity;
+    return this->buffactivity;
 }
 
 /**
