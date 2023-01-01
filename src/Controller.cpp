@@ -547,7 +547,7 @@ int Controller::setPopAt()
                 {
                     std::cout << "Invalid input: You cannot add pop to this landform" << std::endl;
                 }
-                else if (this->getCellDescription(x / 2 - 1, y - 1).Pop == COLONIZED)
+                else if (this->getCellDescription(x / 2 - 1, y - 1).Pop == COLONIZED && this->getCellDescription(x / 2 - 1, y - 1).buildingType->num==0)
                 {
                     std::cout << "Invalid input: There has already been a pop at this cell" << std::endl;
                 }
@@ -560,7 +560,6 @@ int Controller::setPopAt()
             break;
         }
         flag = this->checkPop();
-        // display->DrawMap(grid);
     }
 
     while (true)
