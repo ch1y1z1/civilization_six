@@ -254,6 +254,10 @@ int Controller::updateProduction()
                     std::cout << i << ". " << this->availableBuildings[i]->name << std::endl;
                 }
                 std::cin >> buildingchoice;
+                if(buildingchoice==0){
+                    std::cout << "Invalid input: only one center is permitted" << std::endl;
+                    continue;
+                }
                 if (buildingchoice < 0 || buildingchoice > 4)
                 {
                     std::cout << "Invalid input: Out of range" << std::endl;

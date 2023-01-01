@@ -13,7 +13,12 @@ Display::~Display()
 {
     // dtor
 }
-// 画地图
+/**
+ * @brief draw the map and make it colorful
+ * 
+ * @param grid 
+ * @param controller 
+ */
 void Display::DrawMap(Grid* grid, Controller* controller)
 {
     go(0, 0);
@@ -82,10 +87,15 @@ void Display::DrawMap(Grid* grid, Controller* controller)
         }
     }
 }
-
+/**
+ * @brief draw the attributes, population, and the distribution of workers, return the population
+ *
+ * @param controller
+ * @param grid
+ * @return int pop
+ */
 int Display::DrawAttributes(Controller* controller, Grid* grid)
 {
-    // TODO: draw the attributes, population, and the distribution of workers, return the population绘制属性、人口和工人的分布，返回人口
     int pop = controller->getPop();
     int max_pop = controller->getAttributes().food / 2;
     go(50, 0);
@@ -131,10 +141,13 @@ int Display::DrawAttributes(Controller* controller, Grid* grid)
     cout << "score:" << (controller->getAttributes().prod) + 10 * pop + controller->getAttributes().cul / 2.0 + controller->getAttributes().tech / 2.0;
     return pop;
 }
-
+/**
+ * @brief draw the current production
+ *
+ * @param controller
+ */
 void Display::DrawProduction(Controller* controller)
 {
-    // TODO: draw the current production, and receive the input for changing the current production绘制当前产量，并接收改变当前产量的输入
     go(65, 28);
     cout << " provided bonus remaining "
         << " rounds        ";
@@ -206,7 +219,7 @@ void Display::MainProcess(Controller* controller, Grid* grid, Building** buildin
             return;
         }
         this->DrawMap(grid, controller);
-        int pop = DrawAttributes(controller, grid);
+        DrawAttributes(controller, grid);
         DrawProduction(controller);
     }
 }

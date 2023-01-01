@@ -2,16 +2,6 @@
 #include "Display.h"
 #include <cstring>
 using namespace std;
-//全屏游戏
-void full_screen()
-{
-    HWND hwnd = GetForegroundWindow();
-    int cx = GetSystemMetrics(SM_CXSCREEN);
-    int cy = GetSystemMetrics(SM_CYSCREEN);
-    LONG l_WinStyle = GetWindowLong(hwnd, GWL_STYLE);
-    SetWindowLong(hwnd, GWL_STYLE, (l_WinStyle | WS_POPUP | WS_MAXIMIZE) & ~WS_CAPTION & ~WS_THICKFRAME & ~WS_BORDER);
-    SetWindowPos(hwnd, HWND_TOP, 0, 0, cx, cy, 0);
-}
 int main()
 {
     full_screen();
@@ -39,8 +29,12 @@ int main()
     d.MainProcess(controller, grid, buildings, activities);
     return 0;
 }
-// 移动光标位置至(x,y);
-// 隐藏光标;
+/**
+ * @brief move your cursor to (x,y) and hide it
+ * 
+ * @param x 
+ * @param y 
+ */
 void go(float x, float y)
 {
     COORD coord;
@@ -55,7 +49,10 @@ void go(float x, float y)
 
 
 }
-// 划分输入区
+/**
+ * @brief guide your input
+ * 
+ */
 void out()
 {
     clear();
@@ -64,7 +61,10 @@ void out()
     cout << "              INTERACT HERE\n";
     go(0, 25);
 }
-// 清空输入区
+/**
+ * @brief clear your input
+ * 
+ */
 void clear()
 {
     go(0, 25);
@@ -77,16 +77,14 @@ void clear()
         cout << endl;
     }
 }
-// 交互整合
-void DISPLAY_(Display* dis, Grid* grid, Controller* con)
-{
-    out();
-    dis->DrawMap(grid, con);
-    dis->DrawAttributes(con, grid);
-    dis->DrawProduction(con);
-    clear();
-}
-// 判断人口输入是否合法
+
+/**
+ * @brief  judge whether your input about pop is right 
+ * 
+ * @param x 
+ * @param y 
+ * @param grid 
+ */
 void judge(int x, int y, Grid* grid)
 {
     while (1)
