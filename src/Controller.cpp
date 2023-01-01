@@ -575,9 +575,9 @@ int Controller::setPopAt()
         if (x == 0)
             return 0;
         std::cin >> y >> newx >> newy;
+        judge(newx,newy,this->world);
         if (!(this->getCellDescription(x / 2 - 1, y - 1).Pop == COLONIZED))
         {
-            cout << "                                           ";
             std::cout << "Invalid input: There is no pop at this cell" << std::endl;
             continue;
         }
