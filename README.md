@@ -7,12 +7,6 @@
 ## 注意事项:  
 
 - **命名规范，禁止出现prin这种命名方式以及拼音PinYin** 
-- _龙哥，好强_  
-- ***坤坤，好强***
-- ***卷王，太卷了!!!!!!!!!***
--***一生俯首拜龙哥***
-----  
-
 
 ```
 civilization_six
@@ -34,11 +28,6 @@ civilization_six
     ├── Controller.cpp
     ├── Display.cpp
     └── Grid.cpp
-```
-
-----
-
-## **敲，根本看不懂咋写！**
 
 请使用cmake编译，
 可执行文件位于/build/main.exe

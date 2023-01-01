@@ -128,29 +128,8 @@ int Display::DrawAttributes(Controller* controller, Grid* grid)
     go(65, 26);
     cout << "production:" << controller->getAttributes().prod - 0.5;
     go(65, 27);
-    cout << "score:" << (controller->getAttributes().prod - 1) + 10 * pop + controller->getAttributes().cul / 2.0 + controller->getAttributes().tech / 2.0;
+    cout << "score:" << (controller->getAttributes().prod - 0.5) + 10 * pop + controller->getAttributes().cul / 2.0 + controller->getAttributes().tech / 2.0;
     return pop;
-}
-
-void Display::DrawWorkersChange(Controller* controller, int pop)
-{
-    // TODO: draw the change of workers, and receive the input for changing the distribution of workers绘制工人的变化，并接收改变工人分布的输入
-    // go(0, 22);
-    // cout << "For example : from (1 1) to (2 3) ";
-
-    // go(0, 23);
-    // cout << "choose whether to change (y means yes,n means no)";
-    // char s;
-    // cin >> s;
-    // if (s == 'y' || 'Y')
-    // {
-
-    // }
-    // else
-    // {
-    //     go(50, 23);
-    //     cout << "you choose not to change the workers";
-    // }
 }
 
 void Display::DrawProduction(Controller* controller)
@@ -231,6 +210,5 @@ void Display::MainProcess(Controller* controller, Grid* grid, Building** buildin
         this->DrawMap(grid, controller);
         int pop = DrawAttributes(controller, grid);
         DrawProduction(controller);
-        DrawWorkersChange(controller, pop);
     }
 }

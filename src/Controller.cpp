@@ -455,15 +455,14 @@ int Controller::checkBorderUpdate(int& newX, int& newY, float& nextThres)
         }
         while (true)
         {
-            if (this->getCellDescription(newX / 2 - 1, newY - 1).Pop == OWNED || this->getCellDescription(newX / 2 - 1, newY - 1).Pop == COLONIZED)
+            if (this->getCellDescription(newX / 2 - 1, newY - 1).Pop != WILD )
             {
-                std::cout << "Invalid input: This cell have been expanded" << std::endl;
+                std::cout << "Invalid input: This cell has been expanded" << std::endl;
             }
             else
                 break;
             cin >> newX >> newY;
         }
-
         this->getCellDescription(newX / 2 - 1, newY - 1).Pop = OWNED;
         clear();
         return 1;
