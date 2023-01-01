@@ -197,6 +197,16 @@ int Controller::updateProduction()
     // todo: update the process of current production
     // std::cout << "Please select one production" << std::endl;
     // char Buildingnames[20][20] = { "center", "campus", "theatre", "wonder", "industrialpark" };
+    if (this->currentAttributes.prod == 0)
+    {
+        clear();
+        out();
+        std::cout << "you have no production now." << std::endl;
+        std::cout << "you are not able to product anything." << std::endl;
+        std::cout << "press any key to continue" << std::endl;
+        std::cin.get();
+        return 0;
+    }
     if (this->currentProductionType == 0)
     {
         clear();
@@ -457,7 +467,7 @@ int Controller::checkBorderUpdate(int& newX, int& newY, float& nextThres)
         }
         while (true)
         {
-            if (this->getCellDescription(newX / 2 - 1, newY - 1).Pop != WILD )
+            if (this->getCellDescription(newX / 2 - 1, newY - 1).Pop != WILD)
             {
                 std::cout << "Invalid input: This cell has been expanded" << std::endl;
             }
