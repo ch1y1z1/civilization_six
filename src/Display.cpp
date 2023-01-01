@@ -137,9 +137,15 @@ int Display::DrawAttributes(Controller* controller, Grid* grid)
     go(65, 23);
     cout << "food:" << controller->getAttributes().food;
     go(65, 24);
+    cout << "                         ";
+    go(65, 24);
     cout << "technology:" << controller->getAttributes().tech;
     go(65, 25);
+    cout << "                         ";
+    go(65, 25);
     cout << "culture:" << controller->getAttributes().cul;
+    go(65, 26);
+    cout << "                         ";
     go(65, 26);
     cout << "production:" << controller->getAttributes().prod;
     go(65, 27);
