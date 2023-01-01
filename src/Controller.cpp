@@ -394,6 +394,11 @@ Production* Controller::getProduction(int& productionType, Cell*& currentProduct
     return this->currentProduction;
 }
 
+/**
+ *@brief check whether the population should update or not,
+ *
+ * @return int
+ */
 int Controller::checkPop()
 {
     if (int(this->workingPop) > this->pop)
