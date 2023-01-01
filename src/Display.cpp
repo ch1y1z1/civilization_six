@@ -135,8 +135,6 @@ int Display::DrawAttributes(Controller* controller, Grid* grid)
             }
         }
     }
-    go(65, 23);
-    cout << "food:" << controller->getAttributes().food;
     go(65, 24);
     cout << "                         ";
     go(65, 24);
