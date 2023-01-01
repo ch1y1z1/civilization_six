@@ -209,6 +209,7 @@ int Controller::updateProduction()
     }
     if (this->currentProductionType == 0)
     {
+    label:
         clear();
         out();
         std::cout << "Please select one production" << std::endl;
@@ -308,11 +309,16 @@ int Controller::updateProduction()
                 {
                     std::cout << i + 1 << ". " << this->availableActivities[i]->name << std::endl;
                 }
+                std::cout << "input 0 to go back" << std::endl;
                 std::cin >> activitychoice;
-                if (activitychoice < 1 || activitychoice > this->activitySize)
+                if (activitychoice < 0 || activitychoice > this->activitySize)
                 {
                     std::cout << "Invalid input: Out of range" << std::endl;
                     continue;
+                }
+                if (activitychoice == 0)
+                {
+                    goto label;
                 }
                 // switch (activitychoice)
                 // {
@@ -567,7 +573,7 @@ int Controller::setPopAt()
                 {
                     std::cout << "Invalid input: You cannot add pop to this landform" << std::endl;
                 }
-                else if (this->getCellDescription(x / 2 - 1, y - 1).Pop == COLONIZED && this->getCellDescription(x / 2 - 1, y - 1).buildingType->num==0)
+                else if (this->getCellDescription(x / 2 - 1, y - 1).Pop == COLONIZED)
                 {
                     std::cout << "Invalid input: There has already been a pop at this cell" << std::endl;
                 }
@@ -580,6 +586,7 @@ int Controller::setPopAt()
             break;
         }
         flag = this->checkPop();
+        // display->DrawMap(grid);
     }
 
     while (true)
