@@ -238,8 +238,10 @@ void Display::MainProcess(Controller* controller, Grid* grid, Building** buildin
     }
     clear();
     this->DrawMap(grid, controller);
+   
     while (true)
     {
+        out();
         int newX, newY;
         float nextThres;
         if (controller->getRound() == 100)
