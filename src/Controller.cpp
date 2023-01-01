@@ -299,7 +299,7 @@ int Controller::updateProduction()
                         {
                             if (this->getCellDescription(m / 2 - 1, n - 1).buildingType->num == 1)
                             {
-                                !flag;
+                                flag = !flag;
                                 break;
                             }
                         }
@@ -314,7 +314,7 @@ int Controller::updateProduction()
                         {
                             if (this->getCellDescription(m / 2 - 1, n - 1).buildingType->num == 2)
                             {
-                                !flag;
+                                flag = !flag;
                                 break;
                             }
                         }
@@ -329,7 +329,7 @@ int Controller::updateProduction()
                         {
                             if (this->getCellDescription(m / 2 - 1, n - 1).buildingType->num == 4)
                             {
-                                !flag;
+                                flag = !flag;
                                 break;
                             }
                         }
