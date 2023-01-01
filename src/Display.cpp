@@ -157,6 +157,8 @@ void Display::DrawProduction(Controller *controller)
     cout << " provided bonus remaining "
          << " rounds        ";
     go(65, 29);
+    cout << "                                     ";
+    go(65, 29);
     char a[4] = "cen";
     char b[4] = "cam";
     char c[4] = "the";
@@ -180,6 +182,8 @@ void Display::DrawProduction(Controller *controller)
             cout << "now wonder is in production \n";
         else if (strcmp(controller->currentProduction->name, e) == 0)
             cout << "now industry is in production \n";
+        go(65, 30);
+        cout << "                                         ";
         go(65, 30);
         float percent = (float)zi / mu;
         cout << "you have done " << (1 - percent) * 100 << " % "
