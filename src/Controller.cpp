@@ -573,7 +573,7 @@ int Controller::setPopAt()
         if (x == 0)
             return 0;
         std::cin >> y >> newx >> newy;
-        judge(newx,newy,this->world);
+        judge(newx, newy, this->world);
         if (!(this->getCellDescription(x / 2 - 1, y - 1).Pop == COLONIZED))
         {
             std::cout << "Invalid input: There is no pop at this cell" << std::endl;
@@ -606,7 +606,7 @@ void Controller::updateAttributes()
     {
         for (int j = 0; j < 20; j++)
         {
-            if (this->getCellDescription(i, j).Pop == OWNED && this->getCellDescription(i, j).buildingType == 0)
+            if (this->getCellDescription(i, j).Pop == COLONIZED && this->getCellDescription(i, j).buildingType == 0)
             {
                 this->currentAttributes.food += 0.5 * landformBuffs[this->getCellDescription(i, j).landform][0];
                 this->currentAttributes.prod += 0.25 * landformBuffs[this->getCellDescription(i, j).landform][1];
