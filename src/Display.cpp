@@ -1,5 +1,6 @@
 #include "Display.h"
 #include <Controller.h>
+
 using namespace std;
 char landformNames[80] = { 'O', 'S', 'P', 'H', 'D', 'M', 'N' };
 char architecture[60] = { 'C', 'A', 'T', 'W', 'I' };
@@ -100,7 +101,7 @@ void Display::DrawMap(Grid* grid, Controller* controller)
 int Display::DrawAttributes(Controller* controller, Grid* grid)
 {
     int pop = controller->getPop();
-    int max_pop = controller->getAttributes().food / 2;
+    int max_pop = sqrt(controller->getAttributes().food) ;
     go(50, 0);
     cout << "population now:" << pop;
     go(50, 1);
